@@ -10,7 +10,7 @@ import sys
 '''
 
 #Connection to MongoDB
-uri = "mongodb+srv://root:toor@cluster0-qbeba.mongodb.net/<dbname>?retryWrites=true&w=majority"
+uri = ""
 client = MongoClient(uri) 
 db = client.testX #TODO Change Cluster Name
 
