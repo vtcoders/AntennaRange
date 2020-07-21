@@ -1,0 +1,44 @@
+What are the files in this directory?
+
+  The AntennaRange software project requires at least one web server.
+  At the time this was being developed the Ubuntu 20.04 operating system
+  had a BUG in the deb (APT system) "apache2" package.  The httpd, web
+  server program installed as /usr/sbin/apache2 as installed with 'apt
+  install apache2' would not run, with a linker/loader error:
+
+     /usr/sbin/apache2: symbol lookup error: /usr/sbin/apache2: undefined symbol: apr_os_uuid_get
+
+   One of these two libraries: /usr/local/lib/libapr-1.so.0 /usr/local/lib/libaprutil-1.so.0
+   should have apr_os_uuid_get in it, and neither do.  So there no way /usr/sbin/apache2
+   is going to load and run.
+
+   We decided to build and install the apache2 httpd program from sources.
+   It builds and installs relatively quickly and does not have a great
+   number of dependences, that would tend to make this server brake over
+   long time (like libBOOST etc).
+
+
+
+FILES
+
+  The following bash scripts download, build, and install the package that
+  the name of the script suggests.  You need to read, edit (prefix and
+  stuff), and understand these scripts if you need to run them.  The
+  openssl and nghttp2 were needed because we the apache_http script
+  installed a very new version of the apache2 web server.
+
+
+     openssl
+
+     nghttp2
+
+     apache_http
+
+
+ 
+  apache2/
+
+    This directory contains the starting apache2 root directory with
+    apache configuration files.
+
+

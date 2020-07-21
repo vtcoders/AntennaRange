@@ -1,0 +1,81 @@
+#!/bin/bash
+
+# depends on source in here: openssl nghttp2
+
+#
+
+set -exo pipefail
+
+cd "$(dirname ${BASH_SOURCE[0]})"
+
+tag=2.4.43
+
+try=0
+tarname=apache_httpd-$tag
+tarnameTry=$tarname-try$try
+while [ -d "${tarnameTry}" ] ; do
+    let try=$try+1
+    tarnameTry=$tarname-try$try
+done
+builddir="${tarnameTry}"
+prefix=/usr/local/encap/$builddir
+
+mkdir -p $builddir
+
+
+source ./githubGet
+
+# Usage: githubGet GROUP NAME TAG DIR [SHA512]
+
+githubGet apache httpd 2.4.43 $builddir\
+ b4f2ee0baa49a4271a72a4802bd6ae673699b53\
+ddcf9b752d42b6b8ff1875e61f04594bbad1f189\
+0c62cbe0fc44c3a442d70f7e152256e04c1f8f94\
+43c235eaf
+
+githubGet apache apr 1.7.0 $builddir/srclib/apr\
+ 39c4815aa5dedd0635eab07234f81981550cf8d9dbd3fc\
+6e89b6980cba320b5d5f90a7e470773288a053dd4b07dd1\
+751f70ffa3372d6a5e0cdffa05e86fa82f9
+
+githubGet apache apr-util 1.6.1 $builddir/srclib/apr-util\
+ 777a57f832a2a2e513121ddf4a49d1e9d424fa367d080ebee4c1f16b\
+7bcc7a6fd8be68cc34a32afd9628423291cab05897ef6cd460ad1f24\
+8140d800c023fa3c
+
+
+cd $builddir
+
+
+./buildconf
+./configure --prefix=$prefix\
+ --enable-ssl\
+ --enable-static-htpasswd\
+ --enable-http2\
+ --enable-static-include\
+ --enable-mods-static=dav\
+ --enable-mods-static=most\
+ --enable-static-dav-fs\
+ --enable-unixd\
+ --enable-static-autoindex\
+ --enable-static-alias\
+ --enable-static-cgid\
+ --enable-static-cgi\
+ --enable-static-userdir\
+ --enable-info\
+ --enable-userdir
+
+
+make -j5
+make install
+
+cd -
+
+set +x
+
+cat << EOF
+
+   SUCCESSFULLY installed $tarname in $prefix
+
+EOF
+

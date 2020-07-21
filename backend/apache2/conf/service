@@ -1,0 +1,98 @@
+#!/bin/bash
+
+serverroot=/usr/local/apache2
+
+# What program to run
+httpd=/usr/local/bin/httpd
+
+set -e
+
+function usage() {
+
+    cat << EOF
+
+   Usage: $0 [start|restart|graceful|graceful-stop|stop] [HTTPD_OPTS]
+
+   Run this apache2 httpd web server.
+
+   This must be run as root, like for example run:
+   
+       sudo $0 start
+
+
+EOF
+
+    set -x
+
+    $httpd -h
+
+
+    exit 1
+}
+
+[ "$(id -u)" != 0 ] && usage
+[ -z "$1" ] && usage
+
+case "$1" in
+    start|restart|graceful|graceful-stop|stop)
+        ;;
+    *)
+        usage
+        ;;
+esac
+
+mode=$1
+shift 1
+
+
+# Get rid of this unnecessary env stuff that would
+# be passed to the running httpd:
+for var in $(env | sed -e 's!=.*$!!'| \
+        grep -vE '^PATH$|^_$|^PWD$|^DISPLAY$|^HOME$') ; do
+    unset $var
+done
+
+export LANG=en_US.UTF-8
+export PATH=$pre/bin:/usr/bin:/bin
+
+# show what we are running next
+set -x
+
+
+cd /usr/local/apache2
+$httpd -d $serverroot -f $serverroot/conf/httpd.conf -k $mode $*
+
+exit 0 # success
+
+
+
+
+httpd -h
+
+Usage: ./httpd [-D name] [-d directory] [-f file]
+               [-C "directive"] [-c "directive"]
+               [-k start|restart|graceful|graceful-stop|stop]
+               [-v] [-V] [-h] [-l] [-L] [-t] [-T] [-S] [-X]
+Options:
+  -D name            : define a name for use in <IfDefine name> directives
+  -d directory       : specify an alternate initial ServerRoot
+  -f file            : specify an alternate ServerConfigFile
+  -C "directive"     : process directive before reading config files
+  -c "directive"     : process directive after reading config files
+  -e level           : show startup errors of level (see LogLevel)
+  -E file            : log startup errors to file
+  -v                 : show version number
+  -V                 : show compile settings
+  -h                 : list available command line options (this page)
+  -l                 : list compiled in modules
+  -L                 : list available configuration directives
+  -t -D DUMP_VHOSTS  : show parsed vhost settings
+  -t -D DUMP_RUN_CFG : show parsed run settings
+  -S                 : a synonym for -t -D DUMP_VHOSTS -D DUMP_RUN_CFG
+  -t -D DUMP_MODULES : show all loaded modules 
+  -M                 : a synonym for -t -D DUMP_MODULES
+  -t -D DUMP_INCLUDES: show all included configuration files
+  -t                 : run syntax check for config files
+  -T                 : start without DocumentRoot(s) check
+  -X                 : debug mode (only one worker, do not detach)
+
