@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# depends on source in here: openssl nghttp2
+# depends on source in here, scripts: openssl nghttp2
 
-#
 
 set -exo pipefail
 
@@ -26,6 +25,8 @@ mkdir -p $builddir
 source ./githubGet
 
 # Usage: githubGet GROUP NAME TAG DIR [SHA512]
+#
+# Get tarball source files.
 
 githubGet apache httpd 2.4.43 $builddir\
  b4f2ee0baa49a4271a72a4802bd6ae673699b53\
@@ -78,4 +79,3 @@ cat << EOF
    SUCCESSFULLY installed $tarname in $prefix
 
 EOF
-
