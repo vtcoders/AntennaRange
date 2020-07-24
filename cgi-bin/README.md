@@ -14,7 +14,7 @@ For more information on layout view [this](https://docs.google.com/presentation/
 Backend Team includes:
 <ul>
     <li>Neel Patel</li>
-    <li>Nathaniel Salazar</li>
+    <li>[Nathaniel Salazar](https://github.com/Nintendroid1)</li>
     <li>Amelia Whitehead</li>
     <li>Mannie</li>
 </ul>
