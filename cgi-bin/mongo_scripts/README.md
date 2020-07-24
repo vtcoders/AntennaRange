@@ -19,7 +19,7 @@ mongo [DB_Name]
 load("create_colls.js")
 ```
 
-`Verify collection existence`<br>
+Verify collection existence<br>
 ```
 show collections
 db.getCollectionInfos()

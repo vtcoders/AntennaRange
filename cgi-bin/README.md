@@ -3,7 +3,8 @@
 **Contents**<br>
 [About](#about)<br>
 [Maintainers](#maintainers)<br>
-[Running and Compiling](#running-and-compiling)<br>
+[Files](#files)<br>
+[Database layout](#database-layout)
 
 ## About
 Database based on the [MongoDB](https://www.mongodb.com/) implemented by [pymongo](https://pypi.org/project/pymongo/) for python applications and [mongoose](https://mongoosejs.com/docs/) for javascript applications. <br>
@@ -19,19 +20,10 @@ Backend Team includes:
     <li>Mannie</li>
 </ul>
 
-## Running and Compiling
-### Application
-Ensure you have ```python3``` and ```pymongo``` <br>
-```
-pip3 install pymongo[srv]
-```
+## Files
+`mongo_scripts` holds scripts written in `mongo shell` <br>
+`py_scripts` holds scripts written in `python` with `pymongo`
 
-Running User Database <br>
-```
-python3 userDB.py
-```
-
-Running Experiment Database <br>
-```
-python3 expDB.py
-```
+## Database Layout
+`accounts` collection holds information about users accessing the range<br>
+`experiments` collection holds information about recent experiments ran on the attennas
