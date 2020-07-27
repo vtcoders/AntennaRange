@@ -1,14 +1,117 @@
-h1 {
-    text-align: center;
+/** Beginning of generic page formatting **/
+main {
+	margin: auto;
+    width: 100%;
+    padding-top: 50px;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+}
+* {box-sizing: border-box}
+/** End of generic page format **/
 
+/** Styling for Navigation **/
+.header
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bolder;
+    font-family:'verdana';
 }
-p {
-    font-size: 20px;
+.sticky
+{
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
-li {
-    padding-left:1em;
-    margin: 10px;
-    border: 1px solid black;
-    font-size: 20px;
-    border-radius: 5px;
+.navBar {
+  list-style-type: none;
+  margin: auto;
+  overflow: hidden;
+  background-color: #333;
+  z-index: 5;
 }
+#navigationBar li {
+  float: left;
+}
+#navigationBar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  height: 50px;
+  margin: none;
+}
+#navigationBar li a:hover:not(.active) {
+  background-color: #111;
+}
+.active {
+  background-color: #CF4520;
+}
+/** End of Navigation **/
+.colorContainer
+{
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    padding: 25px 12.5%;
+}
+.underline
+{
+    width: 100%;
+    margin: auto;
+    border-radius: 3px 3px 3px 3px;
+    height: 9px;
+}
+.title
+{
+    margin: auto;
+    height: auto;
+    width: 100%;
+    padding: 1px 12.5%;
+}
+#myInput {
+    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+  }
+  
+  #myUL {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #myUL li a {
+    border: 1px solid #ddd; /* Add a border to all links */
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6; /* Grey background color */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove default text underline */
+    font-size: 18px; /* Increase the font-size */
+    color: black; /* Add a black text color */
+    display: block; /* Make it into a block element to fill the whole list */
+  }
+  
+  #myUL li a:hover:not(.header) {
+    background-color: #eee; /* Add a hover effect to all links, except for headers */
+  }
