@@ -1,55 +1,93 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="./libformat.css">
+
+        <ul id="navigationBar" class="navBar sticky">
+            <li class="navButton header">Antenna Range Project</li>
+            <li class="navButton header"></li>
+            <li class="navButton"><a href="../home.html">Home</a></li>
+            <li class="navButton"><a href="../AboutPage/aboutPage.html">About</a></li>
+            <li class="navButton"><a href="../ExperimentLaunch/experimentLaunchPage.html">Launch</a></li>
+            <li class="navButton"><a href="../ExperimentLibrary/eLibrary.html">Library</a></li>
+            <li class="navButton active"><a href="#ExternalResourcesPage">Resources</a></li>
+        </ul>
     </head>
-    
     <body>
         <main>
-            <h1> Antenna Range Project </h1>
+            <div class="title" style="color:#333;background-color:white;">
+                <h3>Experiment Library</h3>
+                <div class="underline" style="background-color:#CF4520;color:rgb(238, 238, 238);"><br></div>
+                <p> Experiments are listed in order from most recent to least recent.</p>
+                
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Experiment..">
 
-            <ul class="navBar">
-                <li class="navButton"><a href="../home.html">Home</a></li>
-                <li class="navButton"><a href="../AboutPage/aboutPage.html">About</a></li>
-                <li class="navButton"><a href="../ExperimentLaunch/experimentLaunchPage.html">Launch</a></li>
-                <li class="navButton active"><a href="#ExperimentLibrary">Library</a></li>
-                <li class="navButton"><a href="../ExternalResources/ExternalResources.html">Resources</a></li>
-                <li class="navButton"><a href="../AntennaModels/models.html">Models</a></li>
-            </ul>
-            <div id="Library" class="pageContent">
-                <rel link="stylesheet" href="./libformat.css"></rel>
-                    <h3> Experiment Library </h3> 
-                    <p> Experiments are listed in order from most recent to least recent.</p>
-                    <button class="btn" onclick="filterSelection('public')"> public</button>
-                    <button class="btn" onclick="filterSelection('private')"> private</button>
-                    
-                    
-                    <ol>
-                        
-                        <li> <img src = "exp.jpg" width="64" height="64"> &emsp; &emsp; Experiment 11&emsp; &emsp;  <button type="button">Select</button> </li>
-                        <li> <img src = "exp.jpg" width="64" height="64"> &emsp; &emsp; Experiment 10&emsp; &emsp;  <button type="button">Select</button> </li>
-                        <li> <img src = "exp.jpg" width="64" height="64"> &emsp; &emsp; Experiment 9  &emsp; &emsp;  <button type="button">Select</button> </li>
-                        <li> <img src = "exp.jpg" width="64" height="64"> &emsp; &emsp; Experiment 8  &emsp; &emsp;  <button type="button">Select</button> </li>
-                        <li> <img src = "exp.jpg" width="64" height="64"> &emsp; &emsp; Experiment 7  &emsp; &emsp;  <button type="button">Select</button> </li>
-                        <li> <img src = "exp.jpg" width="64" height="64"> &emsp; &emsp; Experiment 6  &emsp; &emsp;  <button type="button">Select</button> </li>
-                        <li> <img src = "exp.jpg" width="64" height="64"> &emsp; &emsp; Experiment 5  &emsp; &emsp;  <button type="button">Select</button> </li>
-                        <li> <img src = "exp.jpg" width="64" height="64"> &emsp; &emsp; Experiment 4  &emsp; &emsp;  <button type="button">Select</button> </li>
-                        <li> <img src = "exp.jpg" width="64" height="64"> &emsp; &emsp; Experiment 3  &emsp; &emsp;  <button type="button">Select</button> </li>
-                        <li> <img src = "exp.jpg" width="64" height="64"> &emsp; &emsp; Experiment 2  &emsp; &emsp;  <button type="button">Select</button> </li>
-                        <li> <img src = "exp.jpg" width="64" height="64"> &emsp; &emsp; Experiment 1  &emsp; &emsp;  <button type="button">Select</button> </li>
-                    </ol>
+                <ul id="myUL">
+                  <li><a href="#">Experiment 36: Private</a></li>
+                  <li><a href="#">Experiment 35: Public</a></li>
+                  <li><a href="#">Experiment 34: Private</a></li>
+                  <li><a href="#">Experiment 33: Public</a></li>
+                  <li><a href="#">Experiment 32: Private</a></li>
+                  <li><a href="#">Experiment 31: Private</a></li>
+                  <li><a href="#">Experiment 30: Public</a></li>
+                  <li><a href="#">Experiment 29: Public</a></li>
+                  <li><a href="#">Experiment 28: Public</a></li> 
+                  <li><a href="#">Experiment 27: Public</a></li>
+                  <li><a href="#">Experiment 26: Public</a></li>
+                  <li><a href="#">Experiment 25: Public</a></li>
+                  <li><a href="#">Experiment 24: Public</a></li>
+                  <li><a href="#">Experiment 23: Public</a></li>
+                  <li><a href="#">Experiment 22: Public</a></li>
+                  <li><a href="#">Experiment 21: Private</a></li>
+                  <li><a href="#">Experiment 20: Private</a></li>
+                  <li><a href="#">Experiment 19: Private</a></li>
+                  <li><a href="#">Experiment 18: Private</a></li>
+                  <li><a href="#">Experiment 17: Private</a></li>
+                  <li><a href="#">Experiment 16: Public</a></li>
+                  <li><a href="#">Experiment 15: Private</a></li>
+                  <li><a href="#">Experiment 14: Public</a></li>
+                  <li><a href="#">Experiment 13: Private</a></li>
+                  <li><a href="#">Experiment 12: Private</a></li>
+                  <li><a href="#">Experiment 11: Public</a></li>
+                  <li><a href="#">Experiment 10: Public</a></li>
+                  <li><a href="#">Experiment 9: Public</a></li>
+                  <li><a href="#">Experiment 8: Private</a></li>
+                  <li><a href="#">Experiment 7: Public</a></li>
+                  <li><a href="#">Experiment 6: Public</a></li>
+                  <li><a href="#">Experiment 5: Public</a></li>
+                  <li><a href="#">Experiment 4: Public</a></li>
+                  <li><a href="#">Experiment 3: Public</a></li>
+                  <li><a href="#">Experiment 2: Public</a></li>
+                  <li><a href="#">Experiment 1: Public</a></li>
+                  
+                </ul>
+                       
             </div>
 
+            <script>
+                function myFunction() {
+                  // Declare variables
+                  var input, filter, ul, li, a, i, txtValue;
+                  input = document.getElementById('myInput');
+                  filter = input.value.toUpperCase();
+                  ul = document.getElementById("myUL");
+                  li = ul.getElementsByTagName('li');
+                
+                  // Loop through all list items, and hide those who don't match the search query
+                  for (i = 0; i < li.length; i++) {
+                    a = li[i].getElementsByTagName("a")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                      li[i].style.display = "";
+                    } else {
+                      li[i].style.display = "none";
+                    }
+                  }
+                }
+                </script>
+
         </main>
-        
-        
 
-
+        <footer>
+        </footer>
     </body>
- 
-
-
-
-
-
 </html>
