@@ -10,8 +10,8 @@
             <li class="navButton"><a href="../AboutPage/aboutPage.html">About</a></li>
             <li class="navButton"><a href="../ExperimentLaunch/experimentLaunchPage.html">Launch</a></li>
             <li class="navButton"><a href="../ExperimentLibrary/eLibrary.html">Library</a></li>
-            <li class="navButton"><a href="../ExternalResources/ExternalResources.html">Resources</a></li>
             <li class="navButton active"><a href="#ExperimentModels">Models</a></li>
+            <li class="navButton"><a href="../ExternalResources/ExternalResources.html">Resources</a></li>
         </ul>
     </head>
     <body>
@@ -20,25 +20,27 @@
                 <h3>Antenna Models</h3>
                 <div class="underline" style="background-color:#CF4520"><br></div>
                 <p>Select an antenna below to view its 3D model.</p>
-                <p>ToDo//</p>
 
-            <ul id="pageDivider">
-                <li id="modelLookup">
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Antenna Model...">
-                    
-                    <ul id="myUL">
-                        <li><a href="#">Antenna Model 1</a></li>
-                        <li><a href="#">Antenna Model 2</a></li>
-                        <li><a href="#">Antenna Model 3</a></li>
-                    </ul>
-                    </div>
-                </li>
-                <li id="modelViewer">
-                    <p>Example of what a model would look like</p>
-                    <button id="button">Load</button>
-                    <div id="iframeHolder"></div>
-                </li>
-            </ul>
+                <div id="pageDivider">
+                    <div id="modelLookup">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Antenna Model...">
+                        
+                        <ul id="myUL">
+                            <li><a href="#">Antenna Model 1</a></li>
+                            <li><a href="#">Antenna Model 2</a></li>
+                            <li><a href="#">Antenna Model 3</a></li>
+                        </ul>
+                    <div>
+
+                    <div id="modelViewer">
+                        <p>Model:</p>
+                        <button id="button">Load</button>
+                        <br>
+                        <p></p>
+                        <div id="iframeHolder"></div>
+                    <div>
+                <div>
+            </div>
 
  
         </main>

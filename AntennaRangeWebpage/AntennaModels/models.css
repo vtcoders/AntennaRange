@@ -115,23 +115,21 @@ body, html {
 #myUL li a:hover:not(.header) {
   background-color: #eee; /* Add a hover effect to all links, except for headers */
 }
-#pageDivider
-{
+#pageDivider {
   list-style-type: none;
   margin: auto;
   overflow: hidden;
   background-color: white;
   color: #333;
+  z-index: 5;
 }
-#navigationBar li {
+/**
+#modelLookup{
   float: left;
+  width: 50%;
 }
-#navigationBar li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  height: 50px;
-  margin: none;
+#modelViewer{
+  float: right;
+  width: 50%;
 }
+**/
