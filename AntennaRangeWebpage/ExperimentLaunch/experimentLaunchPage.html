@@ -27,23 +27,11 @@
                     <h3>Experiment Identification</h3>
                     <label for="name">Experiment Name:<br><br></label>
                     <input type="text" id="name" name="name">
-    
-                    <br><br>
-                  
-                    <label for="name">Experiment ID:<br><br></label>
-                    <input type="text" id="id" name="id">
-                    <br><br>
-    
-                    <h3>Access Permissions</h3>
-                    <p>Privacy Settings:</p>
+                    <p>Visibility:</p>
                     <input type="radio" id="public" name="privacy" value="public">
                     <label for="public">Public</label><br>
                     <input type="radio" id="private" name="privacy" value="private">
                     <label for="private">Private</label>
-                    
-                    <br><br>
-    
-                    <h3>Other Settings</h3>
                     <p>Antenna Model:</p>
                     <input type="radio" id="type1" name="antennaModel" value="type1">
                     <label for="type1">Type 1</label><br>
@@ -55,13 +43,25 @@
                     <label for="type4">Type 4</label><br>
                     <input type="radio" id="type5" name="antennaModel" value="type5">
                     <label for="type5">Type 5</label>
+                    
+                    <br><br>
     
-                    <p>Other:</p>
-                    <input type="checkbox" id="option1" name="otherOptions" value="option1">
-                    <label for="option1">Option 1</label><br>
-                    <input type="checkbox" id="option2" name="otherOptions" value="option2">
-                    <label for="option2">Option 2</label><br>
-                    <br>
+                    <h3>Other Settings</h3>
+    
+                    <p>Mast Angle:</p>
+                    <input type="number" min="0" max="180" step="10000" value="0" class="sliderValue" id="mastAngleNumber" onchange="updateValue('mastAngleSlider', this.value)">
+                    <input type="range" min="0" max="180" step=".0001" value="0" class="slider" id="mastAngleSlider" onchange="updateValue('mastAngleNumber', this.value)">
+                    <p>Arm Angle:</p>
+                    <input type="number" min="0" max="180" step="10000" value="0" class="sliderValue" id="armAngleNumber" onchange="updateValue('armAngleSlider', this.value)">
+                    <input type="range" min="0" max="180" step=".0001" value="0" class="slider" id="armAngleSlider" onchange="updateValue('armAngleNumber', this.value)">
+                    <p>Background RSSI:</p>
+                    <input type="number" min="0" max="180" step="10000" value="0" class="sliderValue" id="backgroundRSSINumber" onchange="updateValue('backgroundRSSISlider', this.value)">
+                    <input type="range" min="0" max="180" step=".0001" value="0" class="slider" id="backgroundRSSISlider" onchange="updateValue('backgroundRSSINumber', this.value)">
+                    <p>Transmission RSSI:</p>
+                    <input type="number" min="0" max="180" step="10000" value="0" class="sliderValue" id="transmissionRSSINumber" onchange="updateValue('transmissionRSSISlider', this.value)">
+                    <input type="range" min="0" max="180" step=".0001" value="0" class="slider" id="transmissionRSSISlider" onchange="updateValue('transmissionRSSINumber', this.value)">
+
+                    <br><br>
                     </div>
     
                     <div class="colorContainer" style="background-color:#CF4520;color:rgb(238, 238, 238);">
@@ -70,6 +70,19 @@
                   </form>
 
         <footer>
+
+            <script>
+                // used to change the value displayed in text box next to slider
+                function updateValue(id, val)
+                {
+                    document.getElementById(id).value=val; 
+                }
+                // used to change the slider value when value in text box is changed
+                function updateSliderValue(val)
+                {
+                    document.getElementById('mastAngleSlider').value=val;
+                }
+            </script>
 
         </footer>
     </body>
