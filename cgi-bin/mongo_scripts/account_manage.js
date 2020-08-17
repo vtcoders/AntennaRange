@@ -34,5 +34,11 @@ function viewAccounts() {
     db.accounts.find()
 }
 
+// Usage
 // insertUser("Natty B", "test", "tst", "ADMIN", "WEBER")
 // deleteUser("Natty B")
+
+// Initial Data
+insertUser("Steve Everworth", "sever99", "password", "USER", "Virginia Tech")
+insertUser("Alexander Wendover", "a1wen", "securePA33", "INSTRUCTOR", "Virginia Tech")
+insertUser("Alan Turing", "qwerty", "compLegend!", "ADMIN", "Virginia Tech")
