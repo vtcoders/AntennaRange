@@ -1,13 +1,13 @@
-function insertExp(exp, usr, ant, fl, vis) {
+function insertExp(exp, usr, ant, fl, med, vis) {
     try {
         query = {
             "experiment": exp,
             "facilitator": usr, 
             "antenna": ant,
-            "fileLocation": fl, 
+            "fileLocation": fl,
+            "media": med, 
             "visibility": vis
             // config
-            // media
         }
 
         // Check for duplicate, create new if unique
@@ -36,5 +36,9 @@ function viewExperiments() {
     db.experiments.find()
 }
 
+// Usage
 // insertExp("LOVELACE", "test", "YAGI", "ADMIN", "PUBLIC")
 // deleteExp("LOVELACE")
+
+insertExp("19-May-2020_14-09-57", "Alexander Wendover", "YAGI", "/home/naths99/scripts/19-May-2020/14-09-57/19-May-2020_14-09-57antenna_data.txt", 
+"/home/naths99/scripts/19-May-2020/14-09-57/antenna_data.png", "PUBLIC")
