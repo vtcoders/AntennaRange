@@ -4,7 +4,7 @@
 [About](#about)<br>
 [Maintainers](#maintainers)<br>
 [Dependencies](#dependencies)<br>
-[Database layout](#database-layout)
+[Usage](#usage)
 
 ## About
 `main.py` controls the antenna. The file is stored on Tricorder and is written in python. <br>
@@ -34,5 +34,11 @@ Certain imports are necessary to test this script, specifically
   <li>RadioFlowGraph</li>
   <li>RadioListener</li>
 </ul>
-These files can be found on the canvas site under Files -> BuildOne -> -> server_7_20_2020 <br>
+These files can be found on the canvas site under Files -> BuildOne -> server_7_20_2020 <br>
 Test File is stored in `input.csv` and is based on the original, hard-coded values in the previous `main.py`
+
+## Usage
+To run `main.py` with the configuration file:<br>
+```
+python3 main.py input.csv
+```
