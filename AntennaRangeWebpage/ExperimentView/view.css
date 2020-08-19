@@ -62,28 +62,11 @@ body, html {
   background-color: #CF4520;
 }
 /** End of Navigation **/
-.colorContainer
-{
-    margin: auto;
-    height: 100%;
-    width: 100%;
-    padding: 25px 12.5%;
-}
-.underline
-{
-    width: 100%;
-    margin: auto;
-    border-radius: 3px 3px 3px 3px;
-    height: 9px;
-}
-.title
-{
-    margin: auto;
-    height: auto;
-    width: 100%;
-    padding: 1px 12.5%;
+.login {
+    float: right !important; 
 }
 
-.login {
-  float: right !important; 
+.data{
+    text-align:center;
+    margin-top: 100px;
 }

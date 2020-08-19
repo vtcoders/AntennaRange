@@ -133,3 +133,7 @@ body, html {
   width: 50%;
 }
 **/
+
+.login {
+  float: right !important; 
+}

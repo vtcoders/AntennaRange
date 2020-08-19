@@ -123,3 +123,7 @@ li a:hover:not(.active) {
   justify-content: left;
   padding: 10px;
 }
+
+.login {
+  float: right !important; 
+}

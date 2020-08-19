@@ -61,29 +61,63 @@ body, html {
 .active {
   background-color: #CF4520;
 }
-/** End of Navigation **/
-.colorContainer
-{
-    margin: auto;
-    height: 100%;
-    width: 100%;
-    padding: 25px 12.5%;
-}
-.underline
-{
-    width: 100%;
-    margin: auto;
-    border-radius: 3px 3px 3px 3px;
-    height: 9px;
-}
-.title
-{
-    margin: auto;
-    height: auto;
-    width: 100%;
-    padding: 1px 12.5%;
-}
+
+
+/*set border to the form*/ 
+      
+form { 
+    border: 3px solid #f1f1f1; 
+} 
+/*assign full width inputs*/ 
+  
+input[type=text], 
+input[type=password] { 
+    width: 100%; 
+    padding: 12px 20px; 
+    margin: 8px 0; 
+    display: inline-block; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box; 
+} 
+/*set a style for the buttons*/ 
+  
+button { 
+    background-color: maroon; 
+    color: white; 
+    padding: 14px 20px; 
+    margin: 8px 0; 
+    border: none; 
+    cursor: pointer; 
+    width: 100%; 
+} 
+/* set a hover effect for the button*/ 
+  
+button:hover { 
+    opacity: 0.8; 
+} 
+/*centre the display image inside the container*/ 
+  
+.imgcontainer { 
+    text-align: center; 
+    margin: 24px 0 12px 0; 
+} 
+/*set image properties*/ 
+  
+img.avatar { 
+    width: 40%; 
+} 
+/*set padding to the container*/ 
+  
+.container { 
+    padding: 16px; 
+} 
+/*set the forgot password text*/ 
+  
+span.psw { 
+    float: right; 
+    padding-top: 16px; 
+} 
 
 .login {
-  float: right !important; 
+    float: right !important; 
 }
