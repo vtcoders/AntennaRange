@@ -5,13 +5,10 @@ set -e
 
 
 
-create_file="/home/www-data/lance/tmp_file.html"
+create_file="../uploads/tmp_file.html"
 
+this_file="$(basename ${BASH_SOURCE[0]})"
 
-src="${BASH_SOURCE[0]}"
-dir="$(dirname $src)"
-cd "$dir"
-this_file="$(basename $src)"
 
 date="$(date)"
 
@@ -30,7 +27,7 @@ cat > "$create_file" << EOF
 
   <p>
     This is the file that was created by the script at
-    <a href="./${this_file}">$dir/${this_file}</a>.
+    <a href="${this_file}">${this_file}</a>.
   </p>
 
   <p>
@@ -59,8 +56,6 @@ Content-type: text/html
 <body>
 
   <h5><a href=".">toc</a></h5>
-
-  <h2>We just did something very insecure</h2>
 
   <p>
     We just wrote the file: ${create_file}<br>

@@ -3,7 +3,7 @@
 # Exit if the script fails due to error.
 set -e
 
-read_file="/home/www-data/lance/tmp_file.html"
+read_file="../uploads/tmp_file.html"
 
 # Output an HTML5 page with the HTTP header being:
 # Content-type: text/html\n\n
