@@ -26,7 +26,7 @@
                             <div class="row">
                                 <div class="column largeColumn"><a href="#" id="drag1" draggable="true" ondragstart="drag(event)">Experiment 5: Public, Date, Facilitator, AntennaType <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel1")' src='./visible.png' class="visible"></input>
                                 </div>
                             </div>
                         </li>
@@ -34,7 +34,7 @@
                             <div class="row">
                                 <div class="column largeColumn"><a href="#" id="drag2" draggable="true" ondragstart="drag(event)">Experiment 4: Public, Date, Facilitator, AntennaType <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel2")' src='./visible.png' class="visible"></input>
                                 </div>
                             </div>
                         </li>
@@ -42,7 +42,7 @@
                             <div class="row">
                                 <div class="column largeColumn"><a href="#" id="drag3" draggable="true" ondragstart="drag(event)">Experiment 3: Public, Date, Facilitator, AntennaType <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel3")' src='./visible.png' class="visible"></input>
                                 </div>
                             </div>
                         </li>
@@ -50,7 +50,7 @@
                             <div class="row">
                                 <div class="column largeColumn"><a href="#" id="drag4" draggable="true" ondragstart="drag(event)">Experiment 2: Public, Date, Facilitator, AntennaType <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel4")' src='./visible.png' class="visible"></input>
                                 </div>
                             </div>
                         </li>
@@ -58,7 +58,7 @@
                             <div class="row">
                                 <div class="column largeColumn"><a href="#" id="drag5" draggable="true" ondragstart="drag(event)">Experiment 1: Public, Date, Facilitator, AntennaType <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel5")' src='./visible.png' class="visible"></input>
                                 </div>
                             </div>
                         </li>
@@ -139,13 +139,13 @@
                     {
                         button.className = "invisible";
                         button.src = "./invisible.png";
-                        document.getElementById("x3dModel1").setAttribute("render", "false");
+                        document.getElementById(modelID).setAttribute("render", "false");
                     } // if
                     else // button.className === "invisible"
                     {
                         button.className = "visible";
                         button.src = "./visible.png";
-                        document.getElementById("x3dModel1").setAttribute("render", "true");
+                        document.getElementById(modelID).setAttribute("render", "true");
                     } // else
                 }
 
