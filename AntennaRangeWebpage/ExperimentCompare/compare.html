@@ -139,13 +139,13 @@
                     {
                         button.className = "invisible";
                         button.src = "./invisible.png";
-                        document.getElementById("x3dModel1").getAttribute("render").replace("true","false");
+                        document.getElementById("x3dModel1").setAttribute("render", "false");
                     } // if
                     else // button.className === "invisible"
                     {
                         button.className = "visible";
                         button.src = "./visible.png";
-                        document.getElementById("x3dModel1").getAttribute("render").replace("false","true");
+                        document.getElementById("x3dModel1").setAttribute("render", "true");
                     } // else
                 }
 
