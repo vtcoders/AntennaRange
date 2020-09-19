@@ -132,21 +132,22 @@
 
             <script>
 
-                function visibilityButtonClicked(button)
+                function visibilityButtonClicked(button, modelID)
                 {
                     // Change class of visibility button for looks and filtering
                     if (button.className === "visible")
                     {
                         button.className = "invisible";
                         button.src = "./invisible.png";
+                        document.getElementById("x3dModel1").getAttribute("render").replace("true","false");
                     } // if
                     else // button.className === "invisible"
                     {
                         button.className = "visible";
                         button.src = "./visible.png";
+                        document.getElementById("x3dModel1").getAttribute("render").replace("false","true");
                     } // else
-                    graphsRefresh();
-                };
+                }
 
                 function graphsRefresh()
                 {
