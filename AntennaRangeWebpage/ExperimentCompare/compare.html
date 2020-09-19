@@ -1,6 +1,10 @@
 <html>
     <head>
+        <Title>Experiment Workspace</Title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <link rel="stylesheet" href="./compare.css">
+        <script type='text/javascript' src='https://www.x3dom.org/download/x3dom.js'></script>
+        <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'></link>
 
         <ul id="navigationBar" class="navBar sticky">
             <li class="navButton header">Antenna Range Project</li>
@@ -60,7 +64,17 @@
                         </li>
                         </ul>
                     </div>
-                    <div class="column right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec finibus sodales tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus facilisis turpis id tortor elementum cursus. Duis at facilisis urna. Fusce commodo urna risus, ac blandit urna tempor egestas. Mauris mauris odio, congue at libero sit amet, imperdiet aliquet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec finibus sodales tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus facilisis turpis id tortor elementum cursus. Duis at facilisis urna. Fusce commodo urna risus, ac blandit urna tempor egestas. Mauris mauris odio, congue at libero sit amet, imperdiet aliquet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec finibus sodales tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus facilisis turpis id tortor elementum cursus. Duis at facilisis urna. Fusce commodo urna risus, ac blandit urna tempor egestas. Mauris mauris odio, congue at libero sit amet, imperdiet aliquet neque.
+                    <div class="column right">
+                        <h>There should be x3d models below:</h>
+                        <div id="x3dModelWindow">
+                            <!--Put x3d model right here-->
+                            <x3d width='100%' height='100%'> 
+                                <scene>
+                                    <inline id="x3dModel1" url="./test_full.x3d" render="true"></inline>
+                                    <inline id="x3dModel2" url="./Deer.x3d" render="true"> </inline> 
+                                </scene> 
+                            </x3d>   
+                        </div>
                         <br><br>
                     </div>
                 </div>
