@@ -15,7 +15,7 @@ def surface2stl(X, Y, Z, filename):
     numFaces = 0
     for i in range(len(Z) - 1):
         percent = (i / (len(Z) - 1)) * 100.0
-        print(str(percent) + "%")
+        print(str(round(percent, 1)) + "%")
         for j in range(len(Z[0]) - 1):
             point1 = [X[i][j],         Y[i][j],         Z[i][j]]
             point2 = [X[i][j + 1],     Y[i][j + 1],     Z[i][j + 1]]
@@ -32,17 +32,18 @@ def surface2stl(X, Y, Z, filename):
     return numFaces
 
 def writeFace(stlFile, point1, point2, point3):
+    precision = 2   # number of decimal points to round too
     if point1 is None or point2 is None or point3 is None:
         return 0
     n = findNormalLine(point1, point2, point3)
     if n[0] != "NaN" and n[1] != "NaN" and n[2] != "NaN":
-        stlFile.write("facet normal " + "{:E}".format(n[0]) + " " + "{:e}".format(n[1]) + " " + "{:e}".format(n[2]) + "\r\n")
+        stlFile.write("facet normal " + str(round(n[0], precision)) + " " + str(round(n[1], precision)) + " " + str(round(n[2], precision)) + "\r\n")
     else:
         stlFile.write("facet normal NaN NaN NaN\r\n")
     stlFile.write("outer loop\r\n")
-    stlFile.write("vertex " + "{:e}".format(point1[0]) + " " + "{:e}".format(point1[1]) + " " + "{:e}".format(point1[2]) + "\r\n")
-    stlFile.write("vertex " + "{:e}".format(point2[0]) + " " + "{:e}".format(point2[1]) + " " + "{:e}".format(point2[2]) + "\r\n")
-    stlFile.write("vertex " + "{:e}".format(point3[0]) + " " + "{:e}".format(point3[1]) + " " + "{:e}".format(point3[2]) + "\r\n")
+    stlFile.write("vertex " + str(round(point1[0], precision)) + " " + str(round(point1[1], precision)) + " " + str(round(point1[2], precision)) + "\r\n")
+    stlFile.write("vertex " + str(round(point2[0], precision)) + " " + str(round(point2[1], precision)) + " " + str(round(point2[2], precision)) + "\r\n")
+    stlFile.write("vertex " + str(round(point3[0], precision)) + " " + str(round(point3[1], precision)) + " " + str(round(point3[2], precision)) + "\r\n")
     stlFile.write("endloop\r\n")
     stlFile.write("endfacet\r\n")
     return 1

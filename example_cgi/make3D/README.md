@@ -17,24 +17,16 @@ needed if you are just 3D printing). On the other hand, if you are uploading
 this 3D file to a website and NEED color data, convert it to a .x3d file
 
 Call the program like:
-./antennaTo3d.py 'Input file' 'File to output' 'Quality %' 'Binary value to show plot'
+./antennaTo3d.py 'Input file' 'File to output' 'Binary value to show plot'
 
 The input file is the file that has the raw antenna range data. This file MUST
 END with either .txt or .csv in order to be correctly read
 
+The code reads the .txt or .csv and only really looks at the master angle and the gain. The program MUST have equal step sizes for the master angle and the arm angle as the current calculation and evaluation of the data requires it to be so. While reading the input, the program notices how many master angle data points there are (before they start to repeat) and divides it by the number of gain data points. This number that results is used to assume how many different arm angle data points there are. As a result, the arm angle step size is assumed and if every measurement is sequential and increases at a constant step size, this mathematical shortcut holds valid and produces the same result. Hence, the program does NOT look at the arm angle column and you will notice that some of the .csv files in the final product folder have constant arm angles that do not change, but in reality, the program is automatically calculating the arm angle step size based on how many data points there are. This mathematical shortcut can be easily removed and each data point can be read and evaluated, the team just thought this shortcut could save the user some time and if all the input data has sequential step sizes that this shortcut wouldn't be an issue.
+
 The output file is the 3D file that is generated. This file MUST END with
 either .stl or .x3d. The program will automatically check the file
 extension you inputted and format it correctly for that file extension
-
-The Quality % was made for the purpose of saving time and space. The Quality % is a
-percentage of how many of the data points provided (in the input file) will
-actually be used to generate the output file. This was made to give the
-user the OPTION to slightly lower the quality of the 3D shape so that stl and
-x3d file can still have the relative shape of the antenna pattern while taking
-up less space on the hard drive and taking less time to process through
-this program. Regardless of how low the quality % is set, there will always
-be at least 30 data points used by the program. So you use all of the data
-points, this value should be 100, to use have of them, this value should be 50
 
 The Binrary Value to show the plot can either be 1 or 0 and is used for
 debugging purposes. If set to 1, the program will display a plot of the

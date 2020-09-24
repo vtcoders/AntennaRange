@@ -10,6 +10,7 @@ and x3d file
 
 def surface2x3d(X, Y, Z, gain, minGain, maxGain, filename):
     
+    precision = 2  # number of decimal places
     x3dFile = open(filename, "w")
     # All of the inital data to start the top of the file
     x3dFile.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
@@ -31,7 +32,7 @@ def surface2x3d(X, Y, Z, gain, minGain, maxGain, filename):
     colorDataFile = open(".colorDataTemp", "w")
     for i in range(len(Z) - 1):
         percent = (i / (len(Z) - 1)) * 100.0
-        print(str(percent) + "%")
+        print(str(round(percent, 1)) + "%")
         for j in range(len(Z[0]) - 1):
             coordIndexData = ""
             coordPointData = ""
@@ -40,17 +41,17 @@ def surface2x3d(X, Y, Z, gain, minGain, maxGain, filename):
             point2 = [X[i][j + 1],     Y[i][j + 1],     Z[i][j + 1]]
             point3 = [X[i + 1][j + 1], Y[i + 1][j + 1], Z[i + 1][j + 1]]
             
-            coordPointData = coordPointData + str(point1[0]) + " " + str(point1[1]) + " " + str(point1[2]) + ", "
-            coordPointData = coordPointData + str(point2[0]) + " " + str(point2[1]) + " " + str(point2[2]) + ", "
-            coordPointData = coordPointData + str(point3[0]) + " " + str(point3[1]) + " " + str(point3[2]) + ", "
+            coordPointData = coordPointData + str(round(point1[0], precision)) + " " + str(round(point1[1], precision)) + " " + str(round(point1[2], precision)) + ", "
+            coordPointData = coordPointData + str(round(point2[0], precision)) + " " + str(round(point2[1], precision)) + " " + str(round(point2[2], precision)) + ", "
+            coordPointData = coordPointData + str(round(point3[0], precision)) + " " + str(round(point3[1], precision)) + " " + str(round(point3[2], precision)) + ", "
             
             point1 = [X[i + 1][j + 1], Y[i + 1][j + 1], Z[i + 1][j + 1]]
             point2 = [X[i + 1][j],     Y[i + 1][j],     Z[i + 1][j]]
             point3 = [X[i][j],         Y[i][j],         Z[i][j]]
             
-            coordPointData = coordPointData + str(point1[0]) + " " + str(point1[1]) + " " + str(point1[2]) + ", "
-            coordPointData = coordPointData + str(point2[0]) + " " + str(point2[1]) + " " + str(point2[2]) + ", "
-            coordPointData = coordPointData + str(point3[0]) + " " + str(point3[1]) + " " + str(point3[2]) + ", "
+            coordPointData = coordPointData + str(round(point1[0], precision)) + " " + str(round(point1[1], precision)) + " " + str(round(point1[2], precision)) + ", "
+            coordPointData = coordPointData + str(round(point2[0], precision)) + " " + str(round(point2[1], precision)) + " " + str(round(point2[2], precision)) + ", "
+            coordPointData = coordPointData + str(round(point3[0], precision)) + " " + str(round(point3[1], precision)) + " " + str(round(point3[2], precision)) + ", "
             
             coordPointData = coordPointData + "\n"
             
@@ -60,8 +61,9 @@ def surface2x3d(X, Y, Z, gain, minGain, maxGain, filename):
             blue = float(max(0, 1 * (1 - ratio)))
             red = float(max(0, 1 * (ratio - 1)))
             green = 1 - blue - red
-            colorData = colorData + str(red) + " " + str(green) + " " + str(blue) + "\n"
-            colorData = colorData + str(red) + " " + str(green) + " " + str(blue) + "\n"
+            
+            colorData = colorData + str(round(red, precision)) + " " + str(round(green, precision)) + " " + str(round(blue, precision)) + "\n"
+            colorData = colorData + str(round(red, precision)) + " " + str(round(green, precision)) + " " + str(round(blue, precision)) + "\n"
             colorDataFile.write(colorData)
             
             coordIndexData = coordIndexData + str(num) + " " + str(num + 1) + " " + str(num + 2) + " -1\n"

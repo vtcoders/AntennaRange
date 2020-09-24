@@ -18,53 +18,37 @@ import patternAdjuster
 import surf2stl
 import surf2x3d
 
-if len(sys.argv) != 5:
+if len(sys.argv) != 4:
     print("Error: incorrect number of arguements!")
-    print("Call the program like: ./program <Input file> <File to output> <Quality %> <Binary value to show plot>")
+    print("Call the program like: ./program <Input file> <File to output> <Binary value to show plot>")
     print("The input file must end with .txt or .csv")
     print("The output file must end with .stl or .x3d")
-    print("The quality percent is a percentage of how many data points should be used from the input file")
-    print("in order to generate the 3d file. A value of 100% is all the data points")
-    print("The lowest amount of data points that can be used is 30 data points")
-    print("If the qaulity percent makes this number lower,")
-    print("the program will automatically use 30 data points")
     
-    print("\nExample: ./program input.txt output.x3d 50 0")
+    print("\nExample: ./program input.txt output.x3d 0")
     sys.exit()
 
 #Extract input arguments
 inputFile = sys.argv[1]
 outputFile = sys.argv[2]
-qualityPercent = sys.argv[3]
-showPlot = sys.argv[4]
+showPlot = sys.argv[3]
 
 #Make sure the input arguments are valid
 if inputFile[-4:] != ".txt" and inputFile[-4:] != ".csv":
     print("Error: the input file must end in .txt or .csv!!")
     print("Call the program like: ./program <Input file> <File to output> <Binary value to show plot>")
-    print("Example: ./program input.txt output.x3d 50 0")
+    print("Example: ./program input.txt output.x3d 0")
     sys.exit()
 
 if outputFile[-4:] != ".stl" and outputFile[-4:] != ".x3d":
     print("Error: the output file must end in .stl or .x3d!!")
     print("Call the program like: ./program <Input file> <File to output> <Binary value to show plot>")
-    print("Example: ./program input.txt output.x3d 50 0")
-    sys.exit()
-
-try:
-    qualityPercent = float(qualityPercent) / 100.0
-except ValueError:
-    print("Error: The quality % must be an int or a float value!!")
-    sys.exit()
-
-if qualityPercent <= 0 or qualityPercent > 100:
-    print("Error: the quality percent must be greater than 0 and no bigger than 100!!")
+    print("Example: ./program input.txt output.x3d 0")
     sys.exit()
     
 if showPlot != "1" and showPlot != "0":
     print("Error: the plot value must be either a 1 or a 0!!")
     print("Call the program like: ./program <Input file> <File to output> <Binary value to show plot>")
-    print("Example: ./program input.txt output.x3d 50 0")
+    print("Example: ./program input.txt output.x3d 0")
     sys.exit()
 
 #np.set_printoptions(threshold=sys.maxsize)
@@ -74,20 +58,26 @@ if showPlot != "1" and showPlot != "0":
 antennaReader = AntennaReader.AntennaReader(inputFile)
 antennaReader.ReadEntireFile()
 
+armAngles = antennaReader.GetArmAngle()
+
+masterAngles = antennaReader.GetMasterAngle()
+masterAngleDataPoints = 1
+firstMasterValue = masterAngles[0]
+
+for i in range(len(masterAngles)):
+    if firstMasterValue != masterAngles[i + 1]:
+        masterAngleDataPoints = masterAngleDataPoints + 1
+    else:
+        break
+
 #Get the raw gain from the input file
 rawGain = antennaReader.GetTransmissionRSSI()
-dataPoints = int(len(rawGain) * qualityPercent) # use int() to truncate
-
-# Always use at least 30 data points
-if dataPoints < 30:
-    dataPoints = 30
+armAngleDataPoints = int(len(rawGain) / masterAngleDataPoints)
 
 #Setup theta and phi for spherical coordinate graphing
-theta, phi = np.linspace(0, 2 * np.pi, 181), np.linspace(0, np.pi * 89/90, 90)
-# IMPORTANT: it is set up so that there the amount of rows is double the amount of columns
-# ^This should not be changed as the majority of the processing uses this fact
-# to make the mathematical calculations much easier!!
-theta, phi = patternAdjuster.adjust_pattern_size(theta, phi, dataPoints)
+theta, phi = np.linspace(0, 2 * np.pi, int(masterAngleDataPoints)), np.linspace(0, np.pi * 89/90, armAngleDataPoints)
+
+theta, phi = patternAdjuster.adjust_pattern_size(theta, phi, masterAngleDataPoints, armAngleDataPoints)
 
 #the actual gain that will be used for processing
 gain = [[0.0 for i in range(len(phi[0]))] for j in range(len(phi))]
@@ -97,37 +87,36 @@ gain = [[0.0 for i in range(len(phi[0]))] for j in range(len(phi))]
 minGain = 0.0
 maxGain = 0.0
 if outputFile[-4:] == ".x3d":
-    for i in range(len(gain)):
-        for j in range(len(gain[i])):
-            index = int((i * int(len(rawGain))) / (dataPoints * 2))
-            #dataPoints * 2 becaise the amount of rows is double the amount of columns
+    for i in range(len(gain[0])):
+        for j in range(len(gain)):
+            index = (i * masterAngleDataPoints) + j
             #logatithmic normalization
             if index < len(rawGain):    
-                gain[i][j] = 10 * (rawGain[index] + 20)
+                gain[j][i] = 10 * (rawGain[index] + 20)
             else:
-                gain[i][j] = 10 * (rawGain[-1] + 20)
+                gain[j][i] = 10 * (rawGain[-1] + 20)
                     
-            if gain[i][j] < 0.0:
-                gain[i][j] = 0.0
+            if gain[j][i] < 0.0:
+                gain[j][i] = 0.0
             
             #find max and min
-            if gain[i][j] < minGain:
-                minGain = gain[i][j]
-            if gain[i][j] > maxGain:
-                maxGain = gain[i][j]
+            if gain[j][i] < minGain:
+                minGain = gain[j][i]
+            if gain[j][i] > maxGain:
+                maxGain = gain[j][i]
 else:
-    for i in range(len(gain)):
-        for j in range(len(gain[i])):
-            index = int((i * int(len(rawGain))) / (dataPoints * 2))
-            #dataPoints * 2 becaise the amount of rows is double the amount of columns
+    for i in range(len(gain[0])):
+        for j in range(len(gain)):
+            index = (i * masterAngleDataPoints) + j
             #logatithmic normalization
             if index < len(rawGain):    
-                gain[i][j] = 10 * (rawGain[index] + 20)
+                gain[j][i] = 10 * (rawGain[index] + 20)
             else:
-                gain[i][j] = 10 * (rawGain[-1] + 20)
-                
-            if gain[i][j] < 0.0:
-                gain[i][j] = 0.0
+                gain[j][i] = 10 * (rawGain[-1] + 20)
+                    
+            if gain[j][i] < 0.0:
+                gain[j][i] = 0.0
+
 
 #for pathing the slot
 for i in range(int(len(gain) / 2)):
@@ -138,11 +127,11 @@ for i in range(int(len(gain) / 2)):
 #Convert the gain to a numpy array for easier processing
 gain = np.array(gain)
 
-
 #Convert from spherical coordinates to cartesian coordinates
 X = gain * np.sin(theta) * np.cos(phi)
 Y = gain * np.sin(theta) * np.sin(phi)
 Z = gain * np.cos(theta)
+
 
 #Show the plot based on the input argument
 if showPlot == "1":
