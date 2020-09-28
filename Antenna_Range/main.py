@@ -11,7 +11,7 @@ import sys
 import time
 import pdb
 from pprint import pprint
-
+import csv
 
 def main():
     if len(sys.argv) > 1 and sys.argv[1] == "--ui":
@@ -73,9 +73,41 @@ def main():
                 print("Exiting...\n")
                 quit = True
         return # exit since we're running in UI mode and user quit
-    # network mode
-    print("Network mode not yet operational, run with \"--ui\" for interactive mode.")
-    # TODO finish networking
+
+    #Read from a config file, run on Tricorder, and send output file back to Rock
+    if len(sys.argv) > 1:
+        with open(sys.argv[1], 'r') as csvfile:    
+            entry = csv.reader(csvfile, delimiter=',')
+            
+            for row in entry:
+                #Header: frequency,mast_start_angle,mast_end_angle,mast_steps,arm_start_angle,arm_end_angle,arm_steps
+                if row[0] == 'frequency' or row[0] == '':
+                    continue
+                params = read_config_file(row)
+
+                if(params == None):
+                    print("Config File not formatted properly. Exiting...\n")
+                    return -1 #Indicate Failure
+                
+                #Run Antenna
+                #TODO Find Proper location for SCP
+                results = do_scan(params, str(sys.argv[1])) #mast_angle, arm_angle, background_rssi, transmission_rssi
+
+                if(results == None):
+                    print("Error on antenna itself. Exiting...\n")
+                    return -2 #Indicate Failure
+
+                #Plot Results
+                #TODO Find Proper location for SCP
+                plot_graph = PlotGraph(data, str(sys.argv[1]))
+                plot_graph.savefig(str(sys.argv[1])+".png") 
+
+            return 0 #Indicate success
+    else:
+        # network mode
+        print("Network mode not yet operational, run with \"--ui\" for interactive mode.")
+        # TODO finish networking
+
 
 
 def get_scan_parameters():
@@ -112,6 +144,46 @@ def get_scan_parameters():
 	parameters = (frequency, mast_steps, mast_start_angle, mast_end_angle, arm_steps, arm_start_angle, arm_end_angle)
 	return parameters
 
+#Reads the inputted config file and validates input
+def read_config_file(row):
+    if len(row) < 7:
+        print("Number of Parameters is Incorrect. See example file.")
+        return None
+
+    #Inputted Params
+    frequency = float(row[0])
+    mast_start_angle = float(row[1])
+    mast_end_angle = float(row[2])
+    mast_steps = float(row[3])
+    arm_start_angle = float(row[4])
+    arm_end_angle = float(row[5])
+    arm_steps = float(row[6])
+
+    #Validate each scan parameter from user
+    if (frequency < 30.0*1e6 or frequency > 6000.0*1e6):
+        print("Invalid frequency (30.0*1e6 to 6000.0*1e6)")
+        return None
+    if (mast_steps < 1 or mast_steps > 1275):# mast angle resolution 0.28 degrees (24/85 of a degree)
+        print("Invalid mast sampling steps (1 to 1275)")
+        return None
+    if (mast_start_angle < -180.0 or mast_start_angle > 180.0):
+        print("Invalid mast starting angle (-180.0 to 180.0)")
+        return None
+    if (mast_end_angle < mast_start_angle or mast_end_angle > 180.0):
+        print("Invalid  mast ending angle (-180.0 to 180.0, >= starting angle)")
+        return None
+    if (arm_steps < 1 or arm_steps > 750): # arm angle resolution 0.48 degrees
+        print("Invalid arm sampling steps (1 to 1275, 1 for 2D scan)")
+        return None
+    if (arm_start_angle < -180.0 or arm_start_angle > 180.0):
+        print("Invalid arm starting angle (-180.0 to 180.0, 0 for 2D scan)")
+        return None
+    if (arm_end_angle < arm_start_angle or arm_end_angle > 180.0):
+        print("Invalid arm arm ending angle (-180.0 to 180.0, >= starting angle or 0 for 2D scan)")
+        return None
+
+    #Properly formatted, return as tuple
+    return (frequency, mast_steps, mast_start_angle, mast_end_angle, arm_steps, arm_start_angle, arm_end_angle)
 
 def show_menu(choices):
     if choices == []:
@@ -131,7 +203,7 @@ def show_menu(choices):
     return selection
 
 
-def do_scan(parameters):
+def do_scan(parameters, inputFileName):
     frequency,mast_steps,mast_start_angle,mast_end_angle,arm_steps,arm_start_angle,arm_end_angle = parameters
     # perform a scan with the given sweep limits and step resolution
     net_listener = NetworkListener()
@@ -142,6 +214,7 @@ def do_scan(parameters):
         print("Successfully connected to motor controller.")
     else:
         print("Error: Motor controller not responding, verify connections.")
+        return None
     motor_controller.reset_orientation()
 
     tx_radio_id = "hackrf=56a75f"
@@ -164,7 +237,7 @@ def do_scan(parameters):
 
     # open antenna scan log file and add data header
     filename_prefix = time.strftime("%d-%b-%Y_%H-%M-%S")
-    filename = filename_prefix + "antenna_data.txt"
+    filename = filename_prefix + "antenna_data_"+ inputFileName+".txt" #TODO Find Proper location for SCP
     datafile_fp = open(filename, 'w')
     datafile_fp.write("% Mast Angle, Arm Angle, Background RSSI, Transmission RSSI\n")
     antenna_data = []
@@ -201,6 +274,7 @@ def do_scan(parameters):
                 print("Background RSSI: "+str(background_rssi))
             else:
                 print("ERROR: Background RSSI unavailable!")
+                return None
             #print("Sampling complete")
 
             # transmission rssi reading
@@ -216,6 +290,7 @@ def do_scan(parameters):
                 print("Transmission RSSI: "+str(transmission_rssi))
             else:
                 print("ERROR: Transmission RSSI unavailable!")
+                return None
             #print("Sampling complete")
 
             # write rssi readings to file
