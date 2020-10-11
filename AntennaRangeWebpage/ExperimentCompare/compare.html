@@ -69,7 +69,7 @@
                             <!--Put x3d model right here-->
                             <x3d width='100%' height='100%'> 
                                 <scene>
-                                    <inline id="x3dModel1" url="./test_full.x3d" render="true"></inline>
+                                    <inline nameSpaceName="Model1" mapDEFtoID="true" onclick='makeTransparent();' url="./test_full.x3d" render="true"></inline>
                                     <inline nameSpaceName="Deer" mapDEFToID="true" onclick='redNose();' url="Deer.x3d" >  </inline>
                                     <inline id="x3dModel3" url="./HelloWorld.x3d"></inline>
                                     <inline id="x3dModel4"></inline>
@@ -141,10 +141,18 @@
                     else
                         document.getElementById('Deer__MA_Nose').setAttribute('diffuseColor', '0 0 0');
 
-                    if (document.getElementById('Deer__MA_Nose').getAttribute('transparency') != 1)
-                        document.getElemetById('Deer__MA_Nose').setAttribute('transparency', 1);
+                    if (document.getElementById('Deer__MA_Nose').getAttribute('transparency') == '1')
+                        document.getElemetById('Deer__MA_Nose').setAttribute('transparency', '0.5');
                     else
-                        document.getElementById('Deer__MA_Nose').setAttribute('transparency', .5);
+                        document.getElementById('Deer__MA_Nose').setAttribute('transparency', '1');
+                }
+
+                function makeTransparent()
+                {
+                    if(document.getElementById('Model1__Antenna Rage').getAttribute('transparency') == '1')
+                        document.getElementById('Model1__Antenna Rage').setAttribute('transparency', '0.5');
+                    else
+                        document.getElementById('Model1__Antenna Rage').setAttribute('transparency', '1');
                 }
 
                 function visibilityButtonClicked(button, modelID)
