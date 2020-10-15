@@ -141,7 +141,10 @@
                    // else
                    //     document.getElementById('Deer__MA_Nose').setAttribute('diffuseColor', '0 0 0');
 
-                    if (document.getElementById('Deer__MA_Pelt').setAttribute('transparency') = '0.25');
+                    if (document.getElementById('Deer__MA_Pelt').getAttribute('transparency') != '0.25')
+                        document.getElementById('Deer__MA_Pelt').setAttribute('transparency', '0.25');
+                    else
+                        document.getElementById('Deer__MA_Pelt').setAttribute('transparency', '0.0');
 
                     if (document.getElementById('Deer__MA_Nose').getAttribute('transparency') != '0.0' &&
                         document.getElementById('Deer__MA_Nose').getAttribute('transparency') != '0.25')
