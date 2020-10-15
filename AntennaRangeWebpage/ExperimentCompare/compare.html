@@ -141,10 +141,10 @@
                     else
                         document.getElementById('Deer__MA_Nose').setAttribute('diffuseColor', '0 0 0');
 
-                    if (document.getElementById('Deer__MA_Nose').getAttribute('transparency')== '1')
-                        document.getElemetById('Deer__MA_Nose').setAttribute('transparency', '.5');
+                    if (document.getElementById('Deer__MA_Nose').getAttribute('transparency')!= '0.0')
+                        document.getElemetById('Deer__MA_Nose').setAttribute('transparency', '0.0');
                     else
-                        document.getElementById('Deer__MA_Nose').setAttribute('transparency', '1');
+                        document.getElementById('Deer__MA_Nose').setAttribute('transparency', '0.5');
                 }
 
                 function makeTransparent()
