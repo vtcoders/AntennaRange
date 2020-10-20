@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D profile="Immersive" version="3.2">
+	<head>
+		<meta name="surf2x3d" content="VT Antenna Range Project Conversion Program"/>
+	</head>
+	<Scene>
+		<Transform>
+			<Group DEF="Plot">
+				<Shape DEF="Antenna Rage">
+					<IndexedFaceSet solid="false" colorPerVertex= "false" coordIndex="
+">
+					<Color color="
+"/>
+					<Coordinate point=""/>
+					</IndexedFaceSet>
+				</Shape>
+			</Group>
+		</Transform>
+	</Scene>
+</X3D>
