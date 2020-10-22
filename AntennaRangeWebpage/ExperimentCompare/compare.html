@@ -174,10 +174,10 @@
                 // used to change the transparency of x3d model
                 function updateTransparency(x3dmodelid, val)
                 {
-                    var id = x3dmodelid + '__MA_Pelt';
+                    var id = x3dmodelid.concat('__MA_Pelt');
                     var transparency = val / 100;
                     var transparencyString = transparency.toString();
-                    document.getElementById('Deer__MA_Pelt').setAttribute('transparency', transparencyString);
+                    document.getElementById(id).setAttribute('transparency', transparencyString);
                 }
 
                 function redNose()
