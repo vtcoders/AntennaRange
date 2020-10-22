@@ -31,7 +31,7 @@
                             </div>
                             <div class="row">
                                 <div class="column largeColumn"><p>Transparency:
-                                    <input type="number" min="0" max="100" step="100" value="0" class="sliderValue" id="mastAngleNumber" onchange="updateValue('mastAngleSlider', this.value)">
+                                    <input type="number" min="0" max="100" step="100" value="0" class="sliderValue" id="mastAngleNumber" onchange="updateValue('mastAngleSlider', this.value); updateTransparency('x3dModel1', this.value);">
                                     <input type="range" min="0" max="100" step="1" value="0" class="slider" id="mastAngleSlider" onchange="updateValue('mastAngleNumber', this.value); updateTransparency('x3dModel1', this.value);"></p></div>
                                 
                             </div>
