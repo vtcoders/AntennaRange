@@ -1,0 +1,2 @@
+frequency,mast_start_angle,mast_end_angle,mast_steps,arm_start_angle,arm_end_angle,arm_steps
+2.32e9,-180.0,180.0,31,-10.0,10.0,11
