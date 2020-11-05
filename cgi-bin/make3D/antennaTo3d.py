@@ -14,74 +14,87 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 import AntennaReader
+import ConfigReader
 import patternAdjuster
 import surf2stl
 import surf2x3d
 
-if len(sys.argv) != 4:
+if len(sys.argv) != 6:
     print("Error: incorrect number of arguements!")
-    print("Call the program like: ./program <Input file> <File to output> <Binary value to show plot>")
+    print("Call the program like: ./program <config file> <Input file> <File to output> <precision> <Binary value to show plot>")
     print("The input file must end with .txt or .csv")
     print("The output file must end with .stl or .x3d")
     
-    print("\nExample: ./program input.txt output.x3d 0")
+    print("\nExample: ./program config.csv input.txt output.x3d 2 0")
     sys.exit()
 
 #Extract input arguments
-inputFile = sys.argv[1]
-outputFile = sys.argv[2]
-showPlot = sys.argv[3]
+configFile = sys.argv[1]
+inputFile = sys.argv[2]
+outputFile = sys.argv[3]
+precision = int(sys.argv[4])
+showPlot = sys.argv[5]
 
 #Make sure the input arguments are valid
+if configFile[-4:] != ".txt" and configFile[-4:] != ".csv":
+    print("Error: the config File must be a .txt or a .csv")
+    print("Call the program like: ./program <config file> <Input file> <File to output> <precision> <Binary value to show plot>")
+    print("\nExample: ./program config.csv input.txt output.x3d 2 0")
+    
 if inputFile[-4:] != ".txt" and inputFile[-4:] != ".csv":
     print("Error: the input file must end in .txt or .csv!!")
-    print("Call the program like: ./program <Input file> <File to output> <Binary value to show plot>")
-    print("Example: ./program input.txt output.x3d 0")
+    print("Call the program like: ./program <config file> <Input file> <File to output> <precision> <Binary value to show plot>")
+    print("\nExample: ./program config.csv input.txt output.x3d 2 0")
     sys.exit()
 
 if outputFile[-4:] != ".stl" and outputFile[-4:] != ".x3d":
     print("Error: the output file must end in .stl or .x3d!!")
-    print("Call the program like: ./program <Input file> <File to output> <Binary value to show plot>")
-    print("Example: ./program input.txt output.x3d 0")
+    print("Call the program like: ./program <config file> <Input file> <File to output> <precision> <Binary value to show plot>")
+    print("\nExample: ./program config.csv input.txt output.x3d 2 0")
     sys.exit()
     
 if showPlot != "1" and showPlot != "0":
     print("Error: the plot value must be either a 1 or a 0!!")
-    print("Call the program like: ./program <Input file> <File to output> <Binary value to show plot>")
-    print("Example: ./program input.txt output.x3d 0")
+    print("Call the program like: ./program <config file> <Input file> <File to output> <precision> <Binary value to show plot>")
+    print("\nExample: ./program config.csv input.txt output.x3d 2 0")
     sys.exit()
 
-#np.set_printoptions(threshold=sys.maxsize)
+np.set_printoptions(threshold=sys.maxsize)
 # ^ uncomment for debugging purposes to print the data matrix fully
+
+configReader = ConfigReader.ConfigReader(configFile);
+configReader.ReadEntireFile()
+
+mastStartAngle = configReader.GetMasterStartAngle()# + 180.0
+mastEndAngle = configReader.GetMasterEndAngle()# + 180.0
+mastNumSteps = configReader.GetMasterAngleSteps()
+
+armStartAngle = configReader.GetArmStartAngle()# + 180.0
+print(armStartAngle)
+armEndAngle = configReader.GetArmEndAngle()# + 180.0
+armNumSteps = configReader.GetArmAngleSteps()
 
 #Read the input file
 antennaReader = AntennaReader.AntennaReader(inputFile)
 antennaReader.ReadEntireFile()
 
-armAngles = antennaReader.GetArmAngle()
+#mastAngles = patternAdjuster.GetMastAngles(mastStartAngle, mastEndAngle, mastNumSteps)
 
-masterAngles = antennaReader.GetMasterAngle()
-masterAngleDataPoints = 1
-firstMasterValue = masterAngles[0]
+#armAngles = patternAdjuster.GetArmAngles(armStartAngle, armEndAngle, armNumSteps)
 
-for i in range(len(masterAngles)):
-    if firstMasterValue != masterAngles[i + 1]:
-        masterAngleDataPoints = masterAngleDataPoints + 1
-    else:
-        break
-
+mastAngles, armAngles = patternAdjuster.GetAngles(mastStartAngle, mastEndAngle, mastNumSteps,
+                                                  armStartAngle, armEndAngle, armNumSteps)
+#print(mastAngles)
+#print(armAngles)
+#sys.exit()
 #Get the raw gain from the input file
 rawGain = antennaReader.GetTransmissionRSSI()
-armAngleDataPoints = int(len(rawGain) / masterAngleDataPoints)
-
-#Setup theta and phi for spherical coordinate graphing
-theta, phi = np.linspace(0, 2 * np.pi, int(masterAngleDataPoints)), np.linspace(0, np.pi * 89/90, armAngleDataPoints)
-
-theta, phi = patternAdjuster.adjust_pattern_size(theta, phi, masterAngleDataPoints, armAngleDataPoints)
 
 #the actual gain that will be used for processing
-gain = [[0.0 for i in range(len(phi[0]))] for j in range(len(phi))]
-
+gain = [[0.0 for i in range(len(armAngles[0]))] for j in range(len(armAngles))]
+#print(len(armAngles[0]))
+#print(len(armAngles))
+#sys.exit()
 
 #if its an x3d calculate max and min now to save processing time
 minGain = 0.0
@@ -89,7 +102,7 @@ maxGain = 0.0
 if outputFile[-4:] == ".x3d":
     for i in range(len(gain[0])):
         for j in range(len(gain)):
-            index = (i * masterAngleDataPoints) + j
+            index = (i * mastNumSteps) + j
             #logatithmic normalization
             if index < len(rawGain):    
                 gain[j][i] = 10 * (rawGain[index] + 20)
@@ -107,7 +120,7 @@ if outputFile[-4:] == ".x3d":
 else:
     for i in range(len(gain[0])):
         for j in range(len(gain)):
-            index = (i * masterAngleDataPoints) + j
+            index = (i * mastNumSteps) + j
             #logatithmic normalization
             if index < len(rawGain):    
                 gain[j][i] = 10 * (rawGain[index] + 20)
@@ -119,20 +132,22 @@ else:
 
 
 #for pathing the slot
+
 for i in range(int(len(gain) / 2)):
     temp = gain[i][len(gain[i]) - 1]
     gain[i][len(gain[i]) - 1] = gain[len(gain) - i - 1][len(gain[i]) - 1]
     gain[len(gain) - i - 1][len(gain[i]) - 1] = temp
-    
+
 #Convert the gain to a numpy array for easier processing
 gain = np.array(gain)
 
 #Convert from spherical coordinates to cartesian coordinates
-X = gain * np.sin(theta) * np.cos(phi)
-Y = gain * np.sin(theta) * np.sin(phi)
-Z = gain * np.cos(theta)
 
-
+X = gain * np.sin(mastAngles) * np.cos(armAngles)
+Y = gain * np.sin(mastAngles) * np.sin(armAngles)
+Z = gain * np.cos(mastAngles)
+print(X)
+#sys.exit();
 #Show the plot based on the input argument
 if showPlot == "1":
     print("Displaying plot!")
@@ -148,10 +163,10 @@ if showPlot == "1":
 #Create either an stl or an x3d based on the file extension of the output file
 if outputFile[-4:] == ".stl":
     print("Now converting \"" + inputFile + "\" to the stl file!: " + outputFile)
-    surf2stl.surface2stl(X, Y, Z, outputFile)
+    surf2stl.surface2stl(X, Y, Z, precision, outputFile)
 elif outputFile[-4:] == ".x3d":
     print("Now converting \"" + inputFile + "\" to x3d file!: " + outputFile)
-    surf2x3d.surface2x3d(X, Y, Z, gain, minGain, maxGain, outputFile)
+    surf2x3d.surface2x3d(X, Y, Z, gain, minGain, maxGain, precision, outputFile)
 else:
     print("Error trying to create the output file: " + outputFile)
     sys.exit()

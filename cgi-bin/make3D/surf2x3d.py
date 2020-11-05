@@ -8,9 +8,8 @@ and x3d file
 @author: Nick Tremaroli
 """
 
-def surface2x3d(X, Y, Z, gain, minGain, maxGain, filename):
+def surface2x3d(X, Y, Z, gain, minGain, maxGain, precision, filename):
     
-    precision = 2  # number of decimal places
     x3dFile = open(filename, "w")
     # All of the inital data to start the top of the file
     x3dFile.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
@@ -18,10 +17,12 @@ def surface2x3d(X, Y, Z, gain, minGain, maxGain, filename):
     x3dFile.write("\t<head>\n")
     x3dFile.write("\t\t<meta name=\"surf2x3d\" content=\"VT Antenna Range Project Conversion Program\"/>\n")
     x3dFile.write("\t</head>\n")
+    x3dFile.write("\t<Material DEF=\"MA_Pelt\" transparency=\"0.0\"/>\n")
     x3dFile.write("\t<Scene>\n")
     x3dFile.write("\t\t<Transform>\n")
     x3dFile.write("\t\t\t<Group DEF=\"Plot\">\n")
-    x3dFile.write("\t\t\t\t<Shape DEF=\"Antenna Rage\">\n")
+    x3dFile.write("\t\t\t\t<Shape DEF=\"Antenna Range\">\n")
+    
 
     coordIndexData = ""
     coordPointData = ""

@@ -14,7 +14,7 @@ class AntennaReader:
         self.filename = filename
         self.antennaRangeFile = open(self.filename, "r")
         if self.antennaRangeFile.mode != "r":
-            print("Error could not read that file")
+            print("Error could not read the antenna range file")
             sys.exit()
             
         self.masterAngle = []

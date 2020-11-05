@@ -10,13 +10,28 @@ the antenna range
 import math
 import numpy as np
 
-def adjust_pattern_size(theta, phi, masterDataPoints, armDataPoints):
-    phi_min = phi[0]
-    theta_min = theta[0]
-    phi_max = math.pi
+def GetAngles(mastStart, mastEnd, mastDataPoints, armStart, armEnd, armDataPoints):
+#    phi_min = phi[0]
+#    theta_min = theta[0]
+#    phi_max = math.pi * 2
     
     #Adjust theta and phi so processing and graphing is easier
-    theta_max = theta[-1]
-    phi_ret, theta_ret = np.meshgrid(np.linspace(phi_min, phi_max, armDataPoints),
-                                     np.linspace(theta_min, theta_max, masterDataPoints))
-    return theta_ret, phi_ret
+#    theta_max = theta[-1]
+    mastStart = (mastStart * math.pi) / 180.0
+    mastEnd = (mastEnd * math.pi) / 180.0
+
+
+    armStart = (armStart * math.pi) / 180.0
+    print(armStart)
+    print(armEnd)
+    armEnd = (armEnd * math.pi) / 180.0
+    print(armEnd)
+    armAngles, mastAngles = np.meshgrid(np.linspace(armStart, armEnd, armDataPoints),
+                                     np.linspace(mastStart, mastEnd, mastDataPoints))
+    return mastAngles, armAngles
+
+def GetMastAngles(mastStartAngle, mastEndAngle, mastSteps):
+    return np.linspace(mastStartAngle, mastEndAngle, mastSteps)
+
+def GetArmAngles(armStartAngle, armEndAngle, armSteps):
+    return np.linspace(armStartAngle, armEndAngle, armSteps)
