@@ -23,8 +23,8 @@
                 <div class="underline" style="background-color:#CF4520"><br></div>
                 <p>Please complete the required fields below to launch your new experiment.</p>
     
-                <form oninput="maDegPerStep.value=((parseFloat(maxMaNum.value) - parseFloat(minMaNum.value))/parseFloat(maSteps.value)).toFixed(2)"
-                oninput="maDegPerStep.value=1"
+                <form onchange="maDegPerStep.value=((parseFloat(maxMaNum.value) - parseFloat(minMaNum.value))/parseFloat(maSteps.value)).toFixed(2);
+                               armDegPerStep.value=((parseFloat(maxArmNum.value) - parseFloat(minArmNum.value)) / parseFloat(armSteps.value)).toFixed(2);"
                 action="/action_page.php">
                     <br>
                     <h3>Experiment Identification</h3>
@@ -52,28 +52,28 @@
                     <h3>Other Settings</h3>
     
                     <p>Minimum Mast Angle:</p>
-                    <input type="number" min="0" max="360" step="720" value="0" class="sliderValue" name="minMaNum" id="minMastAngleNumber" onchange="updateValue('minMastAngleSlider', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
-                    <input type="range" min="0" max="360" step=".5" value="0" class="slider" name="minMaSlid" mid="minMastAngleSlider" onchange="updateValue('minMastAngleNumber', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
+                    <input type="number" min="0" max="360" step="720" value="0" class="sliderValue" name="minMaNum" id="minMastAngleNumber" onchange="updateValue('minMastAngleSlider', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
+                    <input type="range" min="0" max="360" step=".5" value="0" class="slider" name="minMaSlid" mid="minMastAngleSlider" oninput="updateValue('minMastAngleNumber', this.value);" onchange="updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
                     
                     <p>Maximum Mast Angle:</p>
-                    <input type="number" min="0" max="360" step="720" value="0" class="sliderValue" name="maxMaNum" id="maxMastAngleNumber" onchange="updateValue('maxMastAngleSlider', this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
-                    <input type="range" min="0" max="360" step=".5" value="0" class="slider" name="maxMaSlid" id="maxMastAngleSlider" onchange="updateValue('maxMastAngleNumber', this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
+                    <input type="number" min="0" max="360" step="720" value="0" class="sliderValue" name="maxMaNum" id="maxMastAngleNumber" onchange="updateValue('maxMastAngleSlider', this.value);">
+                    <input type="range" min="0" max="360" step=".5" value="0" class="slider" name="maxMaSlid" id="maxMastAngleSlider" oninput="updateValue('maxMastAngleNumber', this.value);">
                     
                     <p>Mast Steps: <output name="maDegPerStep"></output> Degrees/Step</p>
-                    <input type="number" min="0" max="720" step="1" value="0" class="sliderValue" name="maSteps" id="mastStepsNumber" onchange="updateValue('mastStepsSlider', this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
-                    <input type="range" min="0" max="720" step="1" value="0" class="slider" id="mastStepsSlider" onchange="updateValue('mastStepsNumber', this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
+                    <input type="number" min="0" max="720" step="1" value="0" class="sliderValue" name="maSteps" id="mastStepsNumber" onchange="updateValue('mastStepsSlider', this.value);">
+                    <input type="range" min="0" max="720" step="1" value="0" class="slider" id="mastStepsSlider" oninput="updateValue('mastStepsNumber', this.value);">
                     
                     <p>Minimum Arm Angle:</p>
-                    <input type="number" min="0" max="360" step="720" value="0" class="sliderValue" id="minArmAngleNumber" onchange="updateValue('minArmAngleSlider', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
-                    <input type="range" min="0" max="360" step=".5" value="0" class="slider" id="minArmAngleSlider" onchange="updateValue('minArmAngleNumber', this.value);updateMaxFloor('maxArmAngleNumber','maxArmAngleSlider',this.value);">
+                    <input type="number" min="0" max="360" step="720" value="0" class="sliderValue" name="minArmNum" id="minArmAngleNumber" onchange="updateValue('minArmAngleSlider', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
+                    <input type="range" min="0" max="360" step=".5" value="0" class="slider" name="minArmSlid" id="minArmAngleSlider" oninput="updateValue('minArmAngleNumber', this.value);" onchange="updateMaxFloor('maxArmAngleNumber','maxArmAngleSlider',this.value);">
                     
                     <p>Maximum Arm Angle:</p>
-                    <input type="number" min="0" max="360" step="720" value="0" class="sliderValue" id="maxArmAngleNumber" onchange="updateValue('maxArmAngleSlider', this.value)">
-                    <input type="range" min="0" max="360" step=".5" value="0" class="slider" id="maxArmAngleSlider" onchange="updateValue('maxArmAngleNumber', this.value)">
+                    <input type="number" min="0" max="360" step="720" value="0" class="sliderValue" name="maxArmNum" id="maxArmAngleNumber" onchange="updateValue('maxArmAngleSlider', this.value);">
+                    <input type="range" min="0" max="360" step=".5" value="0" class="slider" name="maxArmSlid" id="maxArmAngleSlider" oninput="updateValue('maxArmAngleNumber', this.value);">
                    
-                    <p>Arm Steps:</p>
-                    <input type="number" min="0" max="720" step="1" value="0" class="sliderValue" id="armStepsNumber" onchange="updateValue('armStepsSlider', this.value)">
-                    <input type="range" min="0" max="720" step="1" value="0" class="slider" id="armStepsSlider" onchange="updateValue('armStepsNumber', this.value)">
+                    <p>Arm Steps: <output name="armDegPerStep"></output> Degrees/Step</p>
+                    <input type="number" min="0" max="720" step="1" value="0" class="sliderValue" name="armSteps" id="armStepsNumber" onchange="updateValue('armStepsSlider', this.value);">
+                    <input type="range" min="0" max="720" step="1" value="0" class="slider" id="armStepsSlider" oninput="updateValue('armStepsNumber', this.value);">
 
                     <br><br>
                     </div>
@@ -112,14 +112,6 @@
                         document.getElementById(id2).setAttribute('value', val);
                     }
                     
-                }
-                function updateDegrees(degreesId, maxAngleId, minAngleId, stepsId)
-                {
-                    var max = parseDouble(document.getElementById(maxAngleId).value);
-                    var min = parseDouble(document.getelementById(minAngleId).value);
-                    var steps = parseInt(document.getElementById(stepsId).value);
-                    var degPerStep = (max - min) / steps;
-                    document.getElementById(degreesId).setAttribute('value', degPerStep);
                 }
                 
             </script>
