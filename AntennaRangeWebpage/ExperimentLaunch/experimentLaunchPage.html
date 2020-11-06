@@ -23,8 +23,8 @@
                 <div class="underline" style="background-color:#CF4520"><br></div>
                 <p>Please complete the required fields below to launch your new experiment.</p>
     
-                <form onchange="maDegPerStep.value=((parseFloat(maxMaNum.value) - parseFloat(minMaNum.value))/parseFloat(maSteps.value)).toFixed(2);
-                               armDegPerStep.value=((parseFloat(maxArmNum.value) - parseFloat(minArmNum.value)) / parseFloat(armSteps.value)).toFixed(2);"
+                <form onchange="updateDegPerStep('maDegPerStep','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');
+                               updateDegPerStep('armDegPerStep','maxArmAngleNumber','minArmAngleNumber','armStepsNumber');"
                 action="/action_page.php">
                     <br>
                     <h3>Experiment Identification</h3>
@@ -59,7 +59,7 @@
                     <input type="number" min="0" max="360" step="720" value="0" class="sliderValue" name="maxMaNum" id="maxMastAngleNumber" onchange="updateValue('maxMastAngleSlider', this.value);">
                     <input type="range" min="0" max="360" step=".5" value="0" class="slider" name="maxMaSlid" id="maxMastAngleSlider" oninput="updateValue('maxMastAngleNumber', this.value);">
                     
-                    <p>Mast Steps: <output name="maDegPerStep"></output> Degrees/Step</p>
+                    <p>Mast Steps: <output id="maDegPerStep" name="maDegPerStep"></output> Degrees/Step</p>
                     <input type="number" min="0" max="720" step="1" value="0" class="sliderValue" name="maSteps" id="mastStepsNumber" onchange="updateValue('mastStepsSlider', this.value);">
                     <input type="range" min="0" max="720" step="1" value="0" class="slider" id="mastStepsSlider" oninput="updateValue('mastStepsNumber', this.value);">
                     
@@ -71,7 +71,7 @@
                     <input type="number" min="0" max="360" step="720" value="0" class="sliderValue" name="maxArmNum" id="maxArmAngleNumber" onchange="updateValue('maxArmAngleSlider', this.value);">
                     <input type="range" min="0" max="360" step=".5" value="0" class="slider" name="maxArmSlid" id="maxArmAngleSlider" oninput="updateValue('maxArmAngleNumber', this.value);">
                    
-                    <p>Arm Steps: <output name="armDegPerStep"></output> Degrees/Step</p>
+                    <p>Arm Steps: <output id="armDegPerStep" name="armDegPerStep"></output> Degrees/Step</p>
                     <input type="number" min="0" max="720" step="1" value="0" class="sliderValue" name="armSteps" id="armStepsNumber" onchange="updateValue('armStepsSlider', this.value);">
                     <input type="range" min="0" max="720" step="1" value="0" class="slider" id="armStepsSlider" oninput="updateValue('armStepsNumber', this.value);">
 
@@ -112,6 +112,20 @@
                         document.getElementById(id2).setAttribute('value', val);
                     }
                     
+                }
+
+                function updateDegPerStep(degId, maxValId, minValId, stepsId)
+                {
+                    var difference = parseFloat(document.getElementById(maxValId).value) - parseFloat(document.getElementById(minValId).value);
+                    var steps = parseFloat(document.getElementById(stepsId).value);
+                    if (difference >= 0 && steps > 0)
+                    {
+                        document.getElementById(degId).value = (difference / steps).toFixed(2);
+                    }
+                    else
+                    {
+                        document.getElementById(degId).value = "Invalid";
+                    }
                 }
                 
             </script>
