@@ -106,6 +106,7 @@ body, html {
     margin-top: -1px; /* Prevent double borders */
     background-color: #f6f6f6; /* Grey background color */
     padding: 12px; /* Add some padding */
+    bottom: 0;
     text-decoration: none; /* Remove default text underline */
     font-size: 18px; /* Increase the font-size */
     color: black; /* Add a black text color */
