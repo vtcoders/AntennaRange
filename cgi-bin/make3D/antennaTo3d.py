@@ -18,6 +18,7 @@ import ConfigReader
 import patternAdjuster
 import surf2stl
 import surf2x3d
+import Constants
 
 if len(sys.argv) != 6:
     print("Error: incorrect number of arguements!")
@@ -70,7 +71,6 @@ mastEndAngle = configReader.GetMasterEndAngle()# + 180.0
 mastNumSteps = configReader.GetMasterAngleSteps()
 
 armStartAngle = configReader.GetArmStartAngle()# + 180.0
-print(armStartAngle)
 armEndAngle = configReader.GetArmEndAngle()# + 180.0
 armNumSteps = configReader.GetArmAngleSteps()
 
@@ -92,9 +92,6 @@ rawGain = antennaReader.GetTransmissionRSSI()
 
 #the actual gain that will be used for processing
 gain = [[0.0 for i in range(len(armAngles[0]))] for j in range(len(armAngles))]
-#print(len(armAngles[0]))
-#print(len(armAngles))
-#sys.exit()
 
 #if its an x3d calculate max and min now to save processing time
 minGain = 0.0
@@ -127,8 +124,8 @@ else:
             else:
                 gain[j][i] = 10 * (rawGain[-1] + 20)
                     
-            if gain[j][i] < 0.0:
-                gain[j][i] = 0.0
+            if gain[j][i] < Constants.SLT_CUTOFF:
+                gain[j][i] = Constants.SLT_CUTOFF
 
 
 #for pathing the slot
@@ -146,7 +143,8 @@ gain = np.array(gain)
 X = gain * np.sin(mastAngles) * np.cos(armAngles)
 Y = gain * np.sin(mastAngles) * np.sin(armAngles)
 Z = gain * np.cos(mastAngles)
-print(X)
+   
+
 #sys.exit();
 #Show the plot based on the input argument
 if showPlot == "1":

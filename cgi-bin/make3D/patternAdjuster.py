@@ -22,10 +22,7 @@ def GetAngles(mastStart, mastEnd, mastDataPoints, armStart, armEnd, armDataPoint
 
 
     armStart = (armStart * math.pi) / 180.0
-    print(armStart)
-    print(armEnd)
     armEnd = (armEnd * math.pi) / 180.0
-    print(armEnd)
     armAngles, mastAngles = np.meshgrid(np.linspace(armStart, armEnd, armDataPoints),
                                      np.linspace(mastStart, mastEnd, mastDataPoints))
     return mastAngles, armAngles
