@@ -121,6 +121,10 @@
                     var degPerStep = (difference / steps);
                     var maxSteps = difference.toFixed(0);
                     document.getElementById(stepsId).setAttribute('max', difference);
+                    if (difference < 1)
+                    {
+                        document.getElementById(stepsId).value = difference;
+                    }
                     if (difference >= 1 && steps > 0)
                     {
                         document.getElementById(degId).value = (difference / steps).toFixed(2);
