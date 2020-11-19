@@ -71,7 +71,7 @@
                     <input type="number" min="-180" max="180" step="360" value="0" class="sliderValue" id="maxArmAngleNumber" onchange="updateValue('maxArmAngleSlider', this.value)">
                     <input type="range" min="-180" max="180" step="1" value="0" class="slider" id="maxArmAngleSlider" onchange="updateValue('maxArmAngleNumber', this.value)">
                    
-                    <p>Arm Steps:</p>
+                    <p>Arm Steps: <output name="armDegPerStep"></output> Degrees/Step</p>
                     <input type="number" min="0" max="360" step="1" value="0" class="sliderValue" id="armStepsNumber" onchange="updateValue('armStepsSlider', this.value)">
                     <input type="range" min="0" max="360" step="1" value="0" class="slider" id="armStepsSlider" onchange="updateValue('armStepsNumber', this.value)">
 
