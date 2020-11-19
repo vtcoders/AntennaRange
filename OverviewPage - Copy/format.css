@@ -1,0 +1,66 @@
+main {
+    padding: 25px 0px;
+	margin: auto;
+	width: 50%;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+.spacedText
+{
+    word-spacing:100px;
+}
+
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #CF4520;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 16.66666%;
+}
+
+.tablink:hover {
+  background-color: #d4765d;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  margin: auto;
+  width: 50%;
+  color: black;
+  display: none;
+  padding: 50px 20px;
+  height: 100%;
+}
+
+.roundImages
+{
+  height: 200px;
+	width: 200px;
+  border-radius: 50%;
+}
+
+#Home {background-color: white;}
+#Launch {background-color: white;}
+#Library {background-color: white;}
+#Models {background-color: white;}
+#Resources {background-color: white;}
+
+
