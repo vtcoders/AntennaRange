@@ -120,10 +120,7 @@
                     var steps = parseFloat(document.getElementById(stepsId).value);
                     var degPerStep = (difference / steps);
                     var maxSteps = difference.toFixed(0);
-                    if (degPerStep < 1)
-                    {
-                        document.getElementById(stepsId).setAttribute('max', maxSteps)
-                    }
+                    document.getElementById(stepsId).setAttribute('max', difference);
                     if (difference >= 1 && steps > 0)
                     {
                         document.getElementById(degId).value = (difference / steps).toFixed(2);
