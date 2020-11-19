@@ -23,7 +23,7 @@
                 <div class="underline" style="background-color:#CF4520"><br></div>
                 <p>Please complete the required fields below to launch your new experiment.</p>
     
-                <form onchange="updateDegPerStep('maDegPerStep','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');
+                <form onload="maDegPerStep.value = 'Invalid'; armDegPerStep.value = 'Invalid';" onchange="updateDegPerStep('maDegPerStep','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');
                                updateDegPerStep('armDegPerStep','maxArmAngleNumber','minArmAngleNumber','armStepsNumber');"
                 action="/action_page.php">
                     <br>
