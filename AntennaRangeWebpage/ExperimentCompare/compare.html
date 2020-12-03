@@ -96,7 +96,7 @@
                     </div>
                     <div class="column right">
                         <div id="navHelp">
-                            <button class="navHelp-button" id="navHelpButton">Help</button>
+                            <button class="navHelp-button" id="navHelpButton">Help</button onclick="updatePopup('navHelp');">
                             <div class="navHelp" id="navHelp">
                                 <h1>How to Navigate:</h1>
                                 <b>Rotate:                 Left/Left + Shift<b><br>
@@ -175,6 +175,10 @@
             </div>
 
             <script>
+                function updatePopup(id)
+                {
+                    document.getElementById(id).style.display = "block";
+                }
 
                 // used to change the value displayed in text box next to slider
                 function updateValue(id, val)
