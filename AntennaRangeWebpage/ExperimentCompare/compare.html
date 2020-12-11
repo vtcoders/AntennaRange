@@ -192,8 +192,8 @@
                 }
 
                 // used to change the transparency of x3d model
-                func// tion updateTransparency(x3dmodelid, val)
-                    var nameSpaceName = document.getElementById(x3dmodelid).getAttribute('nameSpaceName');
+                function updateTransparency(x3dmodelid, val)
+                {
                     var id = x3dmodelid.concat('__MA_Pelt');
                     var transparency = val / 100;
                     var transparencyString = transparency.toString();
