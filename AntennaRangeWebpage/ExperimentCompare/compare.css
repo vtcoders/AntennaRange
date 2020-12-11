@@ -369,23 +369,10 @@ Navigation help popup style stuff
   padding: 15px 10px;
   position: absolute;
   z-index: 1;
-  bottom: -925%;
-  left: 50%;
+  top: 200%;
+  right: 100%;
   opacity: .75;
 }
-
-/* Popup arrow
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  right: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-*/
 
 /* Toggle this class - hide and show the popup */
 .popup .show {
