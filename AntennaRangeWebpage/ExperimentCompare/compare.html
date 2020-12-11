@@ -195,10 +195,10 @@
                 function updateTransparency(x3dmodelid, val)
                 {
                     var name = document.getElementById(x3dmodelid).getAttribute('nameSpaceName');
-                    var id = x3dmodelid.concat(name);
+                    var id = name.concat("__MA_Pelt);
                     var transparency = val / 100;
                     var transparencyString = transparency.toString();
-                    document.getElementById('x3dModel2__MA_Pelt').setAttribute('transparency', transparencyString);
+                    document.getElementById(id).setAttribute('transparency', transparencyString);
                 }
 
                 function redNose()
