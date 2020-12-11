@@ -117,14 +117,14 @@ body, html {
   
   .sideBar {
     width: 33%;
-    height: 107%;
+    height: 107.5%;
     padding-right: 10px;
     overflow: auto;
   }
   
   .right {
     float: right;
-    width: 67.5%;
+    width: 67%;
     padding-left: 10px;
   }
 
