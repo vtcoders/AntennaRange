@@ -369,7 +369,7 @@ Navigation help popup style stuff
   padding: 15px 10px;
   position: absolute;
   z-index: 1;
-  top: 275%;
+  top: 250%;
   right: 0%;
   opacity: .75;
 }
