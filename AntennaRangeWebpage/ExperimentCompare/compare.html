@@ -59,7 +59,7 @@
                             </div>
                             <div class="row">
                                 <div class="column largeColumn"><p>Transparency:
-                                    <input type="number" min="0" max="100" step="100" value="0" class="sliderValue" id="tnumber3" onchange="updateValue('tslider3', this.value); updateTransparency3(this.value); updateTransparency('x3dModel3', this.value);">
+                                    <input type="number" min="0" max="100" step="100" value="0" class="sliderValue" id="tnumber3" onchange="updateValue('tslider3', this.value); updateTransparency('x3dModel3', this.value);">
                                     <input type="range" min="0" max="100" step="1" value="0" class="slider" style="padding-top:5px;" id="tslider3" onchange="updateValue('tnumber3', this.value); updateTransparency('x3dModel3', this.value);"></p></div>
                                 
                             </div>
@@ -200,15 +200,6 @@
                     var transparency = val / 100;
                     var transparencyString = transparency.toString();
                     document.getElementById('x3dModel2__MA_Pelt').setAttribute('transparency', transparencyString);
-                }
-
-                function updateTransparency3(val)
-                {
-                    var transparency = val / 100;
-                    console.log('UpdateTransparency3: ');
-                    console.log(transparency);
-                    var transparencyString = transparency.toString();
-                    document.getElementById('x3dModel3_MA_Pelt').setAttribute('transparency', transparencyString);
                 }
 
                 function redNose()
