@@ -3,7 +3,7 @@
 	<head>
 		<meta name="surf2x3d" content="VT Antenna Range Project Conversion Program"/>
 	</head>
-	<Material DEF="MA_Pelt" transparency="0.0"/>
+	<Material DEF="MA_Pelt" transparency="0.5"/>
 	<Scene>
 		<Transform>
 			<Group DEF="Plot">
