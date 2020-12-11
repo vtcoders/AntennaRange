@@ -96,13 +96,13 @@
                     </div>
                     <div class="column right">
                         <div id="navHelp">
-                            <button class="navHelp-button" id="navHelpButton">Help</button onclick="updatePopup('navHelp');">
-                            <div class="navHelp" id="navHelp">
-                                <h1>How to Navigate:</h1>
-                                <b>Rotate:                 Left/Left + Shift<b><br>
-                                <b>Pan:                    Mid/Left + Ctrl<b><br>
-                                <b>Zoom:                   Right/Wheel/Left + Alt<b><br>
-                                <b>Set center of rotation: Double-click Left
+                            <button class="navHelp-button" id="navHelpButton">Help</button onclick='updatePopup("navHelp");'>
+                            <div class="navHelp" style="display: none;" id="navHelp">
+                                <b>How to Navigate:</b>
+                                <p>Rotate:                 Left/Left + Shift<br>
+                                Pan:                    Mid/Left + Ctrl<br>
+                                Zoom:                   Right/Wheel/Left + Alt<br>
+                                Set center of rotation: Double-click Left</p>
                             </div> 
                         </div>
                         <div id="x3dModelWindow">
@@ -112,8 +112,8 @@
                                     <navigationInfo type='"examine" "any"' id="navType"></navigationInfo>
                                         <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" onclick='makeTransparent();' url="./test_full.x3d" render="true"></inline>
                                         <inline id="x3dModel2" nameSpaceName="Deer" mapDEFToID="true" onclick='redNose();' url="Deer.x3d" render="true">  </inline>
-                                        <inline id="x3dModel3" url="./HelloWorld.x3d" render="true"></inline>
-                                        <inline id="x3dModel4"></inline>
+                                        <inline id="x3dModel3" nameSpaceName="x3dModel3" mapDEFtoID="true" onclick='makeTransparent();' url="./sample1.x3d" render="true"></inline>
+                                        <inline id="x3dModel4" nameSpaceName="x3dModel4" mapDEFtoID="true" onclick='makeTransparent();' url="./sample2.x3d" render="true"></inline>
                                         <inline id="x3dModel5"></inline>
                                 </scene> 
                             </x3d>   
@@ -175,9 +175,14 @@
             </div>
 
             <script>
+
                 function updatePopup(id)
                 {
-                    document.getElementById(id).style.display = "block";
+                    var popup = document.getElementById(id);
+                       if(popup.style.display == 'block')
+                          popup.style.display = 'none';
+                       else
+                          popup.style.display = 'block';
                 }
 
                 // used to change the value displayed in text box next to slider
