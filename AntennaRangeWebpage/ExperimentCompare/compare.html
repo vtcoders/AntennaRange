@@ -96,7 +96,16 @@
                     </div>
                     <div class="column right">
                         <div id="navHelp">
-                            <button class="navHelp-button" id="navHelpButton">Help</button onclick='updatePopup("navHelp");'>
+                         <div class="popup" onclick="myFunction()">Help
+                          <span class="popuptext" id="myPopup">
+                                <b>How to Navigate:</b><br><br>
+                                Rotate:                 Left/Left + Shift<br>
+                                Pan:                    Mid/Left + Ctrl<br>
+                                Zoom:                   Right/Wheel/Left + Alt<br>
+                                Set center of rotation: Double-click Left
+                          </span>
+                        </div> 
+                            <button style="display: none;" class="navHelp-button" id="navHelpButton">Help</button onclick='updatePopup("navHelp");'>
                             <div class="navHelp" style="display: none;" id="navHelp">
                                 <b>How to Navigate:</b>
                                 <p>Rotate:                 Left/Left + Shift<br>
@@ -175,6 +184,11 @@
             </div>
 
             <script>
+
+                function myFunction() {
+                    var popup = document.getElementById("myPopup");
+                    popup.classList.toggle("show");
+                }
 
                 function updatePopup(id)
                 {
