@@ -355,6 +355,7 @@ Navigation help popup style stuff
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  z-index: 10;
 }
 
 /* The actual popup */
@@ -368,7 +369,7 @@ Navigation help popup style stuff
   padding: 15px 10px;
   position: absolute;
   z-index: 1;
-  bottom: -850%;
+  bottom: -925%;
   left: 50%;
   opacity: .75;
 }
