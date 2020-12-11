@@ -370,7 +370,7 @@ Navigation help popup style stuff
   z-index: 1;
   bottom: -850%;
   left: 50%;
-  opacity: 75;
+  opacity: .75;
 }
 
 /* Popup arrow
@@ -401,5 +401,5 @@ Navigation help popup style stuff
 
 @keyframes fadeIn {
   from {opacity: 0;}
-  to {opacity:.75 ;}
+  to {opacity: .75;}
 }
