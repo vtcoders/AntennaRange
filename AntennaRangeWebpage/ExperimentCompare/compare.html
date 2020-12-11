@@ -111,7 +111,7 @@
                                 <scene>
                                     <navigationInfo type='"examine" "any"' id="navType"></navigationInfo>
                                         <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" onclick='makeTransparent();' url="./test_full.x3d" render="true"></inline>
-                                        <inline id="x3dModel2" nameSpaceName="Deer" mapDEFToID="true" onclick='redNose();' url="Deer.x3d" render="true">  </inline>
+                                        <inline id="x3dModel2" nameSpaceName="x3dModel2" mapDEFToID="true" onclick='redNose();' url="Deer.x3d" render="true">  </inline>
                                         <inline id="x3dModel3" nameSpaceName="x3dModel3" mapDEFtoID="true" onclick='makeTransparent();' url="./sample1.x3d" render="true"></inline>
                                         <inline id="x3dModel4" nameSpaceName="x3dModel4" mapDEFtoID="true" onclick='makeTransparent();' url="./sample2.x3d" render="true"></inline>
                                         <inline id="x3dModel5"></inline>
@@ -198,7 +198,7 @@
                     var id = x3dmodelid.concat(name);
                     var transparency = val / 100;
                     var transparencyString = transparency.toString();
-                    document.getElementById('x3dModel1__MA_Pelt').setAttribute('transparency', transparencyString);
+                    document.getElementById('x3dModel2__MA_Pelt').setAttribute('transparency', transparencyString);
                 }
 
                 function redNose()
