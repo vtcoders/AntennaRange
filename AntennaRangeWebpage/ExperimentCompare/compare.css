@@ -370,6 +370,7 @@ Navigation help popup style stuff
   z-index: 1;
   bottom: -850%;
   left: 50%;
+  opacity: .9;
 }
 
 /* Popup arrow
@@ -387,7 +388,7 @@ Navigation help popup style stuff
 
 /* Toggle this class - hide and show the popup */
 .popup .show {
-  visibility: 0.9;
+  visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
 }
