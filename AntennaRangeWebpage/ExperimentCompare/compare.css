@@ -117,7 +117,9 @@ body, html {
   
   .sideBar {
     width: 33%;
+    height: 100%;
     padding-right: 10px;
+    overflow: auto;
   }
   
   .right {
@@ -369,7 +371,7 @@ Navigation help popup style stuff
   padding: 15px 10px;
   position: absolute;
   z-index: 1;
-  top: 240%;
+  top: 235%;
   right: 0%;
   opacity: .75;
 }
