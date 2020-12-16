@@ -116,8 +116,8 @@
                             <x3d width='100%' height='100%'> 
                                 <scene>
                                     <navigationInfo type='"examine" "any"' id="navType"></navigationInfo>
-                                        <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" url="./sample1.x3d" render="true"></inline>
-                                        <inline id="x3dModel2" nameSpaceName="x3dModel2" mapDEFToID="true" url="./Deer.x3d" render="true">  </inline>
+                                        <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" url="./Deer.x3d" render="true"></inline>
+                                        <inline id="x3dModel2" nameSpaceName="x3dModel2" mapDEFToID="true" url="./sample1.x3d" render="true">  </inline>
                                         <inline id="x3dModel3" nameSpaceName="x3dModel3" mapDEFtoID="true" url="./test_full.x3d" render="true"></inline
                                         <inline id="x3dModel4"></inline>
                                         <inline id="x3dModel5"></inline>
@@ -210,8 +210,6 @@
                     var id = name.concat(name);
                     var transparency = val / 100;
                     var transparencyString = transparency.toString();
-                    console.log(transparencyString);
-                    document.getElementById(name);
                     document.getElementById('x3dmodel1__MA_Pelt');
                     x3dom.reload();
                     document.getElementById('x3dModel1__MA_Pelt').setAttribute('transparency', transparencyString);
