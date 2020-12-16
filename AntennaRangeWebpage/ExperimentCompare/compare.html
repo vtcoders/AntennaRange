@@ -210,11 +210,15 @@
                     var id = name.concat(name);
                     var transparency = val / 100;
                     var transparencyString = transparency.toString();
+                    console.log(transparencyString);
+                    document.getElementById(name);
+                    document.getElementById('x3dmodel1__MA_Pelt');
                     x3dom.reload();
                     document.getElementById('x3dModel1__MA_Pelt').setAttribute('transparency', transparencyString);
                     x3dom.reload();
                 }
 
+                /**
                 function redNose()
                 {
                    // if(document.getElementById('Deer__MA_Nose').getAttribute('diffuseColor')!= '1 0 0')
@@ -243,6 +247,7 @@
                     else
                         document.getElementById('Model1__Antenna Rage').setAttribute('transparency', '1');
                 }
+                **/
 
                 function visibilityButtonClicked(button, modelID)
                 {
