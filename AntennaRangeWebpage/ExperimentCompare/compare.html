@@ -210,7 +210,9 @@
                     var id = name.concat(name);
                     var transparency = val / 100;
                     var transparencyString = transparency.toString();
+                    x3dom.reload();
                     document.getElementById('x3dModel2__MA_Pelt').setAttribute('transparency', transparencyString);
+                    x3dom.reload();
                 }
 
                 function redNose()
