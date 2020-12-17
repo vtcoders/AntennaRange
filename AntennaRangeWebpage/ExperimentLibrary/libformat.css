@@ -111,6 +111,8 @@ body, html {
     font-size: 18px; /* Increase the font-size */
     color: black; /* Add a black text color */
     display: block; /* Make it into a block element to fill the whole list */
+
+    height: 50px;
   }
   
   #myUL li a:hover:not(.header) {
@@ -119,4 +121,10 @@ body, html {
 
   .login {
     float: right !important; 
+}
+
+.view {
+  position: relative;
+  left: 85%;
+  bottom: 20px;
 }
