@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./launch.css">
+
+        <ul id="navigationBar" class="navBar sticky">
+            <li class="navButton header">Antenna Range Project</li>
+            <li class="navButton header"></li>
+            <li class="navButton"><a href="../home.html">Home</a></li>
+            <li class="navButton"><a href="../AboutPage/aboutPage.html">About</a></li>
+            <li class="navButton active"><a href="#LaunchPage">Launch</a></li>
+            <li class="navButton"><a href="../ExperimentLibrary/eLibrary.html">Library</a></li>
+            <li class="navButton"><a href="../ExternalResources/ExternalResources.html">Resources</a></li>
+            <li class="navButton"><a href="../AntennaModels/models.html">Models</a></li>
+        </ul>
+    </head>
+
+    <body>
+        <main>
+            <div class="colorContainer title" style="color:#333;background-color:white;">
+                <h3>Experiment Launch</h3>
+                <div class="underline" style="background-color:#CF4520"><br></div>
+                <p>Please complete the required fields below to launch your new experiment.</p>
+    
+                <form action="/action_page.php">
+                    <br>
+                    <h3>Experiment Identification</h3>
+                    <label for="name">Experiment Name:<br><br></label>
+                    <input type="text" id="name" name="name">
+    
+                    <br><br>
+                  
+                    <label for="name">Experiment ID:<br><br></label>
+                    <input type="text" id="id" name="id">
+                    <br><br>
+    
+                    <h3>Access Permissions</h3>
+                    <p>Privacy Settings:</p>
+                    <input type="radio" id="public" name="privacy" value="public">
+                    <label for="public">Public</label><br>
+                    <input type="radio" id="private" name="privacy" value="private">
+                    <label for="private">Private</label>
+                    
+                    <br><br>
+    
+                    <h3>Other Settings</h3>
+                    <p>Antenna Model:</p>
+                    <input type="radio" id="type1" name="antennaModel" value="type1">
+                    <label for="type1">Type 1</label><br>
+                    <input type="radio" id="type2" name="antennaModel" value="type2">
+                    <label for="type2">Type 2</label><br>
+                    <input type="radio" id="type3" name="antennaModel" value="type3">
+                    <label for="type3">Type 3</label><br>
+                    <input type="radio" id="type4" name="antennaModel" value="type4">
+                    <label for="type4">Type 4</label><br>
+                    <input type="radio" id="type5" name="antennaModel" value="type5">
+                    <label for="type5">Type 5</label>
+    
+                    <p>Other:</p>
+                    <input type="checkbox" id="option1" name="otherOptions" value="option1">
+                    <label for="option1">Option 1</label><br>
+                    <input type="checkbox" id="option2" name="otherOptions" value="option2">
+                    <label for="option2">Option 2</label><br>
+                    <br>
+                    </div>
+    
+                    <div class="colorContainer" style="background-color:#CF4520;color:rgb(238, 238, 238);">
+                    <input id=launchButton type="submit" value="Launch!">
+    
+                  </form>
+
+        <footer>
+
+        </footer>
+    </body>
+</html>
+

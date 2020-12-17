@@ -18,13 +18,13 @@
                 <div class="underline" style="background-color:#CF4520;color:rgb(238, 238, 238);"><br></div>
                 <p> Here, you can compare experiments side-by-side. To toggle graph visibility on and off for each experiment, click its visiblitiy button. To compare data from two experiments side-by-side, drag and drop into the fields at the bottom of the page.</p>
             </div>
-            <div class="colorContainer">
+            <div class="colorContainer" style="width: 100%; height: 100%;">
                 <div class="row">
                     <div class="column sideBar" style="color:#333;background-color:wwhite;">
                         <ul id="myUL">
                         <li>
                             <div class="row">
-                                <div class="column largeColumn"><a href="#" id="drag1" draggable="true" ondragstart="drag(event)">Experiment 5: Public, Date, Facilitator, AntennaType <br></a></div>
+                                <div class="column largeColumn"><a href="#" id="drag1" draggable="true" ondragstart="drag(event)">Experiment 1: Public, Date, Facilitator, AntennaType <br></a></div>
                                 <div class="column tinyColumn">
                                     <input type="image" onclick='visibilityButtonClicked(this, "x3dModel1")' src='./visible.png' class="visible"></input>
                                 </div>
@@ -38,15 +38,15 @@
                         </li>
                         <li>
                             <div class="row">
-                                <div class="column largeColumn"><a href="#" id="drag2" draggable="true" ondragstart="drag(event)">Experiment 4: Public, Date, Facilitator, AntennaType <br></a></div>
+                                <div class="column largeColumn"><a href="#" id="drag2" draggable="true" ondragstart="drag(event)">Experiment 2: Public, Date, Facilitator, AntennaType <br></a></div>
                                 <div class="column tinyColumn">
                                     <input type="image" onclick='visibilityButtonClicked(this, "x3dModel2")' src='./visible.png' class="visible"></input>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="column largeColumn"><p>Transparency:
-                                    <input type="number" min="0" max="100" step="100" value="0" class="sliderValue" id="tnumber2" onchange="updateValue('tslider2', this.value); updateTransparency('x3dModel1', this.value);">
-                                    <input type="range" min="0" max="100" step="1" value="0" class="slider" style="padding-top:5px;" id="tslider2" onchange="updateValue('tnumber2', this.value); updateTransparency('x3dModel1', this.value);"></p></div>
+                                    <input type="number" min="0" max="100" step="100" value="0" class="sliderValue" id="tnumber2" onchange="updateValue('tslider2', this.value); updateTransparency('x3dModel2', this.value);">
+                                    <input type="range" min="0" max="100" step="1" value="0" class="slider" style="padding-top:5px;" id="tslider2" onchange="updateValue('tnumber2', this.value); updateTransparency('x3dModel2', this.value);"></p></div>
                                 
                             </div>
                         </li>
@@ -59,51 +59,68 @@
                             </div>
                             <div class="row">
                                 <div class="column largeColumn"><p>Transparency:
-                                    <input type="number" min="0" max="100" step="100" value="0" class="sliderValue" id="tnumber3" onchange="updateValue('tslider3', this.value); updateTransparency('x3dModel1', this.value);">
-                                    <input type="range" min="0" max="100" step="1" value="0" class="slider" style="padding-top:5px;" id="tslider3" onchange="updateValue('tnumber3', this.value); updateTransparency('x3dModel1', this.value);"></p></div>
+                                    <input type="number" min="0" max="100" step="100" value="0" class="sliderValue" id="tnumber3" onchange="updateValue('tslider3', this.value); updateTransparency('x3dModel3', this.value);">
+                                    <input type="range" min="0" max="100" step="1" value="0" class="slider" style="padding-top:5px;" id="tslider3" onchange="updateValue('tnumber3', this.value); updateTransparency('x3dModel3', this.value);"></p></div>
                                 
                             </div>
                         </li>
                         <li>
                             <div class="row">
-                                <div class="column largeColumn"><a href="#" id="drag4" draggable="true" ondragstart="drag(event)">Experiment 2: Public, Date, Facilitator, AntennaType <br></a></div>
+                                <div class="column largeColumn"><a href="#" id="drag4" draggable="true" ondragstart="drag(event)">Experiment 4: Public, Date, Facilitator, AntennaType <br></a></div>
                                 <div class="column tinyColumn">
                                     <input type="image" onclick='visibilityButtonClicked(this, "x3dModel4")' src='./visible.png' class="visible"></input>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="column largeColumn"><p>Transparency:
-                                    <input type="number" min="0" max="100" step="100" value="0" class="sliderValue" id="tnumber4" onchange="updateValue('tslider4', this.value); updateTransparency('x3dModel1', this.value);">
-                                    <input type="range" min="0" max="100" step="1" value="0" class="slider" style="padding-top:5px;" id="tslider4" onchange="updateValue('tnumber4', this.value); updateTransparency('x3dModel1', this.value);"></p></div>
+                                    <input type="number" min="0" max="100" step="100" value="0" class="sliderValue" id="tnumber4" onchange="updateValue('tslider4', this.value); updateTransparency('x3dModel4', this.value);">
+                                    <input type="range" min="0" max="100" step="1" value="0" class="slider" style="padding-top:5px;" id="tslider4" onchange="updateValue('tnumber4', this.value); updateTransparency('x3dModel4', this.value);"></p></div>
                                 
                             </div>
                         </li>
                         <li>
                             <div class="row">
-                                <div class="column largeColumn"><a href="#" id="drag5" draggable="true" ondragstart="drag(event)">Experiment 1: Public, Date, Facilitator, AntennaType <br></a></div>
+                                <div class="column largeColumn"><a href="#" id="drag5" draggable="true" ondragstart="drag(event)">Experiment 5: Public, Date, Facilitator, AntennaType <br></a></div>
                                 <div class="column tinyColumn">
                                     <input type="image" onclick='visibilityButtonClicked(this, "x3dModel5")' src='./visible.png' class="visible"></input>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="column largeColumn"><p>Transparency:
-                                    <input type="number" min="0" max="100" step="100" value="0" class="sliderValue" id="tnumber5" onchange="updateValue('tslider5', this.value); updateTransparency('x3dModel1', this.value);">
-                                    <input type="range" min="0" max="100" step="1" value="0" class="slider" style="padding-top:5px;" id="tslider5" onchange="updateValue('tnumber5', this.value); updateTransparency('x3dModel1', this.value);"></p></div>
+                                    <input type="number" min="0" max="100" step="100" value="0" class="sliderValue" id="tnumber5" onchange="updateValue('tslider5', this.value); updateTransparency('x3dModel5', this.value);">
+                                    <input type="range" min="0" max="100" step="1" value="0" class="slider" style="padding-top:5px;" id="tslider5" onchange="updateValue('tnumber5', this.value); updateTransparency('x3dModel5', this.value);"></p></div>
                                 
                             </div>
                         </li>
                         </ul>
                     </div>
-                    <div class="column right">
-                        <div id="x3dModelWindow">
+                    <div class="column right" style="position: relative;">
+                        <div class="row" style="padding: 5px; border: 3px solid #CF4520;">
+                            3d Models:
+                            <div class="popup" style=" float: right;"onclick="myFunction()">
+                                <img src="InfoIcon.png" style="padding: .5px; height: 17; width: auto;"></img>
+                                    <span class="popuptext" id="myPopup">
+                                        <b>How to Navigate:</b><br><br>
+                                        Rotate:                 Left/Left + Shift<br>
+                                        Pan:                    Mid/Left + Ctrl<br>
+                                        Zoom:                   Right/Wheel/Left + Alt<br>
+                                        Set Center of Rotation: Double-click Left<br><br>
+                                        Reset View:             r<br>
+                                        Show all:               a<br>
+                                        Upright:                u
+                                    </span>
+                            </div> 
+                        </div>
+                        <div style="margin-top: 5px;" id="x3dModelWindow">
                             <!--Put x3d model right here-->
                             <x3d width='100%' height='100%'> 
                                 <scene>
-                                    <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" onclick='makeTransparent();' url="./test_full.x3d" render="true"></inline>
-                                    <inline id="x3dModel2" nameSpaceName="Deer" mapDEFToID="true" onclick='redNose();' url="Deer.x3d" render="true">  </inline>
-                                    <inline id="x3dModel3" url="./HelloWorld.x3d" render="true"></inline>
-                                    <inline id="x3dModel4"></inline>
-                                    <inline id="x3dModel5"></inline>
+                                    <navigationInfo type='"examine" "any"' id="navType"></navigationInfo>
+                                        <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" url="./sample1.x3d" render="true"></inline>
+                                        <inline id="x3dModel2" nameSpaceName="x3dModel2" mapDEFToID="true" url="./Deer.x3d" render="true">  </inline>
+                                        <inline id="x3dModel3" nameSpaceName="x3dModel3" mapDEFtoID="true" url="./test_full.x3d" render="true"></inline>
+                                        <inline id="x3dModel4"></inline>
+                                        <inline id="x3dModel5"></inline>
                                 </scene> 
                             </x3d>   
                         </div>
@@ -165,6 +182,20 @@
 
             <script>
 
+                function myFunction() {
+                    var popup = document.getElementById("myPopup");
+                    popup.classList.toggle("show");
+                }
+
+                function updatePopup(id)
+                {
+                    var popup = document.getElementById(id);
+                       if(popup.style.display == 'block')
+                          popup.style.display = 'none';
+                       else
+                          popup.style.display = 'block';
+                }
+
                 // used to change the value displayed in text box next to slider
                 function updateValue(id, val)
                 {
@@ -174,12 +205,18 @@
                 // used to change the transparency of x3d model
                 function updateTransparency(x3dmodelid, val)
                 {
-                    var id = x3dmodelid.concat('__MA_Pelt');
+                    var name = document.getElementById(x3dmodelid).getAttribute('nameSpaceName');
+                    console.log(name);
+                    var id = name.concat(name);
                     var transparency = val / 100;
                     var transparencyString = transparency.toString();
-                    document.getElementById('Deer__MA_Pelt').setAttribute('transparency', transparencyString);
+                    document.getElementById('x3dModel1__MA_Pelt');
+                    x3dom.reload();
+                    document.getElementById('x3dModel2__MA_Pelt').setAttribute('transparency', transparencyString);
+                    x3dom.reload();
                 }
 
+                /**
                 function redNose()
                 {
                    // if(document.getElementById('Deer__MA_Nose').getAttribute('diffuseColor')!= '1 0 0')
@@ -208,6 +245,7 @@
                     else
                         document.getElementById('Model1__Antenna Rage').setAttribute('transparency', '1');
                 }
+                **/
 
                 function visibilityButtonClicked(button, modelID)
                 {
