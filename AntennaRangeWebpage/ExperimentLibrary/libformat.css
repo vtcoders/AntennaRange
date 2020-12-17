@@ -123,6 +123,7 @@ body, html {
     float: right !important; 
 }
 
+/** Formatting */
 .view {
   position: relative;
   left: 85%;
