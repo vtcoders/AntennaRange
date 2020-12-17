@@ -24,47 +24,49 @@
                 <h3>Antenna Models</h3>
                 <div class="underline" style="background-color:#CF4520"><br></div>
                 <p>Select an antenna below to view its 3D model.</p>
-
-                <div class="row">
-                        <div class="column sideBar" style="color:#333;background-color:wwhite;" id="modelLookup">
-                            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Antenna Model...">
-                            <ul id="myUL">
-                                <li><a href="#">Antenna Model 1</a></li>
-                                <li><a href="#">Antenna Model 2</a></li>
-                                <li><a href="#">Antenna Model 3</a></li>
-                            </ul>
-                        </div>
-                        <div class="column right" style="position: relative;">
-                            <div class="row" style="padding: 5px; border: 3px solid #CF4520;">
-                                3d Models:
-                                <div class="popup" style=" float: right;"onclick="myFunction()">
-                                    <img src="infoIcon.png" style="padding: .5px; height: 17px; width: auto;"></img>
-                                    <span class="popuptext" id="myPopup">
-                                            <b>How to Navigate:</b><br><br>
-                                            Rotate:                 Left/Left + Shift<br>
-                                            Pan:                    Mid/Left + Ctrl<br>
-                                            Zoom:                   Right/Wheel/Left + Alt<br>
-                                            Set Center of Rotation: Double-click Left<br><br>
-                                            Reset View:             r<br>
-                                            Show all:               a<br>
-                                            Upright:                u
-                                    </span>
-                                </div>
-                            </div>
-                            <div style="margin-top: 5px;" id="x3dModelWindow">
-                                <!--Put x3d model right here-->
-                                <x3d width='100%' height='100%'> 
-                                    <scene>
-                                        <navigationInfo type='"examine" "any"' id="navType"></navigationInfo>
-                                            <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" url="./models/3L-Tape-Measure-Yagi-Assy.x3d" render="true"></inline>
-                                    </scene> 
-                                </x3d>   
-                            </div>
-                        </div>
-                 </div>
             </div>
- 
-        </main>
+
+            <div class="colorContainer" style="width: 100%; height: 100%;">
+                <div class="row">
+                    <div class="column sideBar" style="color:#333;background-color:wwhite;">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Antenna Model...">
+                        <ul id="myUL">
+                            <li><a href="#">Antenna Model 1</a></li>
+                            <li><a href="#">Antenna Model 2</a></li>
+                            <li><a href="#">Antenna Model 3</a></li>
+                        </ul>
+                    </div>
+                    <div class="column right" style="position: relative;">
+                        <div class="row" style="padding: 5px; border: 3px solid #CF4520;">
+                            3d Models:
+                            <div class="popup" style=" float: right;"onclick="myFunction()">
+                                <img src="infoIcon.png" style="padding: .5px; height: 17px; width: auto;"></img>
+                                    <span class="popuptext" id="myPopup">
+                                        <b>How to Navigate:</b><br><br>
+                                        Rotate:                 Left/Left + Shift<br>
+                                        Pan:                    Mid/Left + Ctrl<br>
+                                        Zoom:                   Right/Wheel/Left + Alt<br>
+                                        Set Center of Rotation: Double-click Left<br><br>
+                                        Reset View:             r<br>
+                                        Show all:               a<br>
+                                        Upright:                u
+                                    </span>
+                            </div> 
+                        </div>
+                        <div style="margin-top: 5px;" id="x3dModelWindow">
+                            <!--Put x3d model right here-->
+                            <x3d width='100%' height='100%'> 
+                                <scene>
+                                    <navigationInfo type='"examine" "any"' id="navType"></navigationInfo>
+                                        <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" url="./Deer.x3d" render="true"></inline>
+                                </scene> 
+                            </x3d>   
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+   </main>
 
         <footer>
             <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
