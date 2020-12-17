@@ -52,16 +52,16 @@
                     <h3>Other Settings</h3>
     
                    <p>Minimum Mast Angle:</p>
-                    <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" name="minMaNum" id="minMastAngleNumber" onchange="updateValue('minMastAngleSlider', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
-                    <input type="range" min="-180" max="180" step="1" value="0" class="slider" name="minMaSlid" mid="minMastAngleSlider" onchange="updateValue('minMastAngleNumber', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
+                    <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" name="minMaNum" id="minMastAngleNumber" onchange="updateValue('minMastAngleSlider', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
+                    <input type="range" min="-180" max="180" step="1" value="0" class="slider" name="minMaSlid" mid="minMastAngleSlider" onchange="updateValue('minMastAngleNumber', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
                     
                     <p>Maximum Mast Angle:</p>
-                    <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" name="maxMaNum" id="maxMastAngleNumber" onchange="updateValue('maxMastAngleSlider', this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
-                    <input type="range" min="-180" max="180" step="1" value="0" class="slider" name="maxMaSlid" id="maxMastAngleSlider" onchange="updateValue('maxMastAngleNumber', this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
+                    <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" name="maxMaNum" id="maxMastAngleNumber" onchange="updateValue('maxMastAngleSlider', this.value);">
+                    <input type="range" min="-180" max="180" step="1" value="0" class="slider" name="maxMaSlid" id="maxMastAngleSlider" onchange="updateValue('maxMastAngleNumber', this.value);">
                     
                     <p>Mast Steps: <output id="maDegPerStep" name="maDegPerStep"></output> Degrees/Step</p>
-                    <input type="number" min="0" max="360" step="1" value="0" class="sliderValue" name="maSteps" id="mastStepsNumber" onchange="updateValue('mastStepsSlider', this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
-                    <input type="range" min="0" max="360" step="1" value="0" class="slider" id="mastStepsSlider" onchange="updateValue('mastStepsNumber', this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
+                    <input type="number" min="0" max="360" step="1" value="0" class="sliderValue" name="maSteps" id="mastStepsNumber" onchange="updateValue('mastStepsSlider', this.value);">
+                    <input type="range" min="0" max="360" step="1" value="0" class="slider" id="mastStepsSlider" onchange="updateValue('mastStepsNumber', this.value);">
                     
                     <p>Minimum Arm Angle:</p>
                     <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" id="minArmAngleNumber" onchange="updateValue('minArmAngleSlider', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
