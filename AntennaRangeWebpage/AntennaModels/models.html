@@ -2,6 +2,9 @@
 <html>
     <head>
         <link rel="stylesheet" href="./models.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <script type='text/javascript' src='https://www.x3dom.org/download/x3dom.js'></script>
+        <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'></link>
 
         <ul id="navigationBar" class="navBar sticky">
             <li class="navButton header">Antenna Range Project</li>
@@ -23,7 +26,7 @@
                 <p>Select an antenna below to view its 3D model.</p>
 
                 <div class="row">
-                    <div class="column sideBar" style="color:#333;background-color:wwhite;" id="modelLookup">
+                    <div class="column sideBar" style="color:#333;background-color:white;" id="modelLookup">
                         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Antenna Model...">
                         <ul id="myUL">
                             <li><a href="#">Antenna Model 1</a></li>
@@ -35,17 +38,18 @@
                         <div class="row" style="padding: 5px; border: 3px solid #CF4520;">Model</div>
                         <div style="margin-top: 5px;" id="x3dModelWindow">
                             <!--Put x3d model right here-->
+                            Bruh... is this even showing?
                             <x3d width='100%' height='100%'> 
                                 <scene>
                                     <navigationInfo type='"examine" "any"' id="navType"></navigationInfo>
-                                        <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" url="./3L-Tape-Measure-Yagi-Assy.x3d" render="true"></inline>
+                                        <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" url="./models/Deer.x3d" render="true"></inline>
                                 </scene> 
                             </x3d>   
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="column right"  style="position: relative;" id="modelViewer">
+            <div style="position: relative;" id="modelViewer">
                         <p>Model:</p>
                         <button id="button">Load</button>
                         <br>
@@ -53,6 +57,7 @@
                         <div id="iframeHolder"></div>
                     </div>
 
+            
  
         </main>
 
