@@ -164,3 +164,50 @@ Styling for columns
     overflow: auto;
   }
 
+  /* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 3;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 310px;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 15px 10px;
+  position: absolute;
+  z-index: 1;
+  top: 235%;
+  right: 0%;
+  opacity: .75;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: .75;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: .75;}
+}
+
+/**END OF POPUP**/
