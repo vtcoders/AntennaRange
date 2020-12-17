@@ -137,3 +137,30 @@ body, html {
 .login {
   float: right !important; 
 }
+
+/**
+Styling for columns
+**/
+.row
+{
+  height: auto;
+}
+
+ .column {
+    float: left;
+    padding: 0px;
+  }
+
+ .right {
+    float: right;
+    width: 67%;
+    padding-left: 10px;
+  }
+
+  .sideBar {
+    width: 33%;
+    height: 107.5%;
+    padding-right: 10px;
+    overflow: auto;
+  }
+
