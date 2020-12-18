@@ -129,6 +129,7 @@
                 </div>
                 <div class="row">
                     <br><br>
+                    THIS ELEMENT HASN'T BEEN FINISHED YET :)
                     <div id="drop3" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplitFirst">Categories<br>Experiment Name: <br>Date: <br> Mast Angle: <br>Arm Angle: <br>Transmission RSSI: <br>Background RSSI: </div>
                     <div id="drop4" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplit">
                         Drop Here
@@ -207,7 +208,6 @@
                 {
                     var name = document.getElementById(x3dmodelid).getAttribute('nameSpaceName');
                     var id = name.concat('__AntennaRange_MA_Pelt');
-                    console.log(id);
                     var transparency = val / 100;
                     var transparencyString = transparency.toString();
                     if (document.getElementById(id))
