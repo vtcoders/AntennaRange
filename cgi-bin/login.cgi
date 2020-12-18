@@ -18,14 +18,10 @@ print(
 </head>
 <body>
 
-  <h1>You've Logged into the Antenna Range!</h1>
+<h1>Hello """ + username + """!</h1>
 
 <h2>
-Your username was:<br>""" + username + """ 
-</h2>
-
-<h2>
-Your password was:<br>""" + password + """
+Thank you for logging on to the Antenna Range! This feature is yet to be fully implemented but will be soon!
 </h2>
 
 
