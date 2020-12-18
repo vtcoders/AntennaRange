@@ -9,7 +9,7 @@
 			<Group DEF="Plot">
 				<Shape DEF="Antenna Range" transparency = "0.0">
 <Appearance>
-<Material DEF="Antenna Range_MA_Pelt" transparency="0.0"/>
+<Material DEF="Antenna Range_MA_Pelt" transparency="0.9"/>
 </Appearance>
 					<IndexedFaceSet solid="false" colorPerVertex= "false" coordIndex="
 0 1 2 -1
