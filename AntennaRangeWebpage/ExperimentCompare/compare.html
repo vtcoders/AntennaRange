@@ -210,7 +210,10 @@
                     var id = name.concat(name);
                     var transparency = val / 100;
                     var transparencyString = transparency.toString();
-                    document.getElementById('x3dModel1__MA_Pelt');
+                   if(!document.getElementById('x3dModel1__MA_Pelt'))
+                   {
+                          console.log("Bruh, x3dModel1__MA_Pelt isn't right'")
+                   }
                     x3dom.reload();
                     document.getElementById('x3dModel1__AntennaRange_MA_Pelt').setAttribute('transparency', transparencyString);
                     x3dom.reload();
