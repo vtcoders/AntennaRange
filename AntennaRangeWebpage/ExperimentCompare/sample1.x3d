@@ -6,9 +6,11 @@
 	<Scene>
 		<Transform>
 			<Group DEF="Plot">
-				<Shape DEF="AntennaRange" transparency = "0.0">
-					<Material DEF="AntennaRange_MA_Pelt" transparency="0.0"/>
-						<IndexedFaceSet solid="false" colorPerVertex= "false" coordIndex="
+				<Shape DEF="AntennaRange">
+					<Appearance>			
+						<Material DEF="AntennaRange_MA_Pelt" transparency="0.0"/>
+					</Appearance>
+					<IndexedFaceSet solid="false" colorPerVertex= "false" coordIndex="
 0 1 2 -1
 3 4 5 -1
 6 7 8 -1
