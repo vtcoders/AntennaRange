@@ -129,3 +129,9 @@ body, html {
   left: 75%;
   bottom: 20px;
 }
+
+.compare {
+  position: relative;
+  left: 85%;
+  display: inline-block;
+}
