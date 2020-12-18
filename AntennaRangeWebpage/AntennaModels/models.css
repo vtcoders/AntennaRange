@@ -93,36 +93,6 @@ body, html {
   border: 1px solid #ddd; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
 }
-
-#myUL {
-  /* Remove default list styling */
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#myUL li a {
-  border: 1px solid #ddd; /* Add a border to all links */
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6; /* Grey background color */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove default text underline */
-  font-size: 18px; /* Increase the font-size */
-  color: black; /* Add a black text color */
-  display: block; /* Make it into a block element to fill the whole list */
-}
-
-#myUL li a:hover:not(.header) {
-  background-color: #eee; /* Add a hover effect to all links, except for headers */
-}
-#pageDivider {
-  list-style-type: none;
-  margin: auto;
-  overflow: hidden;
-  background-color: white;
-  color: #333;
-  z-index: 5;
-}
 /**
 #modelLookup{
   float: left;
@@ -138,29 +108,88 @@ body, html {
   float: right !important; 
 }
 
-/**
-Styling for columns
-**/
-.row
-{
-  height: auto;
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 3;
 }
 
- .column {
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 310px;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 15px 10px;
+  position: absolute;
+  z-index: 1;
+  top: 235%;
+  right: 0%;
+  opacity: .75;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: .75;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: .75;}
+}
+
+/** END OF POPUP **/
+
+/**Formatting for sideBar**/
+  
+  #myUL {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #myUL li a {
+    border: 1px solid #ddd; /* Add a border to all links */
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6; /* Grey background color */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove default text underline */
+    font-size: 18px; /* Increase the font-size */
+    color: black; /* Add a black text color */
+    display: block; /* Make it into a block element to fill the whole list */
+  }
+
+  .column {
     float: left;
     padding: 0px;
   }
-
- .right {
-    float: right;
-    width: 67%;
-    padding-left: 10px;
-  }
-
+  
   .sideBar {
     width: 33%;
     height: 107.5%;
     padding-right: 10px;
     overflow: auto;
   }
-
+  
+  .right {
+    float: right;
+    width: 67%;
+    padding-left: 10px;
+  }
