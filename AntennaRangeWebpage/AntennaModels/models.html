@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="./compare.css">
+        <link rel="stylesheet" href="./models2.css">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <script type='text/javascript' src='https://www.x3dom.org/download/x3dom.js'></script>
         <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'></link>
@@ -31,9 +31,9 @@
                     <div class="column sideBar" style="color:#333;background-color:wwhite;">
                         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Antenna Model...">
                         <ul id="myUL">
-                            <li><a href="#">Antenna Model 1</a></li>
-                            <li><a href="#">Antenna Model 2</a></li>
-                            <li><a href="#">Antenna Model 3</a></li>
+                            <li><a href="#" onclick="changeModel('./models/Deer.x3d');">Antenna Model 1</a></li>
+                            <li><a href="#" onclick="changeModel('./models/model1.x3d');">Antenna Model 2</a></li>
+                            <li><a href="#" onclick="changeModel('./models/3L-Tape-Measure-Yagi-Assy.x3d');">Antenna Model 3</a></li>
                         </ul>
                     </div>
                     <div class="column right" style="position: relative;">
@@ -78,6 +78,13 @@
                     }
                 });   
             });
+        </script>
+        <script>
+            function changeModel(var modelPath)
+            {
+                document.getElementById(x3dModel1).setAttribute('url', modelPath);
+                x3d.reload();
+            }
         </script>
         <script>
             function myFunction() {
