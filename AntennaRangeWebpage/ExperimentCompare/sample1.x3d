@@ -6,7 +6,7 @@
 	<Scene>
 		<Transform>
 			<Group DEF="Plot">
-				<Shape DEF="AntennaRange" ccw="false">
+				<Shape DEF="AntennaRange">
 					<Appearance>			
 						<Material DEF="AntennaRange_MA_Pelt" transparency="0.0"/>
 					</Appearance>
