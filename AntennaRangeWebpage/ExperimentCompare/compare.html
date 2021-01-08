@@ -111,7 +111,7 @@
                                     </span>
                             </div> 
                         </div>
-                        <div style="margin-top: 5px;" id="x3dModelWindow">
+                        <div style="margin-top: 5px;" id="x3dModelWindow" onload="setSortKeys();">
                             <!--Put x3d model right here-->
                             <x3d width='100%' height='100%'> 
                                 <scene>
@@ -217,36 +217,26 @@
                     x3dom.reload();
                 }
 
-                /**
-                function redNose()
+                // used to change rendering order of models to fix transparency issues
+                function setSortKeys()
                 {
-                   // if(document.getElementById('Deer__MA_Nose').getAttribute('diffuseColor')!= '1 0 0')
-                   //     document.getElementById('Deer__MA_Nose').setAttribute('diffuseColor', '1 0 0');
-                   // else
-                   //     document.getElementById('Deer__MA_Nose').setAttribute('diffuseColor', '0 0 0');
-
-                    if (document.getElementById('Deer__MA_Pelt').getAttribute('transparency') != '0.25')
-                        document.getElementById('Deer__MA_Pelt').setAttribute('transparency', '0.25');
-                    else
-                        document.getElementById('Deer__MA_Pelt').setAttribute('transparency', '0.0');
-
-                    if (document.getElementById('Deer__MA_Nose').getAttribute('transparency') != '0.0' &&
-                        document.getElementById('Deer__MA_Nose').getAttribute('transparency') != '0.25')
-                        document.getElemetById('Deer__MA_Nose').setAttribute('transparency', '0.0');
-                    else if (document.getElementById('Deer__MA_Nose').getAttribute('transparency') != '0.0')
-                        document.getElementById('Deer__MA_Nose').setAttribute('transparency', '0.0');
-                    else
-                        document.getElementById('Deer__MA_Nose').setAttribute('transparency', '0.25');
+                    helperSetSortKeys('x3dModel1', 0);
+                    helperSetSortKeys('x3dModel2', 1);
+                    helperSetSortKeys('x3dModel3', 2);
+                    helperSetSortKeys('x3dModel4', 3);
+                    helperSetSortKeys('x3dModel5', 4);
                 }
 
-                function makeTransparent()
+                // helper method for setSortKeys()
+                function helperSetSortKeys(id, number)
                 {
-                    if(document.getElementById('Model1__Antenna Rage').getAttribute('transparency') == '1')
-                        document.getElementById('Model1__Antenna Rage').setAttribute('transparency', '0.5');
-                    else
-                        document.getElementById('Model1__Antenna Rage').setAttribute('transparency', '1');
+                    var name = document.getElementById(x3dmodelid).getAttribute('nameSpaceName');
+                    var id = name.concat('__AntennaRange_Appearance');
+                    var numberString = number.toString();
+                    if (document.getElementById(id))
+                        document.getElementById(id).setAttribute('sortKey', numberString);
+                    x3dom.reload();
                 }
-                **/
 
                 function visibilityButtonClicked(button, modelID)
                 {
