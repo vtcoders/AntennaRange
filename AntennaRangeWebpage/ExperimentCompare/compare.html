@@ -234,7 +234,7 @@
                     var name = document.getElementById(x3dmodelid).getAttribute('nameSpaceName');
                     var id = name.concat('__AntennaRange_Appearance');
                     var numberString = number.toString();
-                    if (document.getElementById('x3dModel1__AntennaRange_Appearance'))
+                    if (document.getElementById('x3dModel1__AntennaRange_Appearance').getAttribute('sortKey'))
                     {
                         document.getElementById('x3dModel1__AntennaRange_Appearance').setAttribute('sortKey', numberString);
                         console.log(document.getElementById('x3dModel1__AntennaRange_Appearance').getAttribute('sortKey').value);
