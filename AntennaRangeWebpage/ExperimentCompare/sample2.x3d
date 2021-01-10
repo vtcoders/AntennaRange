@@ -3,12 +3,12 @@
 	<head>
 		<meta name="surf2x3d" content="VT Antenna Range Project Conversion Program"/>
 	</head>
-	
 	<Scene>
 		<Transform>
 			<Group DEF="Plot">
-				<Shape DEF="Antenna Range">
-					<Appearance DEF="AntennaRange_Appearance" sortKey="0" sortType="transparent">	
+				<Shape DEF="AntennaRange">
+					<Appearance DEF="AntennaRange_Appearance" sortKey="0" sortType="transparent">
+		
 						<Material DEF="AntennaRange_MA_Pelt" transparency="0.0"/>
 					</Appearance>
 					<IndexedFaceSet solid="false" colorPerVertex= "false" coordIndex="
