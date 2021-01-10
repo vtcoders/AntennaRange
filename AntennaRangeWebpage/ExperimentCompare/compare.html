@@ -111,7 +111,7 @@
                                     </span>
                             </div> 
                         </div>
-                        <div style="margin-top: 5px;" id="x3dModelWindow" onload="setSortKeys();">
+                        <div style="margin-top: 5px;" id="x3dModelWindow" onload="setSortKeys();" onload="setSortKeys();">
                             <!--Put x3d model right here-->
                             <x3d width='100%' height='100%'> 
                                 <scene>
@@ -208,7 +208,7 @@
                 // used to change the transparency of x3d model
                 function updateTransparency(x3dmodelid, val)
                 {
-                    setSortKeys(); // set sortKey attribute of Appearance so models load in descending order
+                    // setSortKeys(); // set sortKey attribute of Appearance so models load in descending order
                     var name = document.getElementById(x3dmodelid).getAttribute('nameSpaceName');
                     var id = name.concat('__AntennaRange_MA_Pelt');
                     var transparency = val / 100;
