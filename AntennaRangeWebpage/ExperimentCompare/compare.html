@@ -208,7 +208,7 @@
                 // used to change the transparency of x3d model
                 function updateTransparency(x3dmodelid, val)
                 {
-                    setSortType(); // set sortType attribute of Appearance so models' transparency works correctly
+                    setSortKeys(); // set sortKey attribute of Appearance so models load in descending order
                     var name = document.getElementById(x3dmodelid).getAttribute('nameSpaceName');
                     var id = name.concat('__AntennaRange_MA_Pelt');
                     var transparency = val / 100;
@@ -219,24 +219,24 @@
                 }
 
                 // used to change rendering order of models to fix transparency issues
-                function setSortType()
+                function setSortKeys()
                 {
-                    helperSetSortKeys('x3dModel1');
-                    helperSetSortKeys('x3dModel2');
-                    helperSetSortKeys('x3dModel3');
-                    helperSetSortKeys('x3dModel4');
-                    helperSetSortKeys('x3dModel5');
+                    helperSetSortKeys('x3dModel1', 4);
+                    helperSetSortKeys('x3dModel2', 3);
+                    helperSetSortKeys('x3dModel3', 2);
+                    helperSetSortKeys('x3dModel4', 1);
+                    helperSetSortKeys('x3dModel5', 0);
                 }
 
                 // helper method for setSortKeys()
-                function helperSetSortKeys(x3dModelID)
+                function helperSetSortKeys(x3dmodelid, number)
                 {
                     var name = document.getElementById(x3dModelID).getAttribute('nameSpaceName');
                     var id = name.concat('__AntennaRange_Appearance');
                     if (document.getElementById(id))
                     {
-                        document.getElementById(id).setAttribute('sortKey', 'transparent');
-                        console.log(document.getElementById(id).getAttribute('sortKey'));
+                        document.getElementById(id).setAttribute('sortType', 'transparent');
+                        console.log(document.getElementById(id).getAttribute('sortType'));
                     }
                     else
                     {
