@@ -111,7 +111,7 @@
                                     </span>
                             </div> 
                         </div>
-                        <div style="margin-top: 5px;" id="x3dModelWindow" onload="setSortKeys();" onload="setSortKeys();">
+                        <div style="margin-top: 5px;" id="x3dModelWindow">
                             <!--Put x3d model right here-->
                             <x3d width='100%' height='100%'> 
                                 <scene>
@@ -124,7 +124,8 @@
                                         <inline id="x3dModel5"></inline>
                                     </Transform>
                                 </scene> 
-                            </x3d>   
+                            </x3d>
+                            <div onload="setSortType();"></div>
                         </div>
                         <br><br>
                     </div>
@@ -208,7 +209,7 @@
                 // used to change the transparency of x3d model
                 function updateTransparency(x3dmodelid, val)
                 {
-                    // setSortKeys(); // set sortKey attribute of Appearance so models load in descending order
+                    // setSortType(); // set sortKey attribute of Appearance so models load in descending order
                     var name = document.getElementById(x3dmodelid).getAttribute('nameSpaceName');
                     var id = name.concat('__AntennaRange_MA_Pelt');
                     var transparency = val / 100;
@@ -219,17 +220,17 @@
                 }
 
                 // used to change rendering order of models to fix transparency issues
-                function setSortKeys()
+                function setSortType()
                 {
-                    helperSetSortKeys('x3dModel1');
-                    helperSetSortKeys('x3dModel2');
-                    helperSetSortKeys('x3dModel3');
-                    helperSetSortKeys('x3dModel4');
-                    helperSetSortKeys('x3dModel5');
+                    helperSetSortType('x3dModel1');
+                    helperSetSortType('x3dModel2');
+                    helperSetSortType('x3dModel3');
+                    helperSetSortType('x3dModel4');
+                    helperSetSortType('x3dModel5');
                 }
 
                 // helper method for setSortKeys()
-                function helperSetSortKeys(x3dModelID)
+                function helperSetSortType(x3dModelID)
                 {
                     var name = document.getElementById(x3dModelID).getAttribute('nameSpaceName');
                     var id = name.concat('__AntennaRange_Appearance');
