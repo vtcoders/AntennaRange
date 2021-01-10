@@ -221,15 +221,15 @@
                 // used to change rendering order of models to fix transparency issues
                 function setSortKeys()
                 {
-                    helperSetSortKeys('x3dModel1', 4);
-                    helperSetSortKeys('x3dModel2', 3);
-                    helperSetSortKeys('x3dModel3', 2);
-                    helperSetSortKeys('x3dModel4', 1);
-                    helperSetSortKeys('x3dModel5', 0);
+                    helperSetSortKeys('x3dModel1');
+                    helperSetSortKeys('x3dModel2');
+                    helperSetSortKeys('x3dModel3');
+                    helperSetSortKeys('x3dModel4');
+                    helperSetSortKeys('x3dModel5');
                 }
 
                 // helper method for setSortKeys()
-                function helperSetSortKeys(x3dmodelid, number)
+                function helperSetSortKeys(x3dModelID)
                 {
                     var name = document.getElementById(x3dModelID).getAttribute('nameSpaceName');
                     var id = name.concat('__AntennaRange_Appearance');
