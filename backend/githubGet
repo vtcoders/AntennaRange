@@ -1,0 +1,44 @@
+
+#                  $1    $2   $3  $4  $5
+# Usage: githubGet GROUP NAME TAG DIR [SHA512]
+#
+# Download a github tagged tarball and untar it in DIR
+#
+function githubGet() {
+
+    if [ -z "$4" ] ; then
+        echo "Usage: githubGet GROUP NAME TAG DIR"
+        exit 1
+    fi
+
+    set +x
+
+    local group=$1
+    local name=$2
+    local tag=$3
+    local dir=$4
+    local sha512sum=$5
+
+    local url=https://github.com/$group/$name/tarball/$tag
+    local tarfile=$name-$tag.tar.gz
+
+    set -x
+
+    set -e
+
+    if [ ! -e "$tarfile" ] ; then
+        wget $url -O $tarfile
+    fi
+
+    if [ -n "$sha512sum" ] ; then
+        echo "$sha512sum  $tarfile" | sha512sum -c -
+    else
+        set +x
+        sha512sum $tarfile
+        set -x
+    fi
+
+    mkdir -p $dir
+
+    tar --directory=$dir --strip-components=1 -xzf $tarfile
+}

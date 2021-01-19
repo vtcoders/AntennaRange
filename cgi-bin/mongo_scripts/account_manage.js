@@ -1,3 +1,4 @@
+
 function insertUser(name, usr, pwd, grp, org) {
     try {
         query = {
