@@ -9,6 +9,19 @@ password = form.getvalue('psw')
 
 # import pymongo
 
+def displaySuccessful():
+
+
+_usernameFound=True
+_passwordCorrect=False
+
+if (_usernameFound and _passwordCorrect):
+    displaySuccessful()
+else:
+    displayUnsuccessful()
+
+
+
 print(
 """Content-type: text/html
 
