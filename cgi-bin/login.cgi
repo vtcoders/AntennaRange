@@ -7,7 +7,7 @@ form = cgi.FieldStorage()
 username = form.getvalue('uname')
 password = form.getvalue('psw')
 
-# import pymongo
+import pymongo
 
 print(
 """Content-type: text/html
