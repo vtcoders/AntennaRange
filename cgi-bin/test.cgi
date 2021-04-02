@@ -4,6 +4,9 @@ import cgi, cgitb
 
 form = cgi.FieldStorage()
 
+import sys
+sys.path.append("/home/arjun24/.local/lib/python3.6/site-packages/")
+
 import pymongo
 
 
