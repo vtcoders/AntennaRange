@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene>
+    <NavigationInfo avatarSize='0.25 1.75 0.75' headlight='false' type='"EXAMINE" "ANY"'/>
+    <Background DEF='WO_World' groundColor='0.8 0.8 0.8' skyColor='0.8 0.8 0.8'/>
+    <Shape DEF='_G_1'>
+      <Appearance>
+        <Material DEF='MA_Pelt' ambientIntensity='0.333' diffuseColor='0.723 0.554 0.414' emissiveColor='0.007 0.006 0.004' shininess='0.01' specularColor='0.022 0.017 0.014'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_2' vertexCount='8951 381' primType='"TRIANGLESTRIP" "TRIANGLES"' position='-1.08480453491e-005 0.936508119106 0.226391434669' size='1.17382860184 1.8695858717 2.50491333008' index='Deer/BG_2_indexBinary.bin' coord='Deer/BG_2_coordNormalBinary.bin+8' color='Deer/BG_2_colorBinary.bin+4' coordType='Uint16' colorType='Uint8' normalAsSphericalCoordinates='true'/>
+    </Shape>
+    <Shape DEF='_G_2'>
+      <Appearance>
+        <Material DEF='MA_Eye' ambientIntensity='0.333' diffuseColor='0 0 0' shininess='0.098' specularColor='0.401 0.401 0.401'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_0' vertexCount='63 6' primType='"TRIANGLESTRIP" "TRIANGLES"' position='-1.06319785118e-005 1.30240535736 -0.783562421799' size='0.24882350862 0.0645473003387 0.0587396025658' index='Deer/BG_0_indexBinary.bin' coord='Deer/BG_0_coordNormalBinary.bin+8' coordType='Uint16' normalAsSphericalCoordinates='true'/>
+    </Shape>
+    <Shape DEF='_G_3'>
+      <Appearance>
+        <Material DEF='MA_Nose' ambientIntensity='0.333' diffuseColor='0.02 0.008 0.002' shininess='0.059' specularColor='0.049 0.032 0.01'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_1' vertexCount='52' primType='"TRIANGLESTRIP"' position='-1.05649232864e-005 1.15776705742 -1.01863777637' size='0.079428344965 0.0579109191895 0.0261290073395' index='Deer/BG_1_indexBinary.bin' coord='Deer/BG_1_coordNormalBinary.bin+8' coordType='Uint16' normalAsSphericalCoordinates='true'/>
+    </Shape>
+  </Scene>
+</X3D>
