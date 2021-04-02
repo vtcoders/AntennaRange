@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene>
+    <Group>
+      <Shape DEF='_G_1'>
+        <Appearance>
+          <Material diffuseColor='1 1 1'/>
+        </Appearance>
+        <BinaryGeometry DEF='BG_3' vertexCount='65535' primType='"TRIANGLES"' position='1.60948181152 101.145896912 165.383529663' size='358.307250977 202.291793823 133.706115723' index='test_fullBG_3_indexBinary.bin' coord='test_fullBG_3_coordNormalBinary.bin+8' color='test_fullBG_3_colorBinary.bin+4' coordType='Uint16' colorType='Uint8' normalAsSphericalCoordinates='true'/>
+      </Shape>
+      <Shape DEF='_G_2'>
+        <Appearance>
+          <Material diffuseColor='1 1 1'/>
+        </Appearance>
+        <BinaryGeometry DEF='BG_0' vertexCount='65535' primType='"TRIANGLES"' position='0.830215454102 115.834342957 -2.62752532959' size='412.366760254 231.668685913 231.633178711' index='test_fullBG_0_indexBinary.bin' coord='test_fullBG_0_coordNormalBinary.bin+8' color='test_fullBG_0_colorBinary.bin+4' coordType='Uint16' colorType='Uint8' normalAsSphericalCoordinates='true'/>
+      </Shape>
+      <Shape DEF='_G_3'>
+        <Appearance>
+          <Material diffuseColor='1 1 1'/>
+        </Appearance>
+        <BinaryGeometry DEF='BG_1' vertexCount='65535' primType='"TRIANGLES"' position='-0.218109130859 96.6138381958 -167.618499756' size='352.842559814 205.322952271 129.218597412' index='test_fullBG_1_indexBinary.bin' coord='test_fullBG_1_coordNormalBinary.bin+8' color='test_fullBG_1_colorBinary.bin+4' coordType='Uint16' colorType='Uint8' normalAsSphericalCoordinates='true'/>
+      </Shape>
+      <Shape DEF='_G_4'>
+        <Appearance>
+          <Material diffuseColor='1 1 1'/>
+        </Appearance>
+        <BinaryGeometry DEF='BG_5' vertexCount='65535' primType='"TRIANGLES"' position='-1.5789642334 -102.585197449 -163.023147583' size='363.512817383 205.170394897 138.268615723' index='test_fullBG_5_indexBinary.bin' coord='test_fullBG_5_coordNormalBinary.bin+8' color='test_fullBG_5_colorBinary.bin+4' coordType='Uint16' colorType='Uint8' normalAsSphericalCoordinates='true'/>
+      </Shape>
+      <Shape DEF='_G_5'>
+        <Appearance>
+          <Material diffuseColor='1 1 1'/>
+        </Appearance>
+        <BinaryGeometry DEF='BG_2' vertexCount='65535' primType='"TRIANGLES"' position='-0.830230712891 -115.834342957 7.88076782227' size='412.366760254 231.668685913 231.475311279' index='test_fullBG_2_indexBinary.bin' coord='test_fullBG_2_coordNormalBinary.bin+8' color='test_fullBG_2_colorBinary.bin+4' coordType='Uint16' colorType='Uint8' normalAsSphericalCoordinates='true'/>
+      </Shape>
+      <Shape DEF='_G_6'>
+        <Appearance>
+          <Material diffuseColor='1 1 1'/>
+        </Appearance>
+        <BinaryGeometry DEF='BG_4' vertexCount='62205' primType='"TRIANGLES"' position='0.269332885742 -98.0615081787 169.872894287' size='347.151672363 196.123016357 124.727371216' index='test_fullBG_4_indexBinary.bin' coord='test_fullBG_4_coordNormalBinary.bin+8' color='test_fullBG_4_colorBinary.bin+4' coordType='Uint16' colorType='Uint8' normalAsSphericalCoordinates='true'/>
+      </Shape>
+    </Group>
+  </Scene>
+</X3D>

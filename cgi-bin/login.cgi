@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 
-import cgi, cgitb
+import cgi, cgitb, sys
 
 form = cgi.FieldStorage()
 
 username = form.getvalue('uname')
 password = form.getvalue('psw')
+
+filepath = "../../.local/lib/python3.6/site-packages"
+sys.path.append(filepath)
 
 import pymongo
 

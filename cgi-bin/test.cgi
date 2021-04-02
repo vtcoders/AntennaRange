@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
 import cgi, cgitb, sys
-
-from os.path import dirname
 # sys.path.append(os.path.dirname(__file__))
-sys.path.append("/home/tim23/.local/lib/python3.6/site-packages")
+# MAY NEED TO FIX LATER, IT SEEMS LIKE THIS IS OK AS LONG AS THIS IS IN
+# CGI-BIN AND EVERYONE'S DIRECTORY STRUCTURE IS THE SAME
+filepath = "../../.local/lib/python3.6/site-packages"
+sys.path.append(filepath)
 
 form = cgi.FieldStorage()
 
