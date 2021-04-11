@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="./login.css">
+        <link rel="stylesheet" href="./signup.css">
 
         <ul id="navigationBar" class="navBar sticky">
             <li class="navButton header">Antenna Range Project</li>
@@ -11,27 +11,31 @@
             <li class="navButton"><a href="../ExperimentLibrary/eLibrary.html">Library</a></li>
             <li class="navButton"><a href="../AntennaModels/models.html">Models</a></li>
             <li class="navButton"><a href="../ExternalResources/ExternalResources.html">Resources</a></li>
-            <li class = "login active" class="navButton active"><a href="#Login">Login</a></li>
+            <li class = "login navButton"><a href="../login/login.html">Login</a></li>
         </ul>
     </head>
     <body> 
   
         <h2>Login Form</h2> 
         <!--Step 1 : Adding HTML-->
-        <form action="../../cgi-bin/login.cgi"> 
+        <form action="../../cgi-bin/signup.cgi"> 
             <div class="imgcontainer"> 
                 <img src=  "logo.png" 
                      alt="Avatar" class="avatar"> 
             </div> 
       
             <div class="container"> 
-                <label><b>Username</b></label> 
+
+                <label><b>Enter your name:</b></label> 
+                <input type="text" placeholder="Enter Name" name="name" required> 
+
+                <label><b>Choose a username:</b></label> 
                 <input type="text" placeholder="Enter Username" name="uname" required> 
       
-                <label><b>Password</b></label> 
+                <label><b>Choose a password:</b></label> 
                 <input type="password" placeholder="Enter Password" name="psw" required> 
       
-                <button type="submit">Login</button>
+                <button type="submit">Create Account</button>
                 <a class="login" style="
                 background-color: white; 
                 color: maroon;
@@ -43,12 +47,10 @@
                 text-align:center;
                 text-decoration:none;
                 border: solid maroon;
-                border-width:2.5px;" href=../signup/signup.html>Sign Up</a>
+                border-width:2.5px;" href=../login/login.html>Log In</a>
             </div> 
-            
+      
         </form>
-        <div class="container">
-        </div>
     </body> 
 
 </html>

@@ -15,7 +15,6 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Arial;
-    padding-bottom:10px;
 }
 * {box-sizing: border-box}
 /** End of generic page format **/
@@ -62,6 +61,7 @@ body, html {
 .active {
   background-color: #CF4520;
 }
+
 
 /*set border to the form*/ 
       
@@ -120,4 +120,14 @@ span.psw {
 
 .login {
     float: right !important; 
+}
+
+.button
+{
+    style="display:inline-block;
+    border:solid #CF4520;
+    border-radius:15px;
+    border-width:2.5px;
+    margin-left:1.5%;
+    margin-right:1.5%;"
 }
