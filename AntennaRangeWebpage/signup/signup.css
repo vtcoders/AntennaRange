@@ -118,10 +118,6 @@ span.psw {
     padding-top: 16px; 
 } 
 
-.login {
-    float: right !important; 
-}
-
 .button
 {
     style="display:inline-block;
@@ -130,4 +126,24 @@ span.psw {
     border-width:2.5px;
     margin-left:1.5%;
     margin-right:1.5%;"
+}
+
+.login
+{
+    float: right !important; 
+}
+
+.login_button
+{
+    background-color: white; 
+    color: maroon;
+    padding: 14px 20px; 
+    margin: 8px 0;
+    width: 100%;
+    height:auto;
+    margin-bottom:15px;
+    text-align:center;
+    text-decoration:none;
+    border: solid maroon;
+    border-width:2.5px;
 }

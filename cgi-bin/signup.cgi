@@ -70,18 +70,7 @@ if (account != None):
                 <input type="password" placeholder="Enter Password" name="psw" required> 
       
                 <button type="submit">Create Account</button>
-                <a class="login" style="
-                background-color: white; 
-                color: maroon;
-                padding: 14px 20px; 
-                margin: 8px 0;
-                width: 100%;
-                height:auto;
-                margin-bottom:15px;
-                text-align:center;
-                text-decoration:none;
-                border: solid maroon;
-                border-width:2.5px;" href=../AntennaRangeWebpage/login/login.html>Log In</a>
+                <a class="login" href=../AntennaRangeWebpage/login/login.html>Log In</a>
             </div> 
       
         </form>

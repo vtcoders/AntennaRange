@@ -121,3 +121,18 @@ span.psw {
 .login {
     float: right !important; 
 }
+
+.signup
+{
+    background-color: white; 
+    color: maroon;
+    padding: 14px 20px; 
+    margin: 8px 0;
+    width: 100%;
+    height:auto;
+    margin-bottom:15px;
+    text-align:center;
+    text-decoration:none;
+    border: solid maroon;
+    border-width:2.5px;
+}
