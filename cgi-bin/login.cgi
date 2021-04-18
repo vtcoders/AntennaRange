@@ -79,6 +79,8 @@ else:
   <html lang=en>
   <head>
     <meta charset="utf-8"/>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <div id = "home-placeholder"></div>
   </head>
   <body>
 
@@ -87,6 +89,14 @@ else:
   <h2>
   Thank you for logging on to the Antenna Range! This feature is yet to be fully implemented but will be soon!
   </h2>
+
+  <footer>
+    <script>
+      $(function(){
+        $("#home-placeholder").load("../AntennaRangeWebpage/index.html");
+      });
+    </script>
+  </footer>
 
 
 
