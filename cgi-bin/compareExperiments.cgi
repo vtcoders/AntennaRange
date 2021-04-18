@@ -1,8 +1,29 @@
-<html>
+#!/usr/bin/env python3
+
+import cgi, cgitb, sys
+
+form = cgi.FieldStorage()
+
+# username = form.getvalue('uname')
+# password = form.getvalue('psw')
+
+# TO-DO: Validation for characters entered and length, etc.
+
+filepath = "../../.local/lib/python3.6/site-packages"
+sys.path.append(filepath)
+
+import pymongo
+
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+mydb = myclient["test"]
+mycol = mydb["experiments"]
+
+print("""Content-type: text/html\n""")
+print("""<html>
     <head>
         <Title>Experiment Workspace</Title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <link rel="stylesheet" href="./compare.css">
+        <link rel="stylesheet" href="../AntennaRangeWebpage/ExperimentCompare/compare.css">
         <script type='text/javascript' src='https://www.x3dom.org/download/x3dom.js'></script>
         <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'></link>
 
@@ -26,7 +47,7 @@
                             <div class="row">
                                 <div class="column largeColumn"><a href="#" id="drag1" draggable="true" ondragstart="drag(event)">Experiment 1: Nov 4, 2020 Sample 1<br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel1")' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel1")' src='../AntennaRangeWebpage/ExperimentCompare/visible.png' class="visible"></input>
                                 </div>
                             </div>
                             <div class="row">
@@ -40,7 +61,7 @@
                             <div class="row">
                                 <div class="column largeColumn"><a href="#" id="drag2" draggable="true" ondragstart="drag(event)">Experiment 2: Nov 14, 2020 Sample 2 <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel2")' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel2")' src='../AntennaRangeWebpage/ExperimentCompare/visible.png' class="visible"></input>
                                 </div>
                             </div>
                             <div class="row">
@@ -54,7 +75,7 @@
                             <div class="row">
                                 <div class="column largeColumn"><a href="#" id="drag3" draggable="true" ondragstart="drag(event)">Experiment 3: Sample 3 <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel3")' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel3")' src='../AntennaRangeWebpage/ExperimentCompare/visible.png' class="visible"></input>
                                 </div>
                             </div>
                             <div class="row">
@@ -68,7 +89,7 @@
                             <div class="row">
                                 <div class="column largeColumn"><a href="#" id="drag4" draggable="true" ondragstart="drag(event)">Experiment 4: Sample - not present <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel4")' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel4")' src='../AntennaRangeWebpage/ExperimentCompare/visible.png' class="visible"></input>
                                 </div>
                             </div>
                             <div class="row">
@@ -82,7 +103,7 @@
                             <div class="row">
                                 <div class="column largeColumn"><a href="#" id="drag5" draggable="true" ondragstart="drag(event)">Experiment 5: Sample - not present <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel5")' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this, "x3dModel5")' src='../AntennaRangeWebpage/ExperimentCompare/visible.png' class="visible"></input>
                                 </div>
                             </div>
                             <div class="row">
@@ -98,7 +119,7 @@
                         <div class="row" style="padding: 5px; border: 3px solid #CF4520;">
                             3d Models:
                             <div class="popup" style=" float: right;"onclick="displayInfoPopup()">
-                                <img src="../AntennaRangeWebpage/ExperimentCompare/InfoIcon.png" style="padding: .5px; height: 17px; width: auto;"></img>
+                                <img src="../AntennaRange/WebpageInfoIcon.png" style="padding: .5px; height: 17px; width: auto;"></img>
                                     <span class="popuptext" id="myPopup">
                                         <b>How to Navigate:</b><br><br>
                                         Rotate:                 Left/Left + Shift<br>
@@ -117,16 +138,11 @@
                                 <scene>
                                     <navigationInfo avatarSize="[ .05, .05, .05 ]" type="examine" headlight="true" speed="1.0" id="navType"></navigationInfo>
                                     <Transform scale="1, 1, 1">
-                                        <inline id="x3dModel1"
-                                        nameSpaceName="x3dModel1"
-                                        mapDEFtoID="true"
-                                        url="./models/sample1_aopt.x3d" render="true"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>
-                                        <inline id="x3dModel2"
-                                        nameSpaceName="x3dModel2"
-                                        mapDEFToID="true" url="./models/sample2_aopt.x3d" render="true"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>
-                                        <inline id="x3dModel3" nameSpaceName="x3dModel3" mapDEFtoID="true" url="./models/out_aopt.x3d" render="true"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>
-                                        <inline id="x3dModel4"></inline>
-                                        <inline id="x3dModel5"></inline>
+                                        <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" render="true" url="../AntennaRangeWebpage/ExperimentCompare/models/sample1_aopt.x3d"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>
+                                        <inline id="x3dModel2" nameSpaceName="x3dModel2" mapDEFToID="true" render="true" url="../AntennaRangeWebpage/ExperimentCompare/models/sample2_aopt.x3d"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>
+                                        <inline id="x3dModel3" nameSpaceName="x3dModel3" mapDEFtoID="true" render="true" url="../AntennaRangeWebpage/ExperimentCompare/models/out_aopt.x3d"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>
+                                        <inline id="x3dModel4" nameSpaceName="x3dModel4" mapDEFtoID="true" render="true"></inline>
+                                        <inline id="x3dModel5" nameSpaceName="x3dModel5" mapDEFtoID="true" render="true"></inline>
                                     </Transform>
                                 </scene> 
                             </x3d>
@@ -257,13 +273,13 @@
                     if (button.className === "visible")
                     {
                         button.className = "invisible";
-                        button.src = "./invisible.png";
+                        button.src = "../AntennaRangeWebpage/ExperimentCompare/invisible.png";
                         document.getElementById(modelID).setAttribute("render", "false");
                     } // if
                     else // button.className === "invisible"
                     {
                         button.className = "visible";
-                        button.src = "./visible.png";
+                        button.src = "../AntennaRangeWebpage/ExperimentCompare/visible.png";
                         document.getElementById(modelID).setAttribute("render", "true");
                     } // else
                 }
@@ -278,12 +294,12 @@
                     if (button.className === "visible")
                     {
                         button.className = "invisible";
-                        button.src = "./invisible.png";
+                        button.src = "../AntennaRangeWebpage/ExperimentCompare/invisible.png";
                     } // if
                     else // button.className === "invisible"
                     {
                         button.className = "visible";
-                        button.src = "./visible.png";
+                        button.src = "../AntennaRangeWebpage/ExperimentCompare/visible.png";
                     } // else
                     graphsRefresh();
                 }
@@ -332,4 +348,4 @@
         <footer>
         </footer>
     </body>
-</html>
+</html>""")
