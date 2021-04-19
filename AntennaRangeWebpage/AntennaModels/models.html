@@ -5,6 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <script type='text/javascript' src='https://www.x3dom.org/download/x3dom.js'></script>
         <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'></link>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 
         <ul id="navigationBar" class="navBar sticky">
             <li class="navButton header">Antenna Range Project</li>
@@ -13,10 +15,12 @@
             <li class="navButton"><a href="../AboutPage/aboutPage.html">About</a></li>
             <li class="navButton"><a href="../ExperimentLaunch/experimentLaunchPage.html">Launch</a></li>
             <li class="navButton"><a href="../ExperimentLibrary/eLibrary.html">Library</a></li>
-            <li class="navButton active"><a href="#ExperimentModels">Models</a></li>
+            <li class="navButton active"><a href="../AntennaModels/models.html">Models</a></li>
             <li class="navButton"><a href="../ExternalResources/ExternalResources.html">Resources</a></li>
             <li class="login" class="navButton "><a href="../login/login.html">Login</a></li>
+        
         </ul>
+        
     </head>
     <body>
         <main>
@@ -33,7 +37,7 @@
                         <ul id="myUL">
                             <li><a href="#" onclick="changeModel('./models/model1.x3d');">Model 1</a></li>
                             <li><a href="#" onclick="changeModel('./models/3L-Tape-Measure-Yagi-Assy.x3d');">3 Element Tape Measure Yagi</a></li>
-                            <li><a href="#" onclick="changeModel('./models/Ass_yagi_croisée_435_MHz.x3d');">435 MHz Yagi Croisee</a></li>
+                            <li><a href="#" onclick="changeModel('./models/Ass_yagi_croisï¿½e_435_MHz.x3d');">435 MHz Yagi Croisee</a></li>
                             <li><a href="#" onclick="changeModel('./models/35-Elements Yagi-Antenna.x3d');">35 Element Yagi Antenna</a></li>
                             <li><a href="#" onclick="changeModel('./models/Cubical_Quad.x3d');">Cubical Quad for 2.4 Ghz Band</a></li>
                         </ul>
@@ -126,6 +130,8 @@
                           popup.style.display = 'block';
                 }
         </script>
+
+
         </footer>
     </body>
 </html>
