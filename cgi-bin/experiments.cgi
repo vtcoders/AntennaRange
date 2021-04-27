@@ -1,6 +1,31 @@
-<html>
+#!/usr/bin/env python3
+
+import cgi, cgitb, sys
+
+form = cgi.FieldStorage()
+
+filepath = "../../.local/lib/python3.6/site-packages"
+sys.path.append(filepath)
+
+import pymongo
+
+myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+mydb = myclient["test"]
+mycol = mydb["experiements"]
+
+
+experiments = mycol.find({})
+
+def print_experiments(experiments):
+    for i in experiments:
+        print(""" <li> <a href="#">""" + i['ExperimentName'] + " | " + i['Date'] + " | " + i['Facilitator'] + " | " + i['AntennaType'] + """</a></li> """)
+    
+
+
+print("""Content-type: text/html\n""")
+print("""<html>
     <head>
-        <link rel="stylesheet" href="./libformat.css">
+        <link rel="stylesheet" href="../AntennaRangeWebpage/ExperimentLibrary/libformat.css">
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
       <ul id="navigationBar" class="navBar sticky">
@@ -31,27 +56,12 @@
                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Experiment..">
 
                 <ul id="myUL">
-                  <!-- <li><a href="#">Experiment 22-Oct-2020_12-13-54
-                  <form action="../../Data/littleswing.csv">
-                      <input class= "view" type="submit" value="Download Experiment Data" />
-                  </form></a>
-                    </li>
-                  <li><a href="#">Experiment 22-Oct-2020_12-02-10
-                  <form action="../../Data/warmup2.csv">
-                      <input class= "view" type="submit" value="Download Experiment Data" />
-                  </form></a></li>
-                  <li><a href="#">Experiment 20-Oct-2020_12_06_34
-                    <form action="../../Data/warmup.csv">
-                      <input class= "view" type="submit" value="Download Experiment Data" />
-                  </form></a></li>
-                  <li><a href="#">Experiment 20-Oct-2020_12-11-39
-                  <form action="../../Data/input4.csv">
-                    <input class= "view" type="submit" value="Download Experiment Data" /> -->
+""")
 
+print_experiments(experiments)
 
-                    <form action = "../../cgi-bin/experiments.cgi"> 
-                      <button type="submit">Create Account</button>
-                    </form>
+print("""
+                    
                   
                 </ul>
                        
@@ -86,3 +96,5 @@
         </footer>
     </body>
 </html>
+
+""")
