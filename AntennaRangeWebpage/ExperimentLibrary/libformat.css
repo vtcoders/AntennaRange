@@ -10,6 +10,7 @@ img {
     margin-right: auto;
     width: 50%;
   }
+  
 /* Set height of body and the document to 100% */
 body, html {
     height: 100%;
@@ -134,4 +135,56 @@ body, html {
   position: relative;
   left: 85%;
   display: inline-block;
+}
+
+button { 
+  background-color: maroon; 
+  color: white; 
+  padding: 14px 20px; 
+  margin: 8px 0; 
+  border: none; 
+  cursor: pointer; 
+  width: 100%; 
+} 
+/* set a hover effect for the button*/ 
+
+button:hover { 
+  opacity: 0.8; 
+} 
+/*centre the display image inside the container*/ 
+
+input{ 
+  width: 100%; 
+  padding: 12px 20px; 
+  margin: 8px 0; 
+  display: inline-block; 
+  border: 1px solid #ccc; 
+  box-sizing: border-box; 
+} 
+
+.text_button:hover {
+  font-weight:bolder;
+}
+
+.text_button {
+  float: left;
+  background-color: #f6f6f6;
+  border: solid #ddd 1px;
+  line-height: 15px;
+  text-align: center;
+  padding:5px;
+  margin: 2px;
+  display: none;
+  
+}
+
+.search_window
+{
+  border:solid #CF4520 2px;
+  border-radius:10px;
+  padding:20px;
+  margin-top:10px;
+  margin-left:15%;
+  margin-right:15%;
+  margin-bottom:20px;
 }
