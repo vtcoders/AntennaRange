@@ -6,6 +6,7 @@ form = cgi.FieldStorage()
 
 # username = form.getvalue('uname')
 # password = form.getvalue('psw')
+fileNames = form.getlist('box')
 
 # TO-DO: Validation for characters entered and length, etc.
 
@@ -18,8 +19,25 @@ myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["test"]
 mycol = mydb["experiments"]
 
+def print_thing():
+    fileName1 = '../Data/experiments/03-Oct-2020_01_01_01.x3d'
+    print(""" """ + fileName1 + """ """)
+
+def print_thing2():
+    print("""<inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" render="true" url=../AntennaRangeWebpage/ExperimentCompare/models/sample2_aopt.x3d"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>""")
+
+def compose_models():
+    string_to_return = ""
+    for i in range(len(fileNames)):
+        modelId = "x3dModel" + str(i + 1)
+        if i in range(len(fileNames)):
+            url = "../Data/experiments/" + fileNames[i]
+            string_to_return = string_to_return + """<inline id=""" + modelId + """ nameSpaceName=""" + modelId + """ mapDEFtoID="true" render="true" url='""" + url + """'><unit category='length' conversionFactor='1.0' name='METERS'/></inline>"""
+        
+    return string_to_return
+    
 print("""Content-type: text/html\n""")
-print("""<html>
+html_to_print = """<html>
     <head>
         <Title>Experiment Workspace</Title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -138,11 +156,9 @@ print("""<html>
                                 <scene>
                                     <navigationInfo avatarSize="[ .05, .05, .05 ]" type="examine" headlight="true" speed="1.0" id="navType"></navigationInfo>
                                     <Transform scale="1, 1, 1">
-                                        <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" render="true" url="../AntennaRangeWebpage/ExperimentCompare/models/sample1_aopt.x3d"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>
-                                        <inline id="x3dModel2" nameSpaceName="x3dModel2" mapDEFToID="true" render="true" url="../AntennaRangeWebpage/ExperimentCompare/models/sample2_aopt.x3d"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>
-                                        <inline id="x3dModel3" nameSpaceName="x3dModel3" mapDEFtoID="true" render="true" url="../AntennaRangeWebpage/ExperimentCompare/models/out_aopt.x3d"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>
-                                        <inline id="x3dModel4" nameSpaceName="x3dModel4" mapDEFtoID="true" render="true"></inline>
-                                        <inline id="x3dModel5" nameSpaceName="x3dModel5" mapDEFtoID="true" render="true"></inline>
+                                    """
+html_to_print = html_to_print + compose_models()
+html_to_print = html_to_print + """
                                     </Transform>
                                 </scene> 
                             </x3d>
@@ -348,4 +364,6 @@ print("""<html>
         <footer>
         </footer>
     </body>
-</html>""")
+</html>"""
+
+print(html_to_print)
