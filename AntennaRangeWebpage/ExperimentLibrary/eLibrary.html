@@ -24,11 +24,11 @@
           <div class="title" style="color:#333;background-color:white;">
               <h3>Experiment Library</h3>
               <div class="underline" style="background-color:#CF4520;color:rgb(238, 238, 238);"><br></div>
-
-              <br><ul id="myUL" style="border:solid #CF4520 2px;border-radius:10px;padding:20px;margin-top:10px;margin-left:15%;margin-right:15%;margin-bottom:20px;">
-                <p style="font-weight: bold;">Adjust any necessary filters and hit 'Search Experiments' to search the Experiment Library.</p>
+              
+              <br><ul id="myUL" style="border:solid 2px#630031;padding:20px;margin-top:10px;margin-left:15%;margin-right:15%;margin-bottom:20px;">
+                <!--<p style="font-weight: bold;">Adjust any necessary filters and hit 'Search Experiments' to search the Experiment Library.</p>-->
                 <form action = "../../cgi-bin/experimentSearch.cgi"> 
-                  <button type="submit">Search Experiments</button><br>
+                  <button type="submit" class="searchButton">Search Experiment Library</button><br>
                   <div class="text_button" id="show-filter-button" onclick="toggle_filters();" style="display:block;">Show Filters</div>
                   <div class = "text_button" id="hide-filter-button" onclick="toggle_filters();" style="display:none;">Hide Filters</div><br>
                   <div id="filters" style='display:none;'>
@@ -40,6 +40,7 @@
                     <input type="text" id="uName" name="uName"><br><br>
                     <label for="name">Antenna Type:</label>
                     <input type="text" id="aType" name="aType">
+                    <input class="text_button"type="reset" value="Clear All Filters"><br><br>
                   </div>
                 </form>
                 
@@ -68,6 +69,10 @@
               show_button.style.display = "block";
               hide_button.style.display = "none";
             }
+          }
+
+          function uncheckAll(){
+            $('input[type="checkbox"]:checked').prop('checked',false);
           }
         </script>
       </footer>

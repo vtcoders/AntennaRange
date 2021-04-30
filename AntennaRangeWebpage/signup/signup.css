@@ -82,7 +82,7 @@ input[type=password] {
 /*set a style for the buttons*/ 
   
 button { 
-    background-color: maroon; 
+    background-color: #630031; 
     color: white; 
     padding: 14px 20px; 
     margin: 8px 0; 
@@ -120,7 +120,7 @@ span.psw {
 
 .button
 {
-    style="display:inline-block;
+    display:inline-block;
     border:solid #CF4520;
     border-radius:15px;
     border-width:2.5px;
@@ -136,7 +136,7 @@ span.psw {
 .login_button
 {
     background-color: white; 
-    color: maroon;
+    color: #630031;
     padding: 14px 20px; 
     margin: 8px 0;
     width: 100%;
@@ -144,6 +144,6 @@ span.psw {
     margin-bottom:15px;
     text-align:center;
     text-decoration:none;
-    border: solid maroon;
+    border: solid #630031;
     border-width:2.5px;
 }

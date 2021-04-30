@@ -82,7 +82,7 @@ input[type=password] {
 /*set a style for the buttons*/ 
   
 button { 
-    background-color: maroon; 
+    background-color: #630031; 
     color: white; 
     padding: 14px 20px; 
     margin: 8px 0; 
@@ -133,6 +133,6 @@ span.psw {
     margin-bottom:15px;
     text-align:center;
     text-decoration:none;
-    border: solid maroon;
+    border: solid #630031;
     border-width:2.5px;
 }

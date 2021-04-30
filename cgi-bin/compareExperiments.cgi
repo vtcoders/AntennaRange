@@ -46,16 +46,24 @@ html_to_print = """<html>
         <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'></link>
 
         <ul id="navigationBar" class="navBar sticky">
-            <li class="navButton header">Antenna Range Project</li>
-            <li class="navButton header"></li>
-        </ul>
+          <li class="navButton header">Antenna Range Project</li>
+          <li class="navButton header"></li>
+          <li class="navButton"><a href="../AntennaRangeWebpage/index.html">Home</a></li>
+          <li class="navButton"><a href="../AntennaRangeWebpage/AboutPage/aboutPage.html">About</a></li>
+          <li class="navButton"><a href="../AntennaRangeWebpage/ExperimentLaunch/experimentLaunchPage.html">Launch</a></li>
+          <li class="navButton"><a href=#>Library</a></li>
+          <li class="navButton"><a href="../AntennaRangeWebpage/AntennaModels/models.html">Models</a></li>
+          <li class="navButton"><a href="../AntennaRangeWebpage/ExternalResources/ExternalResources.html">Resources</a></li>
+          <li class="login" class="navButton "><a href="../AntennaRangeWebpage/login/login.html">Login</a></li>
+      
+      </ul>
     </head>
     <body>
         <main>
             <div class="colorContainer title" style="color:#333;background-color:white;">
-                <h3>Compare Experiments</h3>
+                <h3>View Experiments</h3>
                 <div class="underline" style="background-color:#CF4520;color:rgb(238, 238, 238);"><br></div>
-                <p> Select experiments to compare. If you cannot see models, click on the model window and press the 'A' key. For more navigational information, press the info icon in the top right corner of the model window. To toggle graph visibility on and off for each experiment, click its visibility button.</p>
+                <p> Select experiments to view. If you cannot see models, click on the model window and press the 'A' key. For more navigational information, press the info icon in the top right corner of the model window. To toggle graph visibility on and off for each experiment, click its visibility button.</p>
             </div>
             <div class="colorContainer" style="width: 100%; height: 100%;">
                 <div class="row">
@@ -137,7 +145,7 @@ html_to_print = """<html>
                         <div class="row" style="padding: 5px; border: 3px solid #CF4520;">
                             3d Models:
                             <div class="popup" style=" float: right;"onclick="displayInfoPopup()">
-                                <img src="../AntennaRange/WebpageInfoIcon.png" style="padding: .5px; height: 17px; width: auto;"></img>
+                                <img src="../AntennaRangeWebpage/ExperimentCompare/InfoIcon.png" alt="infoIcon" style="padding: .5px; height: 17px; width: auto;"></img>
                                     <span class="popuptext" id="myPopup">
                                         <b>How to Navigate:</b><br><br>
                                         Rotate:                 Left/Left + Shift<br>
@@ -151,7 +159,7 @@ html_to_print = """<html>
                             </div> 
                         </div>
                         <div style="margin-top: 5px;" id="x3dModelWindow">
-                            <!--Put x3d model right here-->cd
+                            <!--Put x3d model right here-->
                             <x3d width='100%' height='100%'> 
                                 <scene>
                                     <navigationInfo avatarSize="[ .05, .05, .05 ]" type="examine" headlight="true" speed="1.0" id="navType"></navigationInfo>
@@ -167,6 +175,7 @@ html_to_print = html_to_print + """
                         <br><br>
                     </div>
                 </div>
+                <div style="display:none;">
                 THE BELOW FEATURE HASN'T BEEN FINISHED YET :)
                 <div class="row">
                     <br><br>
@@ -219,6 +228,7 @@ html_to_print = html_to_print + """
                 </div>
                 
                 <div id="sliders" class="column sliders">[insert sliders here]</div>
+                </div>
             </div>
 
             <script>
