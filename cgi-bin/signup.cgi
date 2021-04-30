@@ -45,14 +45,14 @@ if (account != None):
             <li class="navButton"><a href="../AntennaRangeWebpage/ExperimentLibrary/eLibrary.html">Library</a></li>
             <li class="navButton"><a href="../AntennaRangeWebpage/AntennaModels/models.html">Models</a></li>
             <li class="navButton"><a href="../AntennaRangeWebpage//ExternalResources/ExternalResources.html">Resources</a></li>
-            <li class = "login navButton"><a href="../AntennaRangeWebpage/login/login.html">Login</a></li>
+            <li class="login navButton"><a href="../AntennaRangeWebpage/login/login.html">Login</a></li>
         </ul>
     </head>
     <body> 
   
         <h2>Login Form</h2> 
         <!--Step 1 : Adding HTML-->
-        <form action="./signup.cgi"> 
+        <form action="./signup.cgi" method="post"> 
             <div class="imgcontainer"> 
                 <img src=  "../AntennaRangeWebpage/signup/logo.png" 
                      alt="VT Logo" class="avatar"> 
@@ -70,7 +70,7 @@ if (account != None):
                 <input type="password" placeholder="Enter Password" name="psw" required> 
       
                 <button type="submit">Create Account</button>
-                <a class="login" href=../AntennaRangeWebpage/login/login.html>Log In</a>
+                <a class="login login_button" href=../AntennaRangeWebpage/login/login.html>Log In</a>
             </div> 
       
         </form>

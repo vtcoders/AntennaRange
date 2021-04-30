@@ -48,7 +48,7 @@ if (account == None or account['password'] != password):
   
         <h2>Login Form</h2> 
         <!--Step 1 : Adding HTML-->
-        <form action="./login.cgi"> 
+        <form action="./login.cgi" method="post"> 
             <div class="imgcontainer"> 
                 <img src=  "../AntennaRangeWebpage/login/logo.png" 
                      alt="Avatar" class="avatar"> 
