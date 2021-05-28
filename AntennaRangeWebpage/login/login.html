@@ -1,24 +1,28 @@
 <html>
     <head>
         <link rel="stylesheet" href="./login.css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 
         <ul id="navigationBar" class="navBar sticky">
             <li class="navButton header">Antenna Range Project</li>
             <li class="navButton header"></li>
-            <li class="navButton"><a href="../home.html">Home</a></li>
+            <li class="navButton"><a href="../index.html">Home</a></li>
             <li class="navButton"><a href="../AboutPage/aboutPage.html">About</a></li>
             <li class="navButton"><a href="../ExperimentLaunch/experimentLaunchPage.html">Launch</a></li>
             <li class="navButton"><a href="../ExperimentLibrary/eLibrary.html">Library</a></li>
             <li class="navButton"><a href="../AntennaModels/models.html">Models</a></li>
             <li class="navButton"><a href="../ExternalResources/ExternalResources.html">Resources</a></li>
-            <li class = "login active" class="navButton active"><a href="#Login">Login</a></li>
+            <li class="login active" class="navButton"><a href="../login/login.html">Login</a></li>
+        
         </ul>
+
     </head>
     <body> 
   
         <h2>Login Form</h2> 
         <!--Step 1 : Adding HTML-->
-        <form action="../../cgi-bin/login.cgi"> 
+        <form action="../../cgi-bin/login.cgi" method="post"> 
             <div class="imgcontainer"> 
                 <img src=  "logo.png" 
                      alt="Avatar" class="avatar"> 
@@ -31,12 +35,17 @@
                 <label><b>Password</b></label> 
                 <input type="password" placeholder="Enter Password" name="psw" required> 
       
-                <button type="submit">Login</button> 
-                
+                <button type="submit">Login</button>
+                <a class="login signup" href=../signup/signup.html>Sign Up</a>
             </div> 
-      
-        </form> 
-      
+            
+        </form>
+        <div class="container">
+        </div>
     </body> 
+
+    <footer>
+
+    </footer>
 
 </html>

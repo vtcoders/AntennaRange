@@ -15,6 +15,7 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: Arial;
+    padding-bottom:10px;
 }
 * {box-sizing: border-box}
 /** End of generic page format **/
@@ -62,7 +63,6 @@ body, html {
   background-color: #CF4520;
 }
 
-
 /*set border to the form*/ 
       
 form { 
@@ -82,7 +82,7 @@ input[type=password] {
 /*set a style for the buttons*/ 
   
 button { 
-    background-color: maroon; 
+    background-color: #630031; 
     color: white; 
     padding: 14px 20px; 
     margin: 8px 0; 
@@ -120,4 +120,19 @@ span.psw {
 
 .login {
     float: right !important; 
+}
+
+.signup
+{
+    background-color: white; 
+    color: maroon;
+    padding: 14px 20px; 
+    margin: 8px 0;
+    width: 100%;
+    height:auto;
+    margin-bottom:15px;
+    text-align:center;
+    text-decoration:none;
+    border: solid #630031;
+    border-width:2.5px;
 }

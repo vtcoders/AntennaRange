@@ -52,7 +52,7 @@
                         </li>
                         <li>
                             <div class="row">
-                                <div class="column largeColumn"><a href="#" id="drag3" draggable="true" ondragstart="drag(event)">Simulation 1: Sample 3 <br></a></div>
+                                <div class="column largeColumn"><a href="#" id="drag3" draggable="true" ondragstart="drag(event)">Experiment 3: Sample 3 <br></a></div>
                                 <div class="column tinyColumn">
                                     <input type="image" onclick='visibilityButtonClicked(this, "x3dModel3")' src='./visible.png' class="visible"></input>
                                 </div>
@@ -97,8 +97,8 @@
                     <div class="column right" style="position: relative;">
                         <div class="row" style="padding: 5px; border: 3px solid #CF4520;">
                             3d Models:
-                            <div class="popup" style=" float: right;"onclick="myFunction()">
-                                <img src="InfoIcon.png" style="padding: .5px; height: 17px; width: auto;"></img>
+                            <div class="popup" style=" float: right;"onclick="displayInfoPopup()">
+                                <img src="../AntennaRangeWebpage/ExperimentCompare/InfoIcon.png" style="padding: .5px; height: 17px; width: auto;"></img>
                                     <span class="popuptext" id="myPopup">
                                         <b>How to Navigate:</b><br><br>
                                         Rotate:                 Left/Left + Shift<br>
@@ -112,22 +112,21 @@
                             </div> 
                         </div>
                         <div style="margin-top: 5px;" id="x3dModelWindow">
-                            <!--Put x3d model right here-->
+                            <!--Put x3d model right here-->cd
                             <x3d width='100%' height='100%'> 
                                 <scene>
                                     <navigationInfo avatarSize="[ .05, .05, .05 ]" type="examine" headlight="true" speed="1.0" id="navType"></navigationInfo>
-									<viewpoint position='0 0 2000'></viewpoint>
                                     <Transform scale="1, 1, 1">
-                                        <inline id="x3dModel1" nameSpaceName="x3dModel1" mapDEFtoID="true" url="./sample1.x3d" render="true"><unit category='length' conversionFactor='1.0' name='CENTIMETERS'/></inline>
-                                        <inline id="x3dModel2" nameSpaceName="x3dModel2" mapDEFToID="true" url="./sample2.x3d" render="true"><unit category='length' conversionFactor='1.0' name='CENTIMETERS'/></inline>
-										<Transform scale='2.54 2.54 2.54'>
-                                        <inline id="x3dModel3" nameSpaceName="x3dModel3" mapDEFtoID="true" url="./out.x3d" render="true"><unit category='length' conversionFactor='2.54' name='INCHES'/></inline>
-										</Transform>
-										    <inline id="x3dModel4" nameSpaceName="x3dModel4" mapDEFtoID="true" url="" render="true"><unit category='length' conversionFactor='1.0' name='CENTIMETERS'/></inline>
-
-											<inline id="x3dModel5" nameSpaceName="x3dModel5" mapDEFtoID="true" url="" render="true"><unit category='length' conversionFactor='1.0' name='CENTIMETERS'/></inline>
-
-                                       
+                                        <inline id="x3dModel1"
+                                        nameSpaceName="x3dModel1"
+                                        mapDEFtoID="true"
+                                        url="./models/sample1_aopt.x3d" render="true"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>
+                                        <inline id="x3dModel2"
+                                        nameSpaceName="x3dModel2"
+                                        mapDEFToID="true" url="./models/sample2_aopt.x3d" render="true"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>
+                                        <inline id="x3dModel3" nameSpaceName="x3dModel3" mapDEFtoID="true" url="./models/out_aopt.x3d" render="true"><unit category='length' conversionFactor='1.0' name='METERS'/></inline>
+                                        <inline id="x3dModel4"></inline>
+                                        <inline id="x3dModel5"></inline>
                                     </Transform>
                                 </scene> 
                             </x3d>
@@ -192,7 +191,7 @@
 
             <script>
 
-                function myFunction() {
+                function displayInfoPopup() {
                     var popup = document.getElementById("myPopup");
                     popup.classList.toggle("show");
                 }

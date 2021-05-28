@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./signup.css">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="JavaScript/jquery-1.10.2.js" type="text/javascript"></script> 
+
+        <ul id="navigationBar" class="navBar sticky">
+            <li class="navButton header">Antenna Range Project</li>
+            <li class="navButton header"></li>
+            <li class="navButton"><a href="../index.html">Home</a></li>
+            <li class="navButton"><a href="../AboutPage/aboutPage.html">About</a></li>
+            <li class="navButton"><a href="../ExperimentLaunch/experimentLaunchPage.html">Launch</a></li>
+            <li class="navButton"><a href="../ExperimentLibrary/eLibrary.html">Library</a></li>
+            <li class="navButton"><a href="../AntennaModels/models.html">Models</a></li>
+            <li class="navButton"><a href="../ExternalResources/ExternalResources.html">Resources</a></li>
+            <li class="login" class="navButton"><a href="../login/login.html">Login</a></li>
+        
+        </ul>
+    </head>
+    <body> 
+  
+        <h2>Login Form</h2> 
+        <!--Step 1 : Adding HTML-->
+        <form action="../../cgi-bin/signup.cgi" method="post"> 
+            <div class="imgcontainer"> 
+                <img src=  "logo.png" 
+                     alt="Avatar" class="avatar"> 
+            </div> 
+      
+            <div class="container"> 
+
+                <label><b>Enter your name:</b></label> 
+                <input type="text" placeholder="Enter Name" name="name" required> 
+
+                <label><b>Choose a username:</b></label> 
+                <input type="text" placeholder="Enter Username" name="uname" required> 
+      
+                <label><b>Choose a password:</b></label> 
+                <input type="password" placeholder="Enter Password" name="psw" required> 
+      
+                <button type="submit">Create Account</button>
+                <a class="login login_button" href=../login/login.html>Log In</a>
+            </div> 
+      
+        </form>
+    </body> 
+
+    <footer>
+
+    </footer>
+
+</html>

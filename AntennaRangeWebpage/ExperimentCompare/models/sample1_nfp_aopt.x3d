@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene>
+    <Transform>
+      <Shape DEF='_G_1'>
+        <Appearance>
+          <Material DEF='AntennaRange_MA_Pelt' transparency='0.5'/>
+        </Appearance>
+        <BinaryGeometry DEF='BG_0' vertexCount='21600' primType='"TRIANGLES"' position='-13.48046875 -80.3889770508 53.1270141602' size='1356.72900391 1347.72607422 1848.96606445' index='sample1_nfp/BG_0_indexBinary.bin' coord='sample1_nfp/BG_0_coordNormalBinary.bin+8' color='sample1_nfp/BG_0_colorBinary.bin+4' coordType='Uint16' colorType='Uint8' normalAsSphericalCoordinates='true'/>
+      </Shape>
+    </Transform>
+  </Scene>
+</X3D>

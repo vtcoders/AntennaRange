@@ -10,6 +10,7 @@ img {
     margin-right: auto;
     width: 50%;
   }
+  
 /* Set height of body and the document to 100% */
 body, html {
     height: 100%;
@@ -49,7 +50,7 @@ body, html {
 #navigationBar li a {
   display: block;
   color: white;
-  text-align: center;
+  text-align: left;
   padding: 14px 16px;
   text-decoration: none;
   height: 50px;
@@ -101,7 +102,7 @@ body, html {
     margin: 0;
   }
   
-  #myUL li a {
+  #myUL li {
     border: 1px solid #ddd; /* Add a border to all links */
     margin-top: -1px; /* Prevent double borders */
     background-color: #f6f6f6; /* Grey background color */
@@ -114,8 +115,16 @@ body, html {
 
     height: 50px;
   }
+
+  #myUL li input
+  {
+    position:fixed;
+    margin-bottom: -20px;
+    display: inline-block;
+    margin-left: -200px;
+  }
   
-  #myUL li a:hover:not(.header) {
+  #myUL li:hover:not(.header) {
     background-color: #eee; /* Add a hover effect to all links, except for headers */
   }
 
@@ -134,4 +143,122 @@ body, html {
   position: relative;
   left: 85%;
   display: inline-block;
+}
+
+.searchButton
+{
+  background-color: #630031; 
+  color: white;
+  padding: 14px 20px; 
+  margin: 8px 0; 
+  border: none; 
+  cursor: pointer; 
+  min-width:auto;
+  width: 100%;
+  border-radius:0px;
+}
+
+.findButton { 
+  background-color: #630031; 
+  color: white;
+  padding: 14px 20px; 
+  margin: 8px 0; 
+  border: none; 
+  cursor: pointer; 
+  min-width:auto;
+  width: 90%;
+  border-radius:5px;
+}
+/* set a hover effect for the button*/
+
+button:hover { 
+  opacity: 0.8; 
+} 
+/*centre the display image inside the container*/ 
+
+input{ 
+  width: 100%; 
+  padding: 12px 20px; 
+  margin: 8px 0; 
+  display: inline-block; 
+  border: 1px solid #ccc; 
+  box-sizing: border-box; 
+} 
+
+.text_button:hover {
+  background-color:#e2e2e2;
+}
+
+.text_button {
+  border: 1px solid #ddd; /* Add a border to all links */
+  float:left;
+    background-color: #f6f6f6; /* Grey background color */
+    padding-top:1px;
+    padding-inline: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    bottom: 0;
+    text-decoration: none; /* Remove default text underline */
+    font-size: 14px; /* Increase the font-size */
+    color: black; /* Add a black text color */
+    display: inline; /* Make it into a block element to fill the whole list */
+    height: 20px;
+}
+
+.search_window
+{
+  border:solid #CF4520 2px;
+  border-radius:10px;
+  padding:20px;
+  margin-top:10px;
+  margin-left:15%;
+  margin-right:15%;
+  margin-bottom:20px;
+}
+
+.smallColumn {
+  float: left;
+  width: 20%;
+  min-width: 0 auto;
+  display:inline-blcck;
+}
+
+.bigColumn
+{
+  float: left;
+  width: 60%;
+  display: flexbox;
+  min-width: auto;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row
+{
+  text-align:center;
+}
+
+.filter
+{
+  float: left;
+  width: auto;
+  color: white;
+  display: flexbox;
+  background-color: #630031;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 3px;
+  padding: 5px 10px 5px 10px;
+  min-width: auto;
+}
+
+.filterRow
+{
+  width: auto;
+  height: auto;
 }
