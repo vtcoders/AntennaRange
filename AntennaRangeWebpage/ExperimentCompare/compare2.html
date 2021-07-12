@@ -1,208 +1,172 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="./compare.css">
 
-        <ul id="navigationBar" class="navBar sticky">
-            <li class="navButton header">Antenna Range Project</li>
-            <li class="navButton header"></li>
-        </ul>
-    </head>
-    <body>
-        <main>
-            <div class="colorContainer title" style="color:#333;background-color:white;">
-                <h3>Compare Experiments</h3>
-                <div class="underline" style="background-color:#CF4520;color:rgb(238, 238, 238);"><br></div>
-                <p> Here, you can compare experiments side-by-side. To toggle graph visibility on and off for each experiment, click its visiblitiy button. To compare data from two experiments side-by-side, drag and drop into the fields at the bottom of the page.</p>
-            </div>
-            <div class="colorContainer">
-                <div class="row">
-                    <div class="column sideBar" style="color:#333;background-color:wwhite;">
-                        <ul id="myUL">
+<head>
+    <link rel="stylesheet" href="./compare.css">
+
+    <ul id="navigationBar" class="navBar sticky">
+        <li class="navButton header">Antenna Range Project</li>
+        <li class="navButton header"></li>
+    </ul>
+</head>
+
+<body>
+    <main>
+        <div class="colorContainer title" style="color:#333;background-color:white;">
+            <h3>Compare Experiments</h3>
+            <div class="underline" style="background-color:#CF4520;color:rgb(238, 238, 238);"><br></div>
+            <p> Here, you can compare experiments side-by-side. To toggle graph visibility on and off for each
+                experiment, click its visiblitiy button. To compare data from two experiments side-by-side, drag and
+                drop into the fields at the bottom of the page.</p>
+        </div>
+        <div class="colorContainer">
+            <div class="row">
+                <div class="column sideBar" style="color:#333;background-color:wwhite;">
+                    <ul id="myUL">
                         <li>
                             <div class="row">
-                                <div class="column largeColumn"><a href="#" id="drag1" draggable="true" ondragstart="drag(event)">Experiment 5: Public, Date, Facilitator, AntennaType <br></a></div>
+                                <div class="column largeColumn"><a href="#" id="drag1" draggable="true"
+                                        ondragstart="drag(event)">Experiment 5: Public, Date, Facilitator, AntennaType
+                                        <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png'
+                                        class="visible"></input>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="row">
-                                <div class="column largeColumn"><a href="#" id="drag2" draggable="true" ondragstart="drag(event)">Experiment 4: Public, Date, Facilitator, AntennaType <br></a></div>
+                                <div class="column largeColumn"><a href="#" id="drag2" draggable="true"
+                                        ondragstart="drag(event)">Experiment 4: Public, Date, Facilitator, AntennaType
+                                        <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png'
+                                        class="visible"></input>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="row">
-                                <div class="column largeColumn"><a href="#" id="drag3" draggable="true" ondragstart="drag(event)">Experiment 3: Public, Date, Facilitator, AntennaType <br></a></div>
+                                <div class="column largeColumn"><a href="#" id="drag3" draggable="true"
+                                        ondragstart="drag(event)">Experiment 3: Public, Date, Facilitator, AntennaType
+                                        <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png'
+                                        class="visible"></input>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="row">
-                                <div class="column largeColumn"><a href="#" id="drag4" draggable="true" ondragstart="drag(event)">Experiment 2: Public, Date, Facilitator, AntennaType <br></a></div>
+                                <div class="column largeColumn"><a href="#" id="drag4" draggable="true"
+                                        ondragstart="drag(event)">Experiment 2: Public, Date, Facilitator, AntennaType
+                                        <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png'
+                                        class="visible"></input>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="row">
-                                <div class="column largeColumn"><a href="#" id="drag5" draggable="true" ondragstart="drag(event)">Experiment 1: Public, Date, Facilitator, AntennaType <br></a></div>
+                                <div class="column largeColumn"><a href="#" id="drag5" draggable="true"
+                                        ondragstart="drag(event)">Experiment 1: Public, Date, Facilitator, AntennaType
+                                        <br></a></div>
                                 <div class="column tinyColumn">
-                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png' class="visible"></input>
+                                    <input type="image" onclick='visibilityButtonClicked(this)' src='./visible.png'
+                                        class="visible"></input>
                                 </div>
                             </div>
                         </li>
-                        </ul>
-                    </div>
-                    <div id="graphHome" class="column right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec finibus sodales tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus facilisis turpis id tortor elementum cursus. Duis at facilisis urna. Fusce commodo urna risus, ac blandit urna tempor egestas. Mauris mauris odio, congue at libero sit amet, imperdiet aliquet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec finibus sodales tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus facilisis turpis id tortor elementum cursus. Duis at facilisis urna. Fusce commodo urna risus, ac blandit urna tempor egestas. Mauris mauris odio, congue at libero sit amet, imperdiet aliquet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec finibus sodales tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus facilisis turpis id tortor elementum cursus. Duis at facilisis urna. Fusce commodo urna risus, ac blandit urna tempor egestas. Mauris mauris odio, congue at libero sit amet, imperdiet aliquet neque.
-                        <br><br>
-                    </div>
+                    </ul>
                 </div>
-                <div class="row">
+                <div id="graphHome" class="column right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                    finibus sodales tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+                    ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                    himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                    himenaeos. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                    posuere cubilia curae; Phasellus facilisis turpis id tortor elementum cursus. Duis at facilisis
+                    urna. Fusce commodo urna risus, ac blandit urna tempor egestas. Mauris mauris odio, congue at libero
+                    sit amet, imperdiet aliquet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                    finibus sodales tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+                    ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                    himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                    himenaeos. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                    posuere cubilia curae; Phasellus facilisis turpis id tortor elementum cursus. Duis at facilisis
+                    urna. Fusce commodo urna risus, ac blandit urna tempor egestas. Mauris mauris odio, congue at libero
+                    sit amet, imperdiet aliquet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                    finibus sodales tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+                    ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                    himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                    himenaeos. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                    posuere cubilia curae; Phasellus facilisis turpis id tortor elementum cursus. Duis at facilisis
+                    urna. Fusce commodo urna risus, ac blandit urna tempor egestas. Mauris mauris odio, congue at libero
+                    sit amet, imperdiet aliquet neque.
                     <br><br>
-                    <div id="drop3" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplitFirst">Categories<br>Experiment Name: <br>Date: <br> Mast Angle: <br>Arm Angle: <br>Transmission RSSI: <br>Background RSSI: </div>
-                    <div id="drop4" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplit">
-                        Drop Here
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div id="drop5" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplit">
-                        Drop Here
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div id="drop6" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplit">
-                        Drop Here
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div id="drop7" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplit">
-                        Drop Here
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div id="drop8" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplit">
-                        Drop Here
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
                 </div>
-                
-                <div id="sliders" class="column sliders">[insert sliders here]</div>
+            </div>
+            <div class="row">
+                <br><br>
+                <div id="drop3" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplitFirst">
+                    Categories<br>Experiment Name: <br>Date: <br> Mast Angle: <br>Arm Angle: <br>Transmission RSSI:
+                    <br>Background RSSI: </div>
+                <div id="drop4" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplit">
+                    Drop Here
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div id="drop5" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplit">
+                    Drop Here
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div id="drop6" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplit">
+                    Drop Here
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div id="drop7" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplit">
+                    Drop Here
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div id="drop8" ondrop="drop(event);" ondragover="allowDrop(event);" class="column sixSplit">
+                    Drop Here
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
 
-            <script src="https://d3js.org/d3.v5.js"></script>
-            <script>
+            <div id="sliders" class="column sliders">[insert sliders here]</div>
+        </div>
 
-                // Here we are doing the D3 stuff to see if it works
-                d3.select("graphHome").append(“p”).text(“Our First Paragraph using D3!”);
-                
-                // Beginning functions for visibility buttons and graphs?
+        <script src="https://d3js.org/d3.v5.js"></script>
+        <script src="compare.js">
+        </script>
 
-                function visibilityButtonClicked(button)
-                {
-                    // Change class of visibility button for looks and filtering
-                    if (button.className === "visible")
-                    {
-                        button.className = "invisible";
-                        button.src = "./invisible.png";
-                    } // if
-                    else // button.className === "invisible"
-                    {
-                        button.className = "visible";
-                        button.src = "./visible.png";
-                    } // else
-                    graphsRefresh();
-                };
+    </main>
 
-                function graphsRefresh()
-                {
-                    // for // look at eLibrary
-                };
+    <footer>
+    </footer>
+</body>
 
-                function checkButtonClicked(button)
-                {
-                    if (button.className === "visible")
-                    {
-                        button.className = "invisible";
-                        button.src = "./invisible.png";
-                    } // if
-                    else // button.className === "invisible"
-                    {
-                        button.className = "visible";
-                        button.src = "./visible.png";
-                    } // else
-                    graphsRefresh();
-                }
-
-                function dataRefresh()
-                {
-                    
-                };
-
-                function allowDrop(ev) {
-                     ev.preventDefault();
-                };
-
-                function drag(ev) {
-                ev.dataTransfer.setData("text/plain", ev.target.id);
-                };
-
-                function drop(ev)
-                {
-                    justForExample = ["Experiment 1", "Feb 3, 2020", "35", "120.2", "132.23", "1.23"]
-                    divs = ev.target.getElementsByTagName('div');
-                    for (var i = 0; i < divs.length; i++)
-                    {
-                        divs[i].textContent = justForExample[i];
-                    }
-                    updateSliders(exp);
-                }
-
-                function updateSliders(experiment, mastAngle, armAngle, tRSSI, bRSSI)
-                {
-
-                }
-
-                /**
-                function drop(ev) {
-                ev.preventDefault();
-                var data = ev.dataTransfer.getData("text");
-                ev.target.appendChild(document.getElementById(data));
-                ev.target.className = "column evenLeft blue";
-                };
-                **/
-            </script>
-
-        </main>
-
-        <footer>
-        </footer>
-    </body>
 </html>

@@ -1,140 +1,114 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="./launch.css">
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-        <ul id="navigationBar" class="navBar sticky">
-            <li class="navButton header">Antenna Range Project</li>
-            <li class="navButton header"></li>
-            <li class="navButton"><a href="../index.html">Home</a></li>
-            <li class="navButton"><a href="../AboutPage/aboutPage.html">About</a></li>
-            <li class="navButton active"><a href="../ExperimentLaunch/experimentLaunchPage.html">Launch</a></li>
-            <li class="navButton"><a href="../ExperimentLibrary/eLibrary.html">Library</a></li>
-            <li class="navButton"><a href="../AntennaModels/models.html">Models</a></li>
-            <li class="navButton"><a href="../ExternalResources/ExternalResources.html">Resources</a></li>
-            <li class="login" class="navButton "><a href="../login/login.html">Login</a></li>
-        
-        </ul>
-        
-    </head>
+<head>
+    <link rel="stylesheet" href="./launch.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-    <body>
-        <main>
-            <div class="colorContainer title" style="color:#333;background-color:white;">
-                <h3>Experiment Launch</h3>
-                <div class="underline" style="background-color:#CF4520"><br></div>
-                <p>Please complete the required fields below to launch your new experiment.</p>
-    
-                <form onchange="updateDegPerStep('maDegPerStep','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');
+    <ul id="navigationBar" class="navBar sticky">
+        <li class="navButton header">Antenna Range Project</li>
+        <li class="navButton header"></li>
+        <li class="navButton"><a href="../index.html">Home</a></li>
+        <li class="navButton"><a href="../AboutPage/aboutPage.html">About</a></li>
+        <li class="navButton active"><a href="../ExperimentLaunch/experimentLaunchPage.html">Launch</a></li>
+        <li class="navButton"><a href="../ExperimentLibrary/eLibrary.html">Library</a></li>
+        <li class="navButton"><a href="../AntennaModels/models.html">Models</a></li>
+        <li class="navButton"><a href="../ExternalResources/ExternalResources.html">Resources</a></li>
+        <li class="login" class="navButton "><a href="../login/login.html">Login</a></li>
+
+    </ul>
+
+</head>
+
+<body>
+    <main>
+        <div class="colorContainer title" style="color:#333;background-color:white;">
+            <h3>Experiment Launch</h3>
+            <div class="underline" style="background-color:#CF4520"><br></div>
+            <p>Please complete the required fields below to launch your new experiment.</p>
+
+            <form
+                onchange="updateDegPerStep('maDegPerStep','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');
                                updateDegPerStep('armDegPerStep','maxArmAngleNumber','minArmAngleNumber','armStepsNumber');"
                 action="../../cgi-bin/launch.cgi">
-                    <br>
-                    <h3>Experiment Identification</h3>
-                    <label for="name">Experiment Name:<br><br></label>
-                    <input type="text" id="name" name="name">
-                    <p>Visibility:</p>
-                    <input type="radio" id="public" name="privacy" value="public">
-                    <label for="public">Public</label><br>
-                    <input type="radio" id="private" name="privacy" value="private">
-                    <label for="private">Private</label>
-                    <p>Antenna Model:</p> 
-                    <input type="radio" id="type1" name="antennaModel" value="type1">
-                    <label for="type1">Type 1</label><br>
-                    <input type="radio" id="type2" name="antennaModel" value="type2">
-                    <label for="type2">Type 2</label><br>
-                    <input type="radio" id="type3" name="antennaModel" value="type3">
-                    <label for="type3">Type 3</label><br>
-                    <input type="radio" id="type4" name="antennaModel" value="type4">
-                    <label for="type4">Type 4</label><br>
-                    <input type="radio" id="type5" name="antennaModel" value="type5">
-                    <label for="type5">Type 5</label>
-                    
-                    <br><br>
-    
-                    <h3>Other Settings</h3>
-    
-                   <p>Minimum Mast Angle:</p>
-                    <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" name="minMaNum" id="minMastAngleNumber" onchange="updateValue('minMastAngleSlider', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
-                    <input type="range" min="-180" max="180" step="1" value="0" class="slider" name="minMaSlid" mid="minMastAngleSlider" onchange="updateValue('minMastAngleNumber', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
-                    
-                    <p>Maximum Mast Angle:</p>
-                    <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" name="maxMaNum" id="maxMastAngleNumber" onchange="updateValue('maxMastAngleSlider', this.value);">
-                    <input type="range" min="-180" max="180" step="1" value="0" class="slider" name="maxMaSlid" id="maxMastAngleSlider" onchange="updateValue('maxMastAngleNumber', this.value);">
-                    
-                    <p>Mast Steps: <output id="maDegPerStep" name="maDegPerStep"></output> Degrees/Step</p>
-                    <input type="number" min="0" max="360" step="1" value="0" class="sliderValue" name="maSteps" id="mastStepsNumber" onchange="updateValue('mastStepsSlider', this.value);">
-                    <input type="range" min="0" max="360" step="1" value="0" class="slider" id="mastStepsSlider" onchange="updateValue('mastStepsNumber', this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
-                    
-                    <p>Minimum Arm Angle:</p>
-                    <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" id="minArmAngleNumber" onchange="updateValue('minArmAngleSlider', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
-                    <input type="range" min="-180" max="180" step="1" value="0" class="slider" id="minArmAngleSlider" onchange="updateValue('minArmAngleNumber', this.value);updateMaxFloor('maxArmAngleNumber','maxArmAngleSlider',this.value);">
-                    
-                    <p>Maximum Arm Angle:</p>
-                    <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" id="maxArmAngleNumber" onchange="updateValue('maxArmAngleSlider', this.value)">
-                    <input type="range" min="-180" max="180" step="1" value="0" class="slider" id="maxArmAngleSlider" onchange="updateValue('maxArmAngleNumber', this.value)">
-                   
-                    <p>Arm Steps: <output id="armDegPerStep" name="armDegPerStep"></output> Degrees/Step</p>
-                    <input type="number" min="0" max="360" step="1" value="0" class="sliderValue" id="armStepsNumber" onchange="updateValue('armStepsSlider', this.value)">
-                    <input type="range" min="0" max="360" step="1" value="0" class="slider" id="armStepsSlider" onchange="updateValue('armStepsNumber', this.value)">
+                <br>
+                <h3>Experiment Identification</h3>
+                <label for="name">Experiment Name:<br><br></label>
+                <input type="text" id="name" name="name">
+                <p>Visibility:</p>
+                <input type="radio" id="public" name="privacy" value="public">
+                <label for="public">Public</label><br>
+                <input type="radio" id="private" name="privacy" value="private">
+                <label for="private">Private</label>
+                <p>Antenna Model:</p>
+                <input type="radio" id="type1" name="antennaModel" value="type1">
+                <label for="type1">Type 1</label><br>
+                <input type="radio" id="type2" name="antennaModel" value="type2">
+                <label for="type2">Type 2</label><br>
+                <input type="radio" id="type3" name="antennaModel" value="type3">
+                <label for="type3">Type 3</label><br>
+                <input type="radio" id="type4" name="antennaModel" value="type4">
+                <label for="type4">Type 4</label><br>
+                <input type="radio" id="type5" name="antennaModel" value="type5">
+                <label for="type5">Type 5</label>
 
-                    <br><br>
-                    </div>
-    
-                    <div class="colorContainer" style="background-color:#CF4520;color:rgb(238, 238, 238);">
-                    <input id=launchButton type="submit" value="Launch!">
-    
-                  </form>
+                <br><br>
 
-        <footer>
+                <h3>Other Settings</h3>
 
-            <script>
-                // used to change the value displayed in text box next to slider
-                function updateValue(id, val)
-                {
-                    document.getElementById(id).value=val; 
-                }
-                
-                /**
-                * Updates the minimum value of the max angle when min is updated,
-                * changing the max angle when necessary
-                **/
-                function updateMaxFloor(id1, id2, val)
-                {
-                    // set min
-                    document.getElementById(id1).setAttribute('min', val);
-                    // if current value is less than min, set it equal to min
-                    if (parseInt(document.getElementById(id1).value) < val)
-                    {
-                        document.getElementById(id1).setAttribute('value', val);
-                    }
-                    // repeat for the second element (the slider)
-                    document.getElementById(id2).setAttribute('min', val);
-                    if (parseInt(document.getElementById(id2).value) < val)
-                    {
-                        document.getElementById(id2).setAttribute('value', val);
-                    }
-                    
-                }
+                <p>Minimum Mast Angle:</p>
+                <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" name="minMaNum"
+                    id="minMastAngleNumber"
+                    onchange="updateValue('minMastAngleSlider', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
+                <input type="range" min="-180" max="180" step="1" value="0" class="slider" name="minMaSlid"
+                    mid="minMastAngleSlider"
+                    onchange="updateValue('minMastAngleNumber', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
 
-                function updateDegPerStep(degId, maxValId, minValId, stepsId)
-                {
-                    var difference = parseFloat(document.getElementById(maxValId).value) - parseFloat(document.getElementById(minValId).value);
-                    var steps = parseFloat(document.getElementById(stepsId).value);
-                    if (difference >= 1 && steps > 0)
-                    {
-                        document.getElementById(degId).value = (difference / steps).toFixed(2);
-                    }
-                    else
-                    {
-                        document.getElementById(degId).value = "Invalid";
-                    }
-                }
-                
-            </script>
+                <p>Maximum Mast Angle:</p>
+                <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" name="maxMaNum"
+                    id="maxMastAngleNumber" onchange="updateValue('maxMastAngleSlider', this.value);">
+                <input type="range" min="-180" max="180" step="1" value="0" class="slider" name="maxMaSlid"
+                    id="maxMastAngleSlider" onchange="updateValue('maxMastAngleNumber', this.value);">
+
+                <p>Mast Steps: <output id="maDegPerStep" name="maDegPerStep"></output> Degrees/Step</p>
+                <input type="number" min="0" max="360" step="1" value="0" class="sliderValue" name="maSteps"
+                    id="mastStepsNumber" onchange="updateValue('mastStepsSlider', this.value);">
+                <input type="range" min="0" max="360" step="1" value="0" class="slider" id="mastStepsSlider"
+                    onchange="updateValue('mastStepsNumber', this.value);updateStepAngle('mastStepAngle','maxMastAngleNumber','minMastAngleNumber','mastStepsNumber');">
+
+                <p>Minimum Arm Angle:</p>
+                <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" id="minArmAngleNumber"
+                    onchange="updateValue('minArmAngleSlider', this.value);updateMaxFloor('maxMastAngleNumber','maxMastAngleSlider',this.value);">
+                <input type="range" min="-180" max="180" step="1" value="0" class="slider" id="minArmAngleSlider"
+                    onchange="updateValue('minArmAngleNumber', this.value);updateMaxFloor('maxArmAngleNumber','maxArmAngleSlider',this.value);">
+
+                <p>Maximum Arm Angle:</p>
+                <input type="number" min="-180" max="180" step="1" value="0" class="sliderValue" id="maxArmAngleNumber"
+                    onchange="updateValue('maxArmAngleSlider', this.value)">
+                <input type="range" min="-180" max="180" step="1" value="0" class="slider" id="maxArmAngleSlider"
+                    onchange="updateValue('maxArmAngleNumber', this.value)">
+
+                <p>Arm Steps: <output id="armDegPerStep" name="armDegPerStep"></output> Degrees/Step</p>
+                <input type="number" min="0" max="360" step="1" value="0" class="sliderValue" id="armStepsNumber"
+                    onchange="updateValue('armStepsSlider', this.value)">
+                <input type="range" min="0" max="360" step="1" value="0" class="slider" id="armStepsSlider"
+                    onchange="updateValue('armStepsNumber', this.value)">
+
+                <br><br>
+        </div>
+
+        <div class="colorContainer" style="background-color:#CF4520;color:rgb(238, 238, 238);">
+            <input id=launchButton type="submit" value="Launch!">
+
+            </form>
+
+            <footer>
+
+                <script src="launch.js">
+                </script>
 
 
-        </footer>
-    </body>
+            </footer>
+</body>
+
 </html>
-
