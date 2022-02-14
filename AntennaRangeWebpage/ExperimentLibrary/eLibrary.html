@@ -1,22 +1,20 @@
+<html>
 
+<head>
+  <link rel="stylesheet" href="./libformat.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 <html>
   <head>
       <link rel="stylesheet" href="./libformat.css">
-      <!--Should also fetch nav.html-->
       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>      
+      <script src="library.js"></script>
   </head>
   <body>
-      <!--Navigation bar-->
-      <div id="nav-placeholder">
+      <!--Navigation Bar-->
+      <div id="navbar"></div>
+      <!--End of Navigation Bar-->
 
-      </div>
-      <script>
-          $(function(){
-              $("#nav-placeholder").load("nav.html");
-          });
-      </script>
-      <!--End of Navigation bar-->
       <main>
           <div class="title" style="color:#333;background-color:white;">
               <h3>Experiment Library</h3>
@@ -45,33 +43,12 @@
                      
           </div>
 
-      </main>
+  </main>
 
-      <footer>
-        <script>
-          function toggle_filters()
-          {
-            filters = document.getElementById("filters");
-            show_button = document.getElementById("show-filter-button")
-            hide_button = document.getElementById("hide-filter-button")
-            if (window.getComputedStyle(filters).display === "none")
-            {
-              filters.style.display = "block";
-              show_button.style.display = "none";
-              hide_button.style.display = "block";
-            }
-            else
-            {
-              filters.style.display = "none";
-              show_button.style.display = "block";
-              hide_button.style.display = "none";
-            }
-          }
+  <footer>
+    <script src="eLibrary.js">
+    </script>
+  </footer>
+</body>
 
-          function uncheckAll(){
-            $('input[type="checkbox"]:checked').prop('checked',false);
-          }
-        </script>
-      </footer>
-  </body>
 </html>
